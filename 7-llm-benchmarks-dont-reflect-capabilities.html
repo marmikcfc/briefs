@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: "No benchmark reflects what LLMs can actually do" - Theo vs the index-makers</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>"I don't think there's any benchmarks that accurately reflect the current capabilities of LLMs"</h1>
+<div class="meta">September 5, 2026 &middot; candidate source: X (@theo, 385K followers) + Hacker News front page &middot; <span class="score">blow-up: high (122K views, 260 replies, and HN is litigating the same question at the same time)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>A big tech YouTuber says no benchmark actually measures what today's AI models can do - and on the same day, the most-watched public AI leaderboard was accused of quietly retuning its scores to match what social media expected. If the numbers cannot be trusted, neither can the 'X beats Y' marketing they feed. Both sides of the fight are live right now.</div>
+
+<h2>What happened</h2>
+<p>Theo (t3.gg, CEO of T3 Chat, 385K followers) posted a one-line claim: <a href="https://x.com/theo/status/2095628809542471804">"I don't think there's any benchmarks that accurately reflect the current capabilities of LLMs"</a> (Sep 4, 121.8K views, 260 replies, 3.3K likes). On the same morning, Hacker News was chewing on the exact same question from the other side: Artificial Analysis released <a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-2">Intelligence Index v4.2</a>, and the <a href="https://news.ycombinator.com/item?id=49571632">HN thread</a> (103 pts) immediately accused the index-makers of retuning their benchmark so GPT-6 Astra would rank the way social media expected. A third thread, <a href="https://news.ycombinator.com/item?id=49569366">"Can AI design circuit boards yet?"</a> (eebench, 103 pts), showed a domain benchmark where GPT-5.6 Sol scores <em>below</em> GPT-5.5 - the only benchmark showing a regression on a new model. The measurement layer of the AI industry is having a legitimacy crisis in public, today.</p>
+
+<h2>Why people are arguing about it</h2>
+<p>Everyone who builds with these models has a stake: if benchmarks don't track capability, then model selection, procurement, and "X beats Y" launch marketing are all running on vibes. The disagreement is not about whether models are good - it's about whether the numbers mean anything, and who the numbers serve.</p>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">Theo (@theo)</span> &middot; <span class="stance">the claim</span><br>"I don't think there's any benchmarks that accurately reflect the current capabilities of LLMs." Context: he is deep in GPT-6 Astra this week (<a href="https://x.com/theo">profile</a>: "Async questions are one of my favorite things about GPT-6 Astra", "I'm honestly incredibly excited for GPT-6 Sol") - the claim comes from daily frontier use, not AI skepticism. <a href="https://x.com/theo/status/2095628809542471804">post</a></div>
+<div class="voice"><span class="who">redox99 (HN)</span> &middot; <span class="stance">the counter-thesis</span><br>"They realized Astra having the same score as Sol was silly so they rushed to update the index so it fits what people expect. The old index was clearly bad... but it's also unscientific to tweak it like this." <a href="https://news.ycombinator.com/item?id=49571986">comment</a></div>
+<div class="voice"><span class="who">kingstnap (HN)</span> &middot; <span class="stance">the sophisticated middle</span><br>"In real life, there is always this feedback edge from the results to the methodology... this is what actual science is. Maybe we could commit ahead of time that the experiment will be reanalyzed after results regardless of what they are" - i.e., the fix is pre-committed reanalysis cadence, not ad-hoc tweaks when results look wrong. <a href="https://news.ycombinator.com/item?id=49572204">comment</a></div>
+<div class="voice"><span class="who">throw10920 (HN)</span> &middot; <span class="stance">demanding evidence</span><br>"What evidence do you have that they tweaked the index to fit what they thought people expected?" <a href="https://news.ycombinator.com/item?id=49573155">comment</a></div>
+<div class="voice"><span class="who">x312 (HN)</span> &middot; <span class="stance">hard discredit</span><br>"Given how many private benchmarks they're using now, its likely they just tested different combos until they got the result they wanted. Completely discredits the index if it just gets modified to match social media vibes." <a href="https://news.ycombinator.com/item?id=49572926">comment</a></div>
+<div class="voice"><span class="who">paimapi (HN)</span> &middot; <span class="stance">methodology skeptic</span><br>On AA's "95% confidence interval < &plusmn;1%" claim: "where's the outcome dataset justifying this? ... there's a major difference between scientific sounding and being truly empirically rigorous." <a href="https://news.ycombinator.com/item?id=49572165">comment</a></div>
+<div class="voice"><span class="who">Buoylog (HN)</span> &middot; <span class="stance">practitioner evidence for Theo</span><br>"The aggregate benchmark score barely predicts how it behaves in production. What actually breaks a pipeline is a confident wrong answer on the small slice of inputs that don't fit the pattern... A model that says it isn't sure on the edge cases is far more useful than one that scores higher on average." <a href="https://news.ycombinator.com/item?id=49572203">comment</a></div>
+<div class="voice"><span class="who">Basil (@Vibecodelicious)</span> &middot; <span class="stance">the jaggedness point</span><br>"On both ends - there are capabilities they have that we don't demonstrate on benchmarks and there are capabilities sorely lacking that our benchmarks don't expose." <a href="https://x.com/theo/status/2095628809542471804">reply</a></div>
+<div class="voice"><span class="who">Rook (@therookfile)</span> &middot; <span class="stance">vibes over numbers</span><br>"spent today comparing published numbers and came away trusting my own week more." <a href="https://x.com/theo/status/2095628809542471804">reply</a></div>
+<div class="voice"><span class="who">jascha_eng (HN)</span> &middot; <span class="stance">partial counter-example</span><br>The AA Omniscience index (rewards correct answers, penalizes hallucination, no penalty for refusal) "has the highest correlation to actual usefulness" - i.e., some benchmarks DO track capability, if you pick the right axis. <a href="https://news.ycombinator.com/item?id=49572176">comment</a></div>
+<div class="voice"><span class="who">Scene_Cast2 (HN)</span> &middot; <span class="stance">domain jaggedness, from electronics</span><br>"They approach things like someone that knows the undergrad and grad textbooks, but has absolutely zero experience" - models pass textbook EE but can't answer "is this adequate." <a href="https://news.ycombinator.com/item?id=49569366">thread</a></div>
+<div class="voice"><span class="who">gizmodo59 (HN)</span> &middot; <span class="stance">cynical read</span><br>"they are just the modern version of lmareana for the mass audience and PR stunts." <a href="https://news.ycombinator.com/item?id=49572258">comment</a></div>
+
+<h2>X and HN are having two different conversations</h2>
+<p>On X, Theo's claim drew mostly agreement and jokes ("t3bench incoming?", "solve cancer, that's the benchmark", "@bijanbowen's videos are all the benchmark I need"). The one hostile quote accused Theo of being paid by OpenAI and Anthropic - engagement bait, not argument. On HN, nobody needed convincing that benchmark numbers are wobbly; the fight is over <em>why</em> and <em>what would fix it</em> - ad-hoc retuning vs pre-registered methodology, public vs private test sets, aggregate scores vs per-task jaggedness, and whether token-efficiency frontiers are just architecture artifacts (jsnell and ssivark both dismantle AA's "Astra dominates the output token frontier" chart on methodology grounds: Astra was run at six effort levels while rivals ran at max, and GPT-6's recurrent-depth architecture does reasoning "for free" without output tokens). X is venting the feeling; HN is auditing the instrument.</p>
+
+<h2>The details that matter</h2>
+<ol class="findings">
+<li><strong>AA Intelligence Index v4.2 dropped GPQA Diamond for being saturated, added AA-Briefcase (private, agentic multi-week knowledge-work tasks) and Surge's GDP.pdf (4,592 pages, 1,275 expert criteria), and doubled private held-out weighting to 40%.</strong><span class="interp">The index-maker's own changelog concedes half of Theo's claim: public benchmarks get gamed, so trust requires hidden tests - which then can't be independently audited. The fix and the disease are the same move.</span></li>
+<li><strong>Result of v4.2: Claude Fable 5.1 leads, GPT-6 Astra second (+4pts over Sol).</strong><span class="interp">The update moved the ranking toward what users report anecdotally - which is either the index converging on reality or regressing to the mean of Twitter sentiment. Both readings are live in the thread.</span></li>
+<li><strong>eebench (electronics design) is the one public benchmark where GPT-5.6 Sol (39.4&plusmn;8.7) scores below GPT-5.5 (42.3&plusmn;10.1).</strong><span class="interp">A measured regression on a real-world domain task, with variance published. This is the strongest concrete evidence for "headline benchmarks hide what matters": frontier scores go up while a practical skill goes down.</span></li>
+<li><strong>sanxiyn flags that v4.2 upweighted SciCode 8%&rarr;10% while an arXiv paper (2608.04975) calls SciCode broken.</strong><span class="interp">Even the index's individual components carry known defects into the aggregate.</span></li>
+<li><strong>Theo himself is benchmark-adjacent: replies half-joke about "t3bench incoming."</strong><span class="interp">Everyone hates the current rulers; everyone wants to make their own. The incentive to publish a benchmark is the incentive to be gamed.</span></li>
+</ol>
+
+<h2>The strongest case for each side</h2>
+<div class="sides">
+<div class="side">
+<h3>"Theo is right"</h3>
+<p class="label">Steelman</p>
+<p class="steel">Aggregate scores compress a jagged frontier into a single number that no working engineer can act on; public test sets are trained on within weeks; and the moment a benchmark drives marketing, Goodhart's law eats it. The proof is in the index-makers' own behavior: saturation retirements, private sets, and emergency retunes when the ranking offends lived experience. Practitioners (Buoylog, Rook, rpcope1's PCB account) all report the same thing: the number and the experience diverge.</p>
+<p class="label">Strawman (what the other side hears)</p>
+<p>"Benchmarks are fake, trust vibes" - which conveniently unfalsifiable, always available to whoever's model just lost, and usually ends with the complainer launching their own benchmark.</p>
+</div>
+<div class="side">
+<h3>"Theo overreaches"</h3>
+<p class="label">Steelman</p>
+<p class="steel">"No benchmark accurately reflects capabilities" is too strong. Domain and behavioral evals with published variance (eebench), refusal-aware axes (Omniscience), and contamination-resistant private sets DO track real differences - eebench caught a Sol regression that vibes alone would have missed, and kingstnap's fix (pre-committed reanalysis cadence) addresses retuning bias without throwing out measurement. The alternative to imperfect benchmarks isn't truth; it's marketing.</p>
+<p class="label">Strawman (what the other side hears)</p>
+<p>"The index is fine, keep shopping by the leaderboard" - which the index-makers themselves don't believe, or they wouldn't be hiding 40% of it.</p>
+</div>
+</div>
+
+<h2>Your take (not drafted yet)</h2>
+<div class="pending">
+<p><strong>Awaiting Marmik's position.</strong> No draft until you say what you think. Some angles on the table: (a) the measurement layer is a lagging indicator of a jagged frontier - pick models on your own eval harness or don't bother; (b) the interesting move is AA's confession - private held-out sets are an admission that public benchmarks are a training target, which is Goodhart's law operating at industry scale; (c) the eebench Sol regression is the tell that matters more than any index update. Reply with your take and the draft lands here.</p>
+</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li><a href="https://x.com/theo/status/2095628809542471804">Theo - "no benchmarks accurately reflect the current capabilities of LLMs"</a> (X, Sep 4)</li>
+<li><a href="https://x.com/theo">Theo's profile</a> (context: daily GPT-6 usage this week)</li>
+<li><a href="https://news.ycombinator.com/item?id=49571632">HN: Artificial Analysis Intelligence Index v4.2</a> (103 pts, 37+ comments)</li>
+<li><a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-2">AA: Announcing Intelligence Index v4.2</a></li>
+<li><a href="https://news.ycombinator.com/item?id=49569366">HN: Can AI design circuit boards yet? (eebench)</a> (103 pts, 67 comments)</li>
+<li><a href="https://eebench.org/">eebench leaderboard</a> &middot; <a href="https://arxiv.org/abs/2608.04975">arXiv: SciCode is broken</a> &middot; <a href="https://artificialanalysis.ai/evaluations/omniscience">AA Omniscience</a> &middot; <a href="https://cursor.com/evals">CursorBench</a></li>
+</ul>
+<footer>Generated September 5, 2026 for @__marmikpandya. Opinion brief only - positions above belong to their authors, not to Marmik. Drafts are created only after he states his own view.</footer>
+</body>
+</html>

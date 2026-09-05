@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: "AI handles incidents, engineers lose touch with their systems"</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>"AI handles incidents, engineers lose touch with their systems"</h1>
+<div class="meta">September 5, 2026 &middot; candidate source: HN front page today (105+ pts, 68+ comments, posted by the author ~2h in) &middot; <span class="score">blow-up: medium-high (the deskilling fight is the most relatable AI argument in engineering right now, and X hasn't picked this one up yet - early mover room)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>AI is starting to handle the routine outages that used to teach engineers how their systems fail. A veteran reliability engineer argues that once only the weird, high-stakes outages are left for humans, nobody will have the practice to handle them - and he proposes flight-simulator-style drills as the fix. Hacker News is split between people watching this happen on their own teams and people who think the tool just exposes weak engineers.</div>
+
+<h2>What happened</h2>
+<p>Sylvain Kalache - ex-LinkedIn SRE, Holberton School co-founder, now at incident-response company Rootly - argues that AI incident-response tools ("AI SREs") are about to create a skill vacuum: routine incidents are how responders build intuition for how their systems fail, and when automation takes the routine cases, humans inherit only the hardest, never-seen-before incidents with less practice than ever. His prediction: average MTTR (mean time to repair - how fast a team fixes an outage) drops, but resolution time for complex incidents shoots up. The fix he proposes, borrowing from aviation: mandatory incident simulators, the way pilots rehearse engine failures they may never see. <a href="https://www.sylvainkalache.com/blog/ai-handles-incidents-engineers-lose-touch-with-their-systems">post</a> &middot; <a href="https://news.ycombinator.com/item?id=49574167">HN thread</a></p>
+
+<h2>Why people are arguing about it</h2>
+<p>Everyone writing code with agents right now has privately wondered whether they are getting sharper or duller. Kalache names the mechanism (skill decay through lost practice, not lost intelligence) and makes a falsifiable prediction (routine MTTR down, complex MTTR up). The thread immediately split into "I am watching this happen to my team" vs "you are blaming the tool for incompetence."</p>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">Sylvain Kalache (author, ex-LinkedIn SRE, Holberton co-founder, Rootly)</span> &middot; <span class="stance">the thesis</span><br>"The better these tools become at resolving routine incidents, the less practice human responders will get. And when an ambiguous, high-severity incident comes in that automation cannot solve, responding engineers will be in trouble." Grounds it in Lisanne Bainbridge's 1983 "Ironies of Automation" and aviation's simulator mandate. <a href="https://www.sylvainkalache.com/blog/ai-handles-incidents-engineers-lose-touch-with-their-systems">post</a></div>
+<div class="voice"><span class="who">bob1029 (HN, top comment)</span> &middot; <span class="stance">watching it happen</span><br>"I gave the team an exact solution on a silver platter and they still failed to identify how to go about it after 3 days slamming it into Claude. The resolution is literally 1 line of code that could be arrived at in about 30 minutes of patient, old school troubleshooting... these tools can simulate a better [reality]." <a href="https://news.ycombinator.com/item?id=49574501">comment</a></div>
+<div class="voice"><span class="who">ffsm8 (HN)</span> &middot; <span class="stance">blame the engineer, not the tool</span><br>"Sincerely, I think you're blaming the AI incorrectly there. You just got incompetents on your payroll." <a href="https://news.ycombinator.com/item?id=49574997">comment</a></div>
+<div class="voice"><span class="who">danielheath (HN)</span> &middot; <span class="stance">the scary version</span><br>"I'm seeing people who <em>used to be</em> [inquisitive] losing that understanding without realizing it's happening - they have a superficial idea of what the code is doing, enough to feel like they understand it, but the change is apparent when watching them handle something unexpected." <a href="https://news.ycombinator.com/item?id=49574949">comment</a></div>
+<div class="voice"><span class="who">mawadev (HN)</span> &middot; <span class="stance">the anecdote everyone is quoting</span><br>An architect who "would type [the error] into the LLM, copy paste it out, then brute force error messages... never taking one step back and questioning any assumption. It feels like these people are so used to talking to bots, that they treat you like an agent." <a href="https://news.ycombinator.com/item?id=49574730">comment</a></div>
+<div class="voice"><span class="who">wccrawford (HN)</span> &middot; <span class="stance">continuity counter</span><br>"The kind of person who copy and pastes from the AI is the kind who did the same from StackOverflow before." <a href="https://news.ycombinator.com/item?id=49574900">comment</a></div>
+<div class="voice"><span class="who">throw839948499 (HN)</span> &middot; <span class="stance">the capability counter</span><br>"If the solution is so simple, why did Claude not find it? At this point we can assume it is better than 90% of engineers... After three decades of outsourcing to lowest bidder, I do not buy that humans are somehow better!" <a href="https://news.ycombinator.com/item?id=49574653">comment</a></div>
+<div class="voice"><span class="who">shakna (HN)</span> &middot; <span class="stance">the craft comeback</span><br>"Claude regularly spits out six helper functions instead of a twenty line for loop... If it is a better engineer than you, you need practice." <a href="https://news.ycombinator.com/item?id=49574696">comment</a></div>
+<div class="voice"><span class="who">coffeebeqn (HN)</span> &middot; <span class="stance">management made it mandatory</span><br>"At least at my company the OKRs are quite clear and demand heavy AI utilization above all else." <a href="https://news.ycombinator.com/item?id=49574735">comment</a></div>
+<div class="voice"><span class="who">ulrikrasmussen (HN)</span> &middot; <span class="stance">the dependence analogy</span><br>"LLMs have some of the same risks and benefits of stimulant drugs... they can delude you into thinking you are better than you are and create a dependence such that you fail to be productive at all without it." <a href="https://news.ycombinator.com/item?id=49574609">comment</a></div>
+<div class="voice"><span class="who">ChiMan (HN)</span> &middot; <span class="stance">the design fix</span><br>"The paradigm for AI use should not be automation but rather the cyborg." (touisteur adds: see "Automation should be like Iron Man, not like Ultron.") <a href="https://news.ycombinator.com/item?id=49574167">thread</a></div>
+<div class="voice"><span class="who">danielbln (HN)</span> &middot; <span class="stance">the uncomfortable endpoint</span><br>"If capability increase continues as it has, then an incident that cannot be resolved by AI will stump humans no matter [how much they practiced]." <a href="https://news.ycombinator.com/item?id=49574167">comment</a></div>
+
+<h2>X and HN are having two different conversations</h2>
+<p>There is no X side yet - as of this brief, the story lives entirely on HN. That is the divergence: the engineering-practice conversation is happening where practitioners write paragraphs, while X is busy with Astra launch coverage and benchmark rankings. For a builder-audience account, this is the early-mover window: the HN thread has already worked out every faction, so an X take arrives with the argument pre-mapped.</p>
+
+<h2>The details that matter</h2>
+<ol class="findings">
+<li><strong>The Bainbridge citation is real and correctly used.</strong> "The Ironies of Automation" (1983) is the canonical human-factors paper: automation removes routine practice while leaving humans responsible for the abnormal cases, so operators paradoxically need MORE skill and training as automation improves.<span class="interp">This is not a vibes essay - the mechanism it describes has 40 years of aviation and industrial evidence behind it. The open question is whether software incident response is enough like flying a plane.</span></li>
+<li><strong>The aviation anchor: TransAsia 235 stalled 117 seconds after the first warning because the crew misidentified the failed engine.</strong> FAA recurrent training every six months exists precisely because engines fail less than once per 100,000 flight hours.<span class="interp">The analogy's strength: rare catastrophic failures demand rehearsed skill. Its weakness (raised in-thread): most software incidents do not threaten lives, so the industry's incentive to fund simulators is much weaker than aviation's.</span></li>
+<li><strong>The author sells the cure.</strong> Kalache works at Rootly, which just partnered with Uptime Labs on exactly the incident-simulation product the post prescribes.<span class="interp">Disclosed in the post itself, and it does not make the argument wrong - Bainbridge long predates Rootly - but the prescription section is a product pitch and should be read as one.</span></li>
+<li><strong>The thread's own counter-evidence is historical, not technical.</strong> Nobody in 68+ comments disputes that practice decays; the dispute is whether AI-caused decay differs from StackOverflow copy-paste, outsourcing, or "engineers who were never in touch with their systems" (practice9).<span class="interp">The strongest counter is danielbln's endpoint argument: if models keep improving, the incident AI can't solve is one no human could solve either - in which case the simulator preserves pride, not capability.</span></li>
+</ol>
+
+<h2>The strongest case for each side</h2>
+<div class="sides">
+<div class="side">
+<h3>"Deskilling is real and coming due"</h3>
+<p class="label">Steelman</p>
+<p class="steel">Skill is practice, and practice is the routine cases. Remove them and you get danielheath's engineer: functional until the system does something unprecedented, then helpless. Kalache's MTTR split is testable, Bainbridge predicted it in 1983, and aviation already solved this with mandated simulation. The org-level version is worse: OKRs demanding AI utilization (coffeebeqn) mean the deskilling is policy, not accident.</p>
+<p class="label">Strawman (what the other side hears)</p>
+<p>"Kids these days can't even write a for loop" - the same complaint made about IDEs, StackOverflow, compilers, and every abstraction since assembly, now with a product to sell at the end.</p>
+</div>
+<div class="side">
+<h3>"The tool exposes competence, it doesn't remove it"</h3>
+<p class="label">Steelman</p>
+<p class="steel">Copy-paste engineers predate LLMs (wccrawford); the LLM just makes them visible faster. If Claude can find the one-line fix and your team can't, the failure was hiring and incentives, not the tool (ffsm8, throw839948499). And if capability keeps compounding, the incidents AI can't solve will exceed unaided human capacity anyway (danielbln) - so the rational response is better AI supervision and escalation design, not mandatory manual practice for its own sake.</p>
+<p class="label">Strawman (what the other side hears)</p>
+<p>"Let the machine handle it, skill is a vanity metric" - right up until the SEV0 that the model has never seen, at 3 AM, with the person on call who has spent two years approving diffs.</p>
+</div>
+</div>
+
+<h2>Your take (not drafted yet)</h2>
+<div class="pending">
+<p><strong>Awaiting Marmik's position.</strong> No draft until you say what you think. Angles on the table: (a) the MTTR split is the falsifiable core - routine down, complex up - and it maps to what anyone running agents in production can already feel; (b) "comprehension debt" is the right frame for what builder teams are accumulating this year; (c) the Iron Man vs Ultron distinction - augmentation vs automation - is the design choice that decides whether deskilling happens at all; (d) the author's conflict of interest is worth naming: the diagnosis is solid, the prescription is a sales page. Reply with your take and the draft lands here.</p>
+</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li><a href="https://www.sylvainkalache.com/blog/ai-handles-incidents-engineers-lose-touch-with-their-systems">Sylvain Kalache - AI handles incidents, engineers lose touch with their systems</a> (Sep 4, 2026)</li>
+<li><a href="https://news.ycombinator.com/item?id=49574167">HN thread</a> (105+ pts, 68+ comments, front page Sep 5)</li>
+<li>Bainbridge, "Ironies of Automation" (1983) - cited in the post</li>
+<li>Referenced in-thread: "Automation should be like Iron Man, not like Ultron"</li>
+</ul>
+<footer>Generated September 5, 2026 for @__marmikpandya. Opinion brief only - positions above belong to their authors, not to Marmik. Drafts are created only after he states his own view.</footer>
+</body>
+</html>
