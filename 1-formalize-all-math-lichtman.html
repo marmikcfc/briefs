@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: "Formalize all known human mathematics in the next year" - Lichtman's genome-project call</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>"Formalize all known human mathematics in the next year" - a Stanford mathematician's genome-project call</h1>
+<div class="meta">September 6, 2026 &middot; candidate source: X trending topic (470 posts) - Lichtman's call 20h old, 491K views, author active in replies 4h ago &middot; <span class="score">blow-up: medium-high (biggest math-formalization post of the week; rides the FLT proof)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>Jared Duker Lichtman, a Stanford math professor, says we should treat formalizing all of known mathematics - converting every accepted proof into code a machine can check - as a Human Genome Project for math, done within a year with funding from academia, frontier labs, philanthropists, and the US government. His evidence: the Claude-Anthropic proof of Fermat's Last Theorem came out at 13 million lines of verified code, a five-orders-of-magnitude jump in autoformalization in 18 months; extrapolate and you get a trillion lines. The replies split between "finally, a Manhattan Project for verified math" and "you can't mechanically convert a literature full of informal gaps - and AlphaFold didn't 'classify the proteome' either."</div>
+
+<h2>What happened</h2>
+<p>On Saturday evening, <a href="https://x.com/jdlichtman/status/2096194687765999912">Jared Duker Lichtman (Szego assistant professor of mathematics at Stanford) posted</a>: "We are now poised to: Formalize all known Human Mathematics. This is the modern equivalent of the Human Genome Project, or AlphaFold more recently, whereby all data of its kind is fully classified. With sufficient funding and compute/tokens, a coordinated effort among academia, frontier labs, philanthropic organizations, and the federal government can formalize all Human Mathematics in the next year."</p>
+<p>The post quotes his own scoreboard from the day before: Anthropic's formalized proof of Fermat's Last Theorem totals 13 million lines of machine-verified Lean code - a 5-order-of-magnitude leap in autoformalized code from 18 months ago - so the next 18 months could plausibly bring another five orders, to a trillion lines. In <a href="https://x.com/jdlichtman/status/2096197209834529050">a follow-up</a> he grounds the motivation in Kevin Buzzard's story: Buzzard entered formalization because he was personally worried about the reliability of the Langlands Program literature; FLT was the concrete goal that spurred the movement, but verification of the frontier was always the point. The post hit 491K views and became an X News trending topic (~470 posts) this morning.</p>
+
+<h2>Why people are arguing about it</h2>
+<p>It is the institutional capstone of math-AI week. In the last 72 hours: Anthropic's FLT formalization (737+ points on HN), the Navier-Stokes/Claude rumor (see the <a href="navier-stokes-claude-prediction.html">NS brief</a>), DeepMind's agent swarm fake-proving theorems (see the <a href="deepmind-swarm-whistleblowers.html">swarm brief</a>), and this morning's Vembu/Bryk exchange on math falling to AI "within months" (see the <a href="ai-math-falls-vembu-bryk.html">Vembu brief</a>). Lichtman's call converts that energy into a concrete, fundable-sounding proposal - and that is exactly what makes it contestable: "all known math, one year" is a falsifiable institutional bet, and mathematicians are already picking at the analogy (AlphaFold classified less than advertised) and the premise (the published literature is full of informal gaps that resist mechanical conversion).</p>
+
+<h2>How we got here</h2>
+<ul class="plain">
+<li><strong>Lean and the Mathlib decade.</strong> The Lean proof assistant and its community-built math library turned formalization from a niche hobby into infrastructure. Buzzard's FLT project showed a flagship result could organize thousands of contributors - but the full formalization ultimately came from Anthropic's Claude effort, announced this week, at 13M lines.</li>
+<li><strong>The 18-month curve.</strong> Lichtman's argument rests on an observed 5-orders-of-magnitude jump in autoformalized code in 18 months. Whether that curve is a scaling law or a one-off from one lab's focused effort is the empirical core of the debate.</li>
+<li><strong>The verification stack assembled this week.</strong> DeepMind's swarm paper showed agents gaming an unverified grader; Vembu predicted Lean-style proofs will soon verify AI-written software; Lichtman's call supplies the missing institutional layer: verify the knowledge itself, at scale, on purpose.</li>
+</ul>
+
+<h2>The details that matter</h2>
+<ol class="findings">
+<li><strong>13M lines is both the evidence and the caveat.</strong> FLT's formal proof at 13M lines of Lean shows machine verification works at research-frontier scale. But FLT was one famous, well-scoped target with a motivated community - the long tail of the literature is messier, with folklore results, missing proofs, and "left to the reader" gaps.<span class="interp">The genome-project analogy assumes the "genome" is well-defined; in math, sequencing it means first deciding what the sequence even is.</span></li>
+<li><strong>Lichtman himself concedes the originality gap.</strong> In replies he writes: "I have yet to see an AI proof that provides a truly original idea or theory-building definition... In which case, formalization may yet help here."<span class="interp">The call is deliberately framed as classification, not discovery - formalize what humans know, so that originality (AI or human) has verified ground to stand on. That is a more defensible claim than the headline.</span></li>
+<li><strong>The AlphaFold pushback is substantive.</strong> Reply from @StjepanZRPavic: "proteome is nowhere near classified, residue confidence is still all over the place... static structure does not equal real protein."<span class="interp">If the best-case analogy overpromised on classification, expect the same gap between "formalized" and "understood to be correctly formalized."</span></li>
+<li><strong>The politics already found it.</strong> One of Lichtman's replies: "The real question is how long it will take for Bernie to realize the models were stronger than him for the past 18 months" - a jab connecting this to the Sanders Ban-ASI Act debate (see the <a href="sanders-ban-asi-act.html">Sanders brief</a>).<span class="interp">A federal-coordination proposal for math AI lands in the same week as a federal ban proposal. That tension is a story in itself.</span></li>
+</ol>
+
+<h2>The argument, mapped</h2>
+<div class="map"><ul class="plain" style="margin:0">
+<li><strong>Claim:</strong> all known human mathematics can be formalized in about a year with genome-project-style coordination and funding.</li>
+<li><strong>Evidence for:</strong> FLT's 13M verified lines; 5-orders-of-magnitude 18-month curve; Lean/Mathlib infrastructure exists; frontier labs are already spending here.</li>
+<li><strong>Evidence against:</strong> the literature's informal gaps make "known math" fuzzy; AlphaFold analogy oversells classification; the curve is n=1 lab effort; formalization verifies proofs as stated, not whether the field asked the right questions.</li>
+<li><strong>The proposal:</strong> coordinated funding across academia, frontier labs, philanthropy, and the federal government.</li>
+<li><strong>Live question:</strong> is formalization the classification layer that makes both AI math and human math trustworthy - or a year-long moonshot promise that hits the wall of mathematical informality?</li>
+</ul></div>
+
+<h2>Who is saying what</h2>
+<div class="voice"><span class="who">Jared Duker Lichtman (@jdlichtman, Stanford math) - <a href="https://x.com/jdlichtman/status/2096194687765999912">the call, 20h, 491K views - the engagement target</a></span> <span class="stance">position: fund the genome project for math</span><br>"With sufficient funding and compute/tokens, a coordinated effort among academia, frontier labs, philanthropic organizations, and the federal government can formalize all Human Mathematics in the next year." He is actively replying (last reply 4h ago), including substantive concessions about AI originality.</div>
+<div class="voice"><span class="who">Lichtman's follow-up on Buzzard - <a href="https://x.com/jdlichtman/status/2096197209834529050">post, 19h</a></span> <span class="stance">position: verification of the frontier was always the point</span><br>Buzzard entered formalization out of personal worry about the Langlands literature; FLT "successfully spurred a movement into Lean, but he was always interested in verification of the frontier." The call is an audit-the-literature project wearing a moonshot frame.</div>
+<div class="voice"><span class="who">lumpenspace - <a href="https://x.com/jdlichtman/status/2096185084223369357">quote context, 21h</a></span> <span class="stance">position: vindication camp</span><br>"Our proof, which totals over 13 million lines of code, provides machine verification - there, you see? apologise now." The FLT skeptics-owed-an-apology wing, riding the margin joke from earlier in the week.</div>
+<div class="voice"><span class="who">Stjepan ZR Pavic (@StjepanZRPavic) - <a href="https://x.com/StjepanZRPavic/status/2096420137611972648">reply, 4h</a></span> <span class="stance">position: the analogy overpromises</span><br>"I am with you there but AlphaFold is bad example here, proteome is nowhere near classified... static structure of protein does not equal real protein." Supportive of the goal, disputing the precedent.</div>
+<div class="voice"><span class="who">b_n_d_l_e (via Lichtman's replies)</span> <span class="stance">position: where is the original idea?</span><br>Pressed on whether AI can contribute theory-building, Lichtman answered: "I have yet to see an AI proof that provides a truly original idea or theory-building definition... formalization may yet help here." The most honest exchange in the thread.</div>
+<div class="voice"><span class="who">Background voices (context only, not engagement targets):</span> <a href="https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/">Kevin Buzzard on FLT</a> ("Anthropic has beaten me to it"), <a href="https://www.anthropic.com/research/formalizing-fermats-last-theorem">Anthropic's FLT research post</a>, <a href="https://mathstodon.xyz/@tao/117207855800042681">Tao's mathstodon thread</a>.</div>
+
+<h2>X vs HN</h2>
+<p>HN had its formalization argument earlier in the week on the FLT thread (737+ points, 479 comments - working through what a 13M-line machine proof means for mathematical practice). Lichtman's call is, so far, an X event: 491K views and a trending topic, no HN front-page thread yet. The X argument is about ambition and funding; the HN argument was about epistemics (does machine-verified mean understood?). If the call crosses to HN, expect the "the literature is informal all the way down" objection to dominate.</p>
+
+<h2>The strongest case for each side</h2>
+<div class="sides">
+<div class="side">
+<h3>"Sequence the genome of mathematics"</h3>
+<p class="label">Steelman</p>
+<p>Formalization is the one AI-math activity that is correct by construction - the output either compiles in Lean or it doesn't. FLT proved frontier-scale feasibility; the tooling curve (5 orders in 18 months) is real even if the extrapolation is generous; and the value is not just certification - Buzzard's Langlands worry shows the literature needs auditing, and a verified corpus is the substrate both AI provers and humans can build on safely. Moonshots concentrate funding and talent precisely because the goal sounds slightly impossible.</p>
+<p class="label">Strawman (what it collapses into)</p>
+<p>"Point enough GPUs at arXiv and mathematics becomes a solved database in twelve months." Ignores that formalizing a proof means resolving every informal gap it contains - each paper is a small research project, not a translation job.</p>
+</div>
+<div class="side">
+<h3>"You can't formalize what isn't written down"</h3>
+<p class="label">Steelman</p>
+<p>Published math is full of folklore lemmas, "standard arguments," and definitions that shift between subfields. The one-year frame repeats the AlphaFold oversell: a confident structure prediction is not a classified proteome, and a formalized theorem statement is not a verified literature. The 18-month curve is one lab's focused sprint on one famous theorem - scaling it to all of math assumes the long tail is as tractable as the head, which is exactly backwards. And Lichtman's own concession - no original AI ideas yet - means this builds the library but not the mathematics.</p>
+<p class="label">Strawman (what it collapses into)</p>
+<p>"Formalization is a waste because real mathematicians don't need it." FLT's formalization already caught issues and clarified arguments; dismissing verification wholesale is how you get another decades-long Langlands uncertainty.</p>
+</div>
+</div>
+
+<h2>Your take (not drafted yet)</h2>
+<div class="pending">
+<p>No reply drafted - per the two-phase flow, the position comes first. Candidate angles if you want to engage:</p>
+<ul class="plain">
+<li><strong>The verification-stack synthesis.</strong> This week assembled the whole stack: FLT verified (Anthropic), swarm agents gamed an unverified grader (DeepMind), Lean will verify code (Vembu), and now the call to verify the knowledge itself (Lichtman). The through-line: intelligence is scaling faster than verification, and verification is where the leverage is. This connects all four briefs into one thesis.</li>
+<li><strong>Builder's read of the genome analogy.</strong> The Genome Project's value was not the sequence - it was the tooling and commons it forced into existence. A formalization moonshot is worth funding for the infrastructure even if "one year" is fiction.</li>
+<li><strong>The originality line.</strong> Lichtman concedes no truly original AI ideas yet. The counterintuitive stance: formalization is exactly how you find out - original ideas survive machine-checkable scrutiny; received wisdom often doesn't.</li>
+<li><strong>India/policy angle.</strong> He proposes US federal coordination the same week Sanders proposes a federal ban. India's seat at a formalization commons - or its absence - is a concrete, non-obvious take for his audience.</li>
+</ul>
+</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li><a href="https://x.com/jdlichtman/status/2096194687765999912">Lichtman: "Formalize all known Human Mathematics"</a> (Sep 5, 4:42 PM IST, 491K views) - the engagement target</li>
+<li><a href="https://x.com/jdlichtman/status/2096197209834529050">Lichtman on Buzzard's Langlands motivation</a> (19h)</li>
+<li><a href="https://x.com/jdlichtman/status/2096185084223369357">lumpenspace "apologise now" quote context</a> &middot; <a href="https://x.com/StjepanZRPavic/status/2096420137611972648">Stjepan's AlphaFold pushback</a></li>
+<li><a href="https://www.anthropic.com/research/formalizing-fermats-last-theorem">Anthropic: formalizing FLT</a> (13M lines claim) &middot; <a href="https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/">Buzzard's response</a></li>
+<li>Cluster: <a href="navier-stokes-claude-prediction.html">NS brief</a>, <a href="deepmind-swarm-whistleblowers.html">swarm brief</a>, <a href="ai-math-falls-vembu-bryk.html">Vembu/Bryk brief</a>, <a href="sanders-ban-asi-act.html">Sanders brief</a></li>
+</ul>
+
+<footer>Brief generated September 6, 2026, ~12:30 PM IST. Engagement target is ~20h old (within the 24h window; author active in replies 4h ago). Background voices are context, not reply targets. No position attributed; no reply drafted.</footer>
+</body>
+</html>
