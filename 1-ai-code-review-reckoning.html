@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: "We ditched code review (mostly)" - the AI code flood hits the review bottleneck</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>"We ditched code review (mostly)" - the AI code flood hits the human-review bottleneck</h1>
+<div class="meta">September 6, 2026 &middot; candidate sources: Gergely Orosz question (3h old, 66K views, 139 replies) + Mike Julian's Duckbill thread (10h, 147K views) &middot; <span class="score">blow-up: medium-high (the debate is live right now and every engineering team has this problem)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>AI coding agents are producing pull requests faster than humans can read them. This afternoon Gergely Orosz (The Pragmatic Engineer) asked the question out loud: if you stopped doing human code reviews, how is it going - and if you haven't, how are you keeping up? The most-cited answer in the replies is a five-person startup that mostly stopped reviewing: they only review changes that touch the API, auth, the database schema, or agent configs, and their median merge time for unreviewed PRs dropped from 26 hours to 1 hour while throughput nearly doubled. The replies split into camps: risk-tier the review, let agents review agents, "only the schema matters," or "review is already futile."</div>
+
+<h2>What happened</h2>
+<p>At 5:15 PM IST today, Gergely Orosz asked his (mostly senior-engineer) audience two questions: <a href="https://x.com/GergelyOrosz/status/2096565330701144077">"If you've stopped doing human code reviews: how is it going? If you're still doing them: how are you able to keep up with the explosion of code + PRs, and how do you prioritise what to review 'properly'?"</a> Three hours in: 139 replies, 66K views, and counting. Ten hours earlier, Mike Julian (CEO of Duckbill) had posted a detailed thread - <a href="https://x.com/mikejulian/status/2096450476170694785">"We ditched code review at Duckbill (mostly)"</a>, 147K views - describing exactly how his team did it, with before/after numbers. Reply-guy Ada Lundhe connected the two inside Gergely's thread ("probably the most reasonable system I've seen yet"), and Gergely kept posting: an hour ago he <a href="https://x.com/GergelyOrosz/status/2096582397156319571">praised people who "review the AI code review" and find noise</a>, and <a href="https://x.com/GergelyOrosz/status/2096583284360704093">confessed "(minor) thoughts of existential dread for software engineering"</a> - cured, he says, by spending an hour on the phone with a mobile carrier whose backend is garbage. "AI won't fix any of that by itself."</p>
+
+<h2>How we got here</h2>
+<ul class="plain">
+<li><strong>The code flood is this year's fact.</strong> Agents write code far faster than teams merge it. Duckbill's version: 60 open PRs accumulated for a team of five - "two days of just code review" staring at them. Everyone in the replies has a version of this number.</li>
+<li><strong>Review was the last fully human gate.</strong> Testing, linting, typing, and deploys were already automated. Code review was the one step where a human read the change as a matter of process. The AI flood is now pressing exactly there - which makes this the craft-vs-throughput fight in its purest form, and a live continuation of the deskilling argument (see <a href="ai-incident-response-deskilling.html">the incident-response brief</a>).</li>
+<li><strong>AI review tools made it confusing.</strong> Tools like CodeRabbit already review PRs automatically, so teams now have three options fighting each other: humans review everything (doesn't scale), AI reviews everything (Jacob Bartlett's "constant crusade": the comments are "seldom useful" and bloat the code), or humans review only what matters (the Duckbill model).</li>
+</ul>
+
+<h2>What's new today (monitoring)</h2>
+<ol class="findings">
+<li><strong>Gergely is working this out in public, in real time.</strong> Three posts in the last three hours: the question, the AI-review-noise observation, and the existential-dread one. When the Pragmatic Engineer narrates his own uncertainty, the audience piles in - this thread is still moving.</li>
+<li><strong>The Duckbill numbers are the thread's factual anchor:</strong> PRs merged went 353 to 684 (80/week to 154/week, +94%); merges within an hour went 28% to 45%; human-reviewed PRs still take a median 26 hours, unreviewed ones 1 hour. <span class="interp">Real numbers from a real team beat vibes - which is why the replies keep citing it. The caveat is just as real: five people, one codebase, one month.</span></li>
+<li><strong>The sleeper take is jackie luo's:</strong> "all that really matters is the database schema" (86 likes and rising). Gergely pushed back in-thread: business logic used to be the point of review. <span class="interp">This is the disagreement to watch - if review shrinks to "schema + auth + money paths," what happens to the business-logic bugs?</span></li>
+<li><strong>Nobody serious is defending "review everything."</strong> The spread of answers is which subset to review, not whether to subset. <span class="interp">When "keep doing it the old way" has no defenders in a 139-reply thread of senior engineers, the old way is already dead - the argument is over the replacement.</span></li>
+</ol>
+
+<h2>The argument map</h2>
+<div class="map">
+<ul class="plain">
+<li><strong>Claim (Gergely's implicit premise):</strong> AI code volume has broken the "humans review everything" default; something has to give</li>
+<li><strong>For:</strong> Duckbill's numbers - +94% throughput, 1h median merges on unreviewed PRs, no reported disaster</li>
+<li><strong>For:</strong> replies reporting the same pain at every scale (60-PR backlogs, rubber-stamping anyway)</li>
+<li><strong>Against:</strong> unreviewed business logic is where the expensive bugs live (Gergely's own pushback to jackie luo)</li>
+<li><strong>Against:</strong> AI code review as substitute is noise-heavy (Jacob Bartlett's crusade) - so "let the agent check the agent" is not a free lunch</li>
+<li><strong>Middle positions:</strong> risk-tiering (Duckbill), layer-prioritization (Jonatan: domain model yes, infrastructure no), ownership-pushes (Juraj: push directly, review only the uncomfortable), agents-review-then-human-checks-tests (Girish)</li>
+<li><strong>Doom corner:</strong> "futile exercise... agents will talk to machines in binary" (SharmaGee_) - asserted, not argued</li>
+</ul>
+</div>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">Gergely Orosz (The Pragmatic Engineer)</span> &middot; <span class="stance">the question + the dread</span><br>"If you've stopped doing human code reviews: how is it going? If you're still doing them: how are you able to keep up with the explosion of code + PRs?" And an hour later: "Sometimes I have (minor) thoughts of existential dread for software engineering... Then I am pulled back to reality when I... spend 2x30 minutes on the phone with human support because their backend is absolutely garbage... AI won't fix any of that by itself." <a href="https://x.com/GergelyOrosz/status/2096565330701144077">question</a> &middot; <a href="https://x.com/GergelyOrosz/status/2096583284360704093">dread</a></div>
+<div class="voice"><span class="who">Mike Julian (CEO, Duckbill)</span> &middot; <span class="stance">the working system</span><br>"If your change touched the public API/MCP, auth, design system, non-additive database schema changes, or agent skills, it needed a human review." Guardrails instead of gatekeeping: near-every lint rule on, 85% test floor, customer-facing observability, docs written by humans (agents were "context poisoning" them), and deterministic shell scripts where "an AI" would do. <a href="https://x.com/mikejulian/status/2096450476170694785">thread</a></div>
+<div class="voice"><span class="who">ajay yadav (@BetterSayAJ, Roomie / engineering-craft writer)</span> &middot; <span class="stance">selective, not less</span><br>"more code → more selective review, not necessarily less review. ideally that's how it should be." His list: automate the obvious (prettier/ESLint, CI, dependabot, snyk/codeQL), spend attention where risk is ("a 20-line auth change can deserve more scrutiny than a 500-line UI refactor"), "go deep on the irreversible stuff like data migrations, APIs, architecture, permissions, infra, business logic," and keep PRs small so meaningful review stays possible. <a href="https://x.com/BetterSayAJ/status/2096616624598225394">reply</a></div>
+<div class="voice"><span class="who">jackie luo</span> &middot; <span class="stance">the radical shrink</span><br>"my current take is all that really matters is the database schema." <a href="https://x.com/jackiehluo/status/2096566680428138875">reply</a></div>
+<div class="voice"><span class="who">Jacob Bartlett (iOS dev, @jacobtechtavern)</span> &middot; <span class="stance">AI review is noise</span><br>"I am in a constant crusade against AI code review comments. They are seldom useful, but will *always* find dozens of suggestions and dozens of ways to bloat up the codebase with unnecessary defensive crap." <a href="https://x.com/jacobtechtavern/status/2096574458785919474">reply</a></div>
+<div class="voice"><span class="who">Jonatan (@JonatanSchmidX)</span> &middot; <span class="stance">prioritize by layer</span><br>"I pay attention to the domain model and application layer (think transactions). Infrastructure layer / frontend code I almost never look at, unless for security concerns." <a href="https://x.com/JonatanSchmidX/status/2096591567049949447">reply</a></div>
+<div class="voice"><span class="who">Juraj Malenica</span> &middot; <span class="stance">ownership over review</span><br>"You directly push the code if you own the component of the system... If it is something critical, or something you feel uncomfortable owning with no checks, you ask for a review." <a href="https://x.com/JurajMalenica/status/2096572375357665296">reply</a></div>
+<div class="voice"><span class="who">Girish (@spectragai)</span> &middot; <span class="stance">agent reviews agent, human reviews behavior</span><br>"We do rounds of code reviews with the agent with /review skill... THEN the PR is raised. I review the BDD feature files and performance tests meticulously." <a href="https://x.com/spectragai/status/2096600354099966329">reply</a></div>
+<div class="voice"><span class="who">Winston Smith (@nwp)</span> &middot; <span class="stance">full automation, honest about it</span><br>"I fully automated the PRs I'm responsible for at work and it's going well. I was always a rubber stamp style reviewer anyway so the quality of 'my' reviews has increased substantially!" <a href="https://x.com/nwp/status/2096602529949765868">reply</a></div>
+<div class="voice"><span class="who">öats (@brotherpls)</span> &middot; <span class="stance">contain the slop</span><br>"if slop is constrained to a corner in the codebase, then review it using agents and let it through... i suspect the implementations will be immaterial in 6 months anyway." <a href="https://x.com/brotherpls/status/2096568426462626069">reply</a></div>
+<div class="voice"><span class="who">Girish (@SharmaGee_)</span> &middot; <span class="stance">the doom corner</span><br>"Futile exercise. You're just an obstacle. Soon, there won't be any need for languages because the agent will directly interact with machines using binary." <a href="https://x.com/SharmaGee_/status/2096586347360186454">reply</a></div>
+<div class="voice"><span class="who">Alex Bon (@axbon)</span> &middot; <span class="stance">pushback on the dread-cure</span><br>"but those are 'legacy' businesses... it shouldn't be the same case for businesses that are being launched now, with no legacy... their ambition can be much much higher." <a href="https://x.com/axbon/status/2096611372867920311">reply</a></div>
+
+<h2>X and HN are having two different conversations</h2>
+<p>X is spending Sunday arguing about the output flood: too much machine-written code, not enough human reading, and which gate to keep. HN's front page today has no code-review thread at all - its two big debates are "The revolt of the reader" (470 pts) and "Doomscrolling Ourselves to Death" (140 pts), both about the input flood: too much machine-made content, not enough human attention. Same anxiety, opposite direction. A sharp observation is available to whoever names it: the industry is simultaneously worried that machines will write everything and that humans will read nothing.</p>
+
+<h2>The details that matter</h2>
+<ol class="findings">
+<li><strong>The 26h-vs-1h number is the whole story in miniature.</strong> Human-reviewed PRs at Duckbill take a median 26 hours to merge; unreviewed ones take 1 hour. <span class="interp">Review was never a quality step in practice - it was a queue. Once you see review as queueing delay, "review less, but review the risky parts" stops sounding reckless and starts sounding like operations. The counter: the 26h includes waiting, not reviewing - the fix might be faster reviews, not fewer.</span></li>
+<li><strong>The risk-tier list is the transferable artifact.</strong> Public API, auth, design system, non-additive schema changes, agent skills - everything else ships unreviewed. <span class="interp">Notice what's on the list: irreversible or load-bearing surfaces. Notice what's not: business logic. jackie luo's "only the schema" is the same list compressed to one item; BetterSayAJ's go-deep list, posted an hour ago, explicitly puts business logic back in. Where business logic belongs on this list is the live disagreement a sharp reply can name.</span></li>
+<li><strong>"Docs written by humans" is the sneaky-important rule.</strong> Duckbill found agent-written markdown docs were "context poisoning" - bad instructions compounding into worse agent output. They centralized docs and required human authorship, enforced by shell script. <span class="interp">This is the inverse-deskilling move: automate the code, protect the intent. It pairs with his existing deskilling brief as the concrete engineering-practice version.</span></li>
+<li><strong>"Why use an AI for something that can be deterministic?"</strong> Duckbill enforces its review rules with shell scripts in CI, not with an agent's judgment. <span class="interp">The most opinionated line in the thread, and the one with the most craft in it: the AI-flood answer isn't more AI, it's better boring automation plus a small human gate. That's a quotable, defensible stance - very much in his anti-hype, pro-craft voice.</span></li>
+<li><strong>It's one five-person startup, one month in.</strong> No production incident yet - or none reported. <span class="interp">The strongest skeptic question isn't philosophical, it's actuarial: what does the incident curve look like at month six? Nobody in the thread has that data, which means whoever frames the question well owns the next round of this debate.</span></li>
+</ol>
+
+<h2>The strongest case for each side</h2>
+<div class="sides">
+<div class="side">
+<h3>"Review everything is dead - redesign the gate"</h3>
+<p class="label">Steelman</p>
+<p class="steel">The queue doesn't lie: 60 open PRs for five people means review was already broken, and rubber-stamping was the real practice anyway (Winston Smith said the quiet part out loud). A risk-tiered system with ruthless guardrails - lint everything, 85% test floor, watch customer-facing signals, humans write the docs - ships twice as much with a 1-hour median, and reviews the things that can actually hurt you: API, auth, schema. Review was a bottleneck dressed as a virtue. The craft move is deciding what deserves a human, not pretending every line gets one.</p>
+<p class="label">Strawman (what the other side hears)</p>
+<p>"We stopped reading the code and the graphs went up" - the incident report writes itself, and when it does, the postmortem will find a schema-untouching business-logic bug that five rubber stamps and a linter waved through.</p>
+</div>
+<div class="side">
+<h3>"Unreviewed code is unowned code"</h3>
+<p class="label">Steelman</p>
+<p class="steel">Code review was never only defect detection - it's how a team shares knowledge of what the system does and why. Drop it, and nobody has read most of the codebase: the bus factor goes to one, the agent's habits go unexamined, and business-logic errors (the expensive kind, the kind tests you forgot to write don't catch) sail through. AI review tools are noise (Bartlett's crusade), tests cover what you thought to test, and Duckbill's n is one small startup one month in. The 26-hour median says reviews were slow, not wrong - fix the queue, don't delete the reading.</p>
+<p class="label">Strawman (what the other side hears)</p>
+<p>"I want to keep reading every PR like it's 2019" - the artisanal review shop, lovingly hand-checking agent output while the queue grows 80 PRs a week and the reviews themselves decay into rubber stamps nobody admits to.</p>
+</div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><p><strong>Pending his position.</strong> He hasn't weighed in on the code-review debate yet. Candidate angles once he does:</p>
+<ul class="plain">
+<li><strong>The queueing reframe:</strong> review was a 26-hour queue wearing a quality halo; risk-tiering is ops, not heresy - but business logic is the gap in every tier-list so far.</li>
+<li><strong>The craft line:</strong> "why use an AI for something that can be deterministic" - boring shell scripts plus a small human gate beats agents reviewing agents.</li>
+<li><strong>The docs inversion:</strong> automate the code, keep the intent human - agent-written docs are how you poison your own context.</li>
+<li><strong>The actuarial question:</strong> everyone's citing one month of Duckbill; the real debate starts at month six, and nobody has that data.</li>
+</ul></div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li><a href="https://x.com/GergelyOrosz/status/2096565330701144077">Gergely Orosz - the code-review question</a> (Sep 6, 5:15 PM IST, 66K views, 139 replies)</li>
+<li><a href="https://x.com/GergelyOrosz/status/2096583284360704093">Gergely Orosz - "(minor) thoughts of existential dread"</a> (Sep 6, 6:26 PM IST, 27K views)</li>
+<li><a href="https://x.com/GergelyOrosz/status/2096582397156319571">Gergely Orosz - on reviewing the AI review</a> (Sep 6, ~7 PM IST)</li>
+<li><a href="https://x.com/mikejulian/status/2096450476170694785">Mike Julian - "We ditched code review at Duckbill (mostly)"</a> (Sep 6, 9:38 AM IST, 147K views; full 10-post thread with metrics)</li>
+<li>Replies: <a href="https://x.com/jackiehluo/status/2096566680428138875">jackie luo</a>, <a href="https://x.com/jacobtechtavern/status/2096574458785919474">Jacob Bartlett</a>, <a href="https://x.com/JonatanSchmidX/status/2096591567049949447">Jonatan</a>, <a href="https://x.com/JurajMalenica/status/2096572375357665296">Juraj Malenica</a>, <a href="https://x.com/spectragai/status/2096600354099966329">Girish (spectragai)</a>, <a href="https://x.com/nwp/status/2096602529949765868">Winston Smith</a>, <a href="https://x.com/brotherpls/status/2096568426462626069">öats</a>, <a href="https://x.com/SharmaGee_/status/2096586347360186454">Girish (SharmaGee_)</a>, <a href="https://x.com/axbon/status/2096611372867920311">Alex Bon</a></li>
+<li>Related brief: <a href="ai-incident-response-deskilling.html">the AI incident-response deskilling brief</a></li>
+</ul>
+
+<footer>Opinion brief for Marmik &middot; two-phase flow: no drafted replies until he states his position &middot; September 6, 2026, ~8:20 PM IST</footer>
+</body>
+</html>
