@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: OpenAI brings back the 5-hour limit - the subscription squeeze lands days after Astra</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>OpenAI brings back the 5-hour limit - Plus and Business users hit the wall days after Astra made everyone burn tokens faster</h1>
+<div class="meta">September 7, 2026 &middot; candidate source: Tell HN thread (54 points, 38 comments in 80 minutes, front page now) &middot; <span class="score">blow-up: medium (a pricing/UX grievance every agent builder feels, with the upsell timing doing the talking)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>A Tell HN post tonight reports that OpenAI has brought back rolling 5-hour usage limits for ChatGPT Plus and Business users - on top of the weekly cap - and the change "makes limit resets kind of worth significantly less." Translation for anyone who does not live in Codex: you no longer just have a weekly budget; you also have a per-5-hour throttle, so you cannot sprint. The timing is the story: this lands the same weekend GPT-6 Astra made agentic coding dramatically more token-hungry - one user burned his entire 5-hour budget on a single Astra-built webpage. HN's theories: capacity triage, an upsell shove toward the $100 tier, or both.</div>
+
+<h2>What happened</h2>
+<p>At ~10:10 PM IST, a <a href="https://news.ycombinator.com/item?id=49600233">Tell HN thread</a> reported the 5-hour limit's return for Plus and Business standard users: "In case you're wondering why the limits behave so very different from last week." Within 80 minutes it had 54 points and 38 comments, mostly from Codex users confirming the behavior. On X the same evening, users are posting workarounds and complaints in real time - including one who says a single Astra-on-High website build "lit the 5 hour limit on fire."</p>
+<p>For context: "Codex" is OpenAI's coding agent; "5-hour limit" means your usage allowance refills on a rolling 5-hour clock, so even with weekly budget remaining you can be throttled mid-session. A "weekly reset" that does not also reset the 5-hour window (one commenter's report) makes the two gates stack awkwardly.</p>
+
+<h2>How we got here</h2>
+<ul class="plain">
+<li><strong>The 5-hour limit was itself "restored" once already.</strong> An August 25 HN thread - <a href="https://news.ycombinator.com/item?id=49432879">"OpenAI restores 5-hour Codex and Work limits for ChatGPT Plus users"</a> (120 points, 125 comments) - covered a previous tightening. This is a ratchet, not a one-off: limits loosen in peacetime and tighten when a launch spikes demand.</li>
+<li><strong>Astra changed the burn rate this weekend.</strong> GPT-6 Astra's agentic computer-use loop (<a href="jensen-agi-arrived.html">the weekend's launch wave</a>) runs far more tokens per task than chat-style coding. A subscription priced for chat-era consumption meets an agent-era workload - the squeeze was arithmetically inevitable.</li>
+<li><strong>The subscription-vs-API gap has been the open secret all year.</strong> Flat $20 plans against thousands of dollars of compute was always a subsidy; every lab has been walking it back (rate limits, weekly caps, "priority" tiers). Tonight's thread is the latest visible click of that ratchet.</li>
+<li><strong>Agent builders are the collateral.</strong> Bursty, deep-session work - exactly how people use coding agents on side projects - is the usage pattern a 5-hour window punishes hardest.</li>
+</ul>
+
+<h2>What's new today (monitoring)</h2>
+<ol class="findings">
+<li><strong>The thread is 80 minutes old and already carrying the three theories.</strong> Upsell ("the $100/mo is now a more compelling upsell" - minimaxir), lock-in ("once they capture enough marketshare prices and restrictions are both going to skyrocket" - CSMastermind), and realism ("they aren't giving out thousands of dollars of compute in a $20 subscription out of the goodness of their hearts" - paxys). <span class="interp">All three can be true at once; the thread has not yet produced anyone defending the 5-hour mechanic itself on user-experience grounds - except one contrarian who finds the rhythm suits his focus pattern.</span></li>
+<li><strong>X is producing the receipts HN is theorizing about.</strong> A user replying to sama says one Astra-on-High single-page website burned the entire 5-hour allowance. Another found that running the same work through a lighter client ("pi") drained the budget three times slower. <span class="interp">The burn rate, not the limit's existence, is what changed this week - that is the falsifiable core: did Astra-class workloads make the old allowance worthless?</span></li>
+<li><strong>Nobody official has said anything.</strong> No OpenAI post, no changelog link in the thread - the change was discovered by users hitting the wall. <span class="interp">Silent policy changes discovered mid-session are their own story; if OpenAI posts an explainer tomorrow, this thread becomes the "before" picture.</span></li>
+</ol>
+
+<h2>The argument map</h2>
+<div class="map"><ul>
+<li><strong>Event:</strong> 5-hour rolling limits return for Plus/Business, stacking on the weekly cap.</li>
+<li><strong>Claim A (upsell):</strong> the timing exists to make the $100 tier compelling post-Astra.</li>
+<li><strong>Claim B (lock-in):</strong> restrictions only tighten as market share grows; expect more.</li>
+<li><strong>Claim C (realism):</strong> $20 never covered agent-era compute; the subsidy was the anomaly.</li>
+<li><strong>Claim D (UX harm):</strong> 5-hour windows punish exactly the bursty deep work coding agents are for.</li>
+<li><strong>Counter-observation:</strong> some users prefer the rhythm (forced breaks), and Codex limits remain looser than Claude's.</li>
+<li><strong>Open question:</strong> is this capacity triage during the Astra spike (temporary) or the new normal (permanent)?</li>
+</ul></div>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">minimaxir (HN)</span> &middot; <span class="stance">the upsell theory</span><br>"In hindsight, this makes more sense with the release of Astra. The $100/mo is now a more compelling upsell." <a href="https://news.ycombinator.com/item?id=49600368">comment</a></div>
+<div class="voice"><span class="who">paxys (HN)</span> &middot; <span class="stance">the realist</span><br>"People should realize by now that they aren't giving out thousands of dollars worth of compute in a $20 subscription out of the goodness of their hearts. The base level plans aren't meant for any kind of serious work beyond the equivalent of Google searches. At best treat it like a trial." <a href="https://news.ycombinator.com/item?id=49600853">comment</a></div>
+<div class="voice"><span class="who">CSMastermind (HN)</span> &middot; <span class="stance">the lock-in prediction</span><br>"Once they capture enough marketshare prices and restrictions are both going to skyrocket. The difference between the subscription usage and API pricing are stark." <a href="https://news.ycombinator.com/item?id=49600958">comment</a></div>
+<div class="voice"><span class="who">watty (HN)</span> &middot; <span class="stance">the spurt-coder grievance</span><br>"Session limits are obnoxious and make Codex much less useful for me. I tend to code in spurts when I find some time and the $20 weekly limit was reasonable for my side projects. I'm now hitting the session limits which means I can either purchase another plan, upgrade, or move off of Codex." <a href="https://news.ycombinator.com/item?id=49600619">comment</a></div>
+<div class="voice"><span class="who">jonpurdy (HN)</span> &middot; <span class="stance">the contrarian</span><br>"Controversial take but this works better for me than just the weekly limit. I have about 1-2 hours of sustained focus per 5 hour period so if I run out of tokens then I can take a break and start again in a few hours." <a href="https://news.ycombinator.com/item?id=49601085">comment</a></div>
+<div class="voice"><span class="who">estebarb (HN)</span> &middot; <span class="stance">the alternative model</span><br>"In my opinion it is much useful a 1x/2x billing based on hour like Deepseek does. Being unable to use it at the hours I need it makes me want to remove the service, not upgrading it." <a href="https://news.ycombinator.com/item?id=49600783">comment</a></div>
+<div class="voice"><span class="who">Will Burns (@AeonixAeon, X)</span> &middot; <span class="stance">the Astra burn-rate receipt</span><br>"To be fair, using ASTRA in CODEX on High settings, I'd expect reasonable results. When building a simple website, yes it did so but lit the 5 hour limit on fire for a single page output." <a href="https://x.com/AeonixAeon/status/2096988140083032118">reply to sama</a> (2h)</div>
+<div class="voice"><span class="who">Astro K Joseph (@astrokjoseph, X)</span> &middot; <span class="stance">the remove-it demand</span><br>"Codex should completely remove the 5-hour limit. Let us use our weekly allowance however we want. I'd much rather burn through my entire limit in the first 2-3 days and actually finish what I'm working on than be forced to stop and wait 5 hours." <a href="https://x.com/astrokjoseph/status/2097011720598454589">post</a> (43m)</div>
+<div class="voice"><span class="who">Martin Navratil (@martin_nav_, X)</span> &middot; <span class="stance">the workaround data point</span><br>"You should try running it in pi... It drains the usage much slower (at least for me). The 5 hour limit is drained in ~1 hour instead of the 20-30 mins with codex." <a href="https://x.com/martin_nav_/status/2097018878911979867">reply</a> (14m)</div>
+
+<h2>X and HN are having two different conversations</h2>
+<p>HN is having the pricing-economics conversation: what a $20 subscription can honestly cover, whether lock-in pricing is the trajectory, whether DeepSeek-style metered billing is the sane alternative. X is having the workflow-rage conversation: my 5-hour budget evaporated on one Astra webpage, here is the lighter client that stretches it 3x. HN asks whether the price is fair; X reports what the price just did to their Sunday. The two halves meet at one falsifiable question: did Astra-era workloads make the existing allowance worthless, and is the 5-hour window OpenAI's answer?</p>
+
+<h2>The details that matter</h2>
+<ul class="plain">
+<li><strong>What is confirmed vs reported.</strong> Confirmed by multiple independent users tonight: the 5-hour window is back and stacking with the weekly cap. Reported but unverified: that the weekly reset does not reset the 5-hour window (one commenter), and exact burn multiples for Astra-on-High (one user's single-page-website anecdote). OpenAI has published nothing.</li>
+<li><strong>The ratchet pattern is documented.</strong> The August 25 thread (120 points) covered a prior tightening; tonight's is the sequel. Each cycle follows the same script: silent change, user discovery, thread, no official post.</li>
+<li><strong>The contrarian matters.</strong> jonpurdy's focus-rhythm defense is the only user-experience argument for the window in the whole thread - and it is about his attention span, not OpenAI's infrastructure. Nobody is defending it as good product design.</li>
+<li><strong>The competitor comparison cuts one way.</strong> "Compared to Claude the Codex limits are much better and smarter model" - the squeeze is industry-wide, and switching costs are the real moat being priced.</li>
+</ul>
+
+<h2>The strongest case for each side</h2>
+<div class="sides">
+<div class="side"><h3>"This is honest capacity math, not a shakedown"</h3>
+<p><span class="label">Steelman</span>Agent-era workloads cost orders of magnitude more than chat-era ones; a $20 all-you-can-eat plan was a growth subsidy, not a sustainable price. Rolling windows smooth demand spikes, protect the service for everyone during a launch surge, and nudge heavy users toward plans priced for their usage. Every infrastructure business does exactly this.</p>
+<p><span class="label">Strawman (the weak version to avoid)</span>"Users are entitled freeloaders who should be grateful." The same users built OpenAI's agent-coding mindshare during the subsidy years - they are the distribution, not the cost center.</p></div>
+<div class="side"><h3>"This is a bait-and-switch with suspicious timing"</h3>
+<p><span class="label">Steelman</span>The limit returns silently, days after the launch that tripled burn rates, with no changelog and no warning - users discover it mid-session. The mechanic punishes the exact bursty usage pattern coding agents exist for, the two gates stack confusingly, and the $100 tier sits right there as the answer. If capacity were the honest reason, a published schedule would cost nothing.</p>
+<p><span class="label">Strawman (the weak version to avoid)</span>"OpenAI is evil and wants you poor." Compute is genuinely expensive and someone pays for every token; the grievance is about the silence and the mechanic, not the existence of limits.</p></div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><p><strong>Pending his position.</strong> He has not weighed in on the rate-limit squeeze yet. Candidate angles once he does:</p>
+<ul class="plain">
+<li>The builder's angle: he ships on these APIs daily - a "your agent product is one silent policy change from broken" observation from someone building agent infrastructure carries his authority.</li>
+<li>The synthesis angle: the week's discourse triangulates - capability hype (Jensen, Amjad) meets capacity reality (this thread); the bottleneck was never the model, it is the meter.</li>
+<li>The India angle: metered-hour billing (DeepSeek's model, praised in the thread) is what price-sensitive builder markets already chose; the $20-flat era was always a US-market artifact.</li>
+</ul></div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li>Tell HN: <a href="https://news.ycombinator.com/item?id=49600233">"OpenAI brings back 5 hour limit for plus and business standard users"</a> (Sep 7, ~10:10 PM IST, 54 pts, 38 comments)</li>
+<li>Prior round: <a href="https://news.ycombinator.com/item?id=49432879">"OpenAI restores 5-hour Codex and Work limits for ChatGPT Plus users"</a> (Aug 25, 120 pts, 125 comments)</li>
+<li>HN comments: <a href="https://news.ycombinator.com/item?id=49600368">minimaxir</a>, <a href="https://news.ycombinator.com/item?id=49600853">paxys</a>, <a href="https://news.ycombinator.com/item?id=49600958">CSMastermind</a>, <a href="https://news.ycombinator.com/item?id=49600619">watty</a>, <a href="https://news.ycombinator.com/item?id=49601085">jonpurdy</a>, <a href="https://news.ycombinator.com/item?id=49600783">estebarb</a></li>
+<li>X: <a href="https://x.com/AeonixAeon/status/2096988140083032118">Will Burns on Astra burn rate</a>, <a href="https://x.com/astrokjoseph/status/2097011720598454589">Astro K Joseph's remove-it demand</a>, <a href="https://x.com/martin_nav_/status/2097018878911979867">Martin Navratil's workaround</a></li>
+<li>Related briefs: <a href="jensen-agi-arrived.html">the Astra weekend</a> &middot; <a href="amjad-functional-agi.html">"functionally AGI"</a></li>
+</ul>
+
+<footer>Opinion brief &middot; prepared for Marmik Pandya &middot; two-phase flow: no drafted reply until he states his position</footer>
+</body>
+</html>
