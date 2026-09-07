@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: "Coding has saturated" - a16z's Martin Casado vs the Astra hype wave</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>"Coding has saturated" - Martin Casado says new models stopped moving his test set, twelve hours after Jensen Huang declared AGI</h1>
+<div class="meta">September 7, 2026 &middot; candidate source: Martin Casado post (15h, 114K views, 166 replies - within the 24h window, debate still live) &middot; <span class="score">blow-up: medium-high (a heavyweight practitioner contradicting the same weekend's AGI-arrival hype, with Cisco's CPO and SST's dax in the replies)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>Martin Casado - a16z general partner, Nicira founder, as credible an infrastructure voice as exists - posted last night: "The new models are amazing. But it seems coding has saturated? There is clearly a meaningful step in computer use. But I don't notice a meaningful step in coding for the work I'm doing. Maybe skill issue :)" His method, from the replies: he keeps a fixed set of outstanding issues and throws every new model at them - and that set has stopped moving. The timing is the story: this landed the same weekend that Jensen Huang declared "AGI has arrived" over GPT-6 Astra and the timeline drowned in one-shot 3D-game demos. 166 replies in, the verdict is split three ways: "yes, flat for real work," "the gains moved to different surfaces," and the most-liked answer - "you yourself are the gap now."</div>
+
+<h2>What happened</h2>
+<p>At 10:44 PM IST on Sep 6, Casado <a href="https://x.com/martin_casado/status/2096648261759389983">posted the saturation observation</a> with the self-deprecating "maybe skill issue" hedge. In the replies he sharpened it: "Ergonomics keep getting better. But I have a set of outstanding issues I throw all new models at. And that hasn't demonstrated much of an improvement." The carve-outs came fast: 3D scenes and greenfield one-shots are a genuine step change (he agrees), existing-codebase work is flat (he agrees), and computer use - not coding - is where the capability jumped.</p>
+<p>For anyone landing fresh: "computer use" means the model driving a whole computer - clicking, typing, navigating apps - versus "coding," meaning producing and editing software. Casado's claim is that the frontier moved on the first and stalled on the second.</p>
+
+<h2>How we got here</h2>
+<ul class="plain">
+<li><strong>Coding was the first proven LLM use case, and its public benchmarks saturated long ago.</strong> SWE-bench-style scores have been ceiling-hugging for a year, which is why practitioners run private test sets instead - Casado's "outstanding issues" file is exactly that. (See <a href="llm-benchmarks-dont-reflect-capabilities.html">the benchmarks brief</a>.)</li>
+<li><strong>The weekend set up the collision.</strong> GPT-6 Astra's release triggered a 48-hour demo wave - Zork rebuilt as a 3D action game, playable 4D chess, a GTA Vice City mission - capped by Jensen Huang's "AGI has arrived" (<a href="jensen-agi-arrived.html">the Jensen brief</a>). Casado's post is the practitioner counterweight: demos of new surfaces vs the daily grind of existing code.</li>
+<li><strong>"Skill issue" discourse is the field's running joke-turned-argument.</strong> Every flat-result report gets answered with "prompt better." Casado pre-emptively pleading guilty to it ("Maybe skill issue :)") is what made the post quotable in both directions.</li>
+<li><strong>The ergonomics layer has been moving while capability plateaus.</strong> Skills files, agent memory flags, harness improvements - the same week HN's front page ran "How do you manage skills files?" at 100+ points. The action has been in workflow, not raw model quality.</li>
+</ul>
+
+<h2>What's new today (monitoring)</h2>
+<ol class="findings">
+<li><strong>15 hours in: 114.7K views, 166 replies, 34 quotes, 806 likes.</strong> Reply-to-like ratio (~1:5) says argument, not applause. <span class="interp">And the argument is still running - substantial replies landed 2h ago.</span></li>
+<li><strong>The most-liked reply is the inversion:</strong> "Nope. Its been stagnant since sonnet 3.6. You yourself are the gap now" (691 likes - nearly as many as the post itself). <span class="interp">The timeline's plurality verdict: specification skill, not model capability, is now the binding constraint. That is itself a saturation claim - about what new models can still fix.</span></li>
+<li><strong>The credibility stack in the replies is unusual.</strong> Cisco CPO Jeetu Patel, SST's dax, and Lightfield's Danielle Fong all engaged substantively. <span class="interp">When vendor executives and tool builders both show up to partially agree, the observation has crossed from anecdote to industry position.</span></li>
+<li><strong>Nobody has posted the killer counter-example yet.</strong> No reply shows an existing-codebase task where Astra clearly beats the previous generation. <span class="interp">The demo wave is all greenfield. If someone posts a legacy-codebase before/after, the thread flips; it hasn't happened in 15 hours.</span></li>
+</ol>
+
+<h2>The argument map</h2>
+<div class="map">
+<ul class="plain">
+<li><strong>Claim (Casado):</strong> for real coding work, new models stopped delivering step changes - the step moved to computer use</li>
+<li><strong>For:</strong> his fixed private test set stopped moving; local models (Qwen flash) already clear many coding bars; the demo wave is entirely greenfield</li>
+<li><strong>For:</strong> Jeetu Patel's version - gains persist only at the extremes (never-coded users, advanced security work); the working middle is saturated</li>
+<li><strong>Against:</strong> 3D/greenfield IS a step change (Ivan Makarov, Danielle Fong) - and Casado himself concedes it</li>
+<li><strong>Against:</strong> "you are the gap" - results now scale with specification skill, so a flat test set measures the tester</li>
+<li><strong>Middle (dax):</strong> capability is plateauing but usability isn't - models get easier and more fun, and that's what actually changes output</li>
+<li><strong>Second-order:</strong> if coding is commoditized (local models suffice), the economic story shifts from model quality to harness, memory, and workflow - the same week's other fights</li>
+</ul>
+</div>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">Martin Casado (a16z GP, Nicira founder)</span> &middot; <span class="stance">the claim</span><br>"The new models are amazing. But it seems coding has saturated? There is clearly a meaningful step in computer use. But I don't notice a meaningful step in coding for the work I'm doing. Maybe skill issue :)" Follow-up: "Ergonomics keep getting better. But I have a set of outstanding issues I throw all new models at. And that hasn't demonstrated much of an improvement." <a href="https://x.com/martin_casado/status/2096648261759389983">post</a> (15h, 114K views) &middot; <a href="https://x.com/martin_casado/status/2096655057689440285">follow-up</a></div>
+<div class="voice"><span class="who">dax (@thdxr, SST)</span> &middot; <span class="stance">the usability reframe</span><br>"i've been thinking more in terms of usability instead of capability for a bit. i think the models continue to get easier and more fun to use, which makes me feel less frustration and use them more. but yeah i think my workflow is finally settling." <a href="https://x.com/thdxr/status/2096700078371094711">reply</a> (11h)</div>
+<div class="voice"><span class="who">Jeetu Patel (Cisco Chief Product Officer)</span> &middot; <span class="stance">the two-extremes reading</span><br>"My guess is that for super early users who never coded and for really advanced use cases especially around security, it may be higher levels of gains. But for most that did some coding, is there a saturation point?" <a href="https://x.com/jpatel41/status/2096649069187997839">quote-post</a> (14h)</div>
+<div class="voice"><span class="who">Ivan Makarov</span> &middot; <span class="stance">the surface split</span><br>"The way astra one shots 3d scenes and assets is truly a step change. The way it works by default for existing codebase is disappointing (or skill issue, tbd)." (Casado: "Yeah exactly") <a href="https://x.com/ivan_makarov/status/2096654831809355997">reply</a> (14h)</div>
+<div class="voice"><span class="who">Danielle Fong</span> &middot; <span class="stance">the 3D carve-out</span><br>"can't agree in 3d coding" (Casado: "Yeah agree with that.") <a href="https://x.com/DanielleFong/status/2096711308834205945">reply</a> (10h)</div>
+<div class="voice"><span class="who">homeserversltd</span> &middot; <span class="stance">the inversion (most-liked reply)</span><br>"Nope. Its been stagnant since sonnet 3.6. You yourself are the gap now" <a href="https://x.com/homeserversltd/status/2096697631514730948">reply</a> (691 likes)</div>
+<div class="voice"><span class="who">Shannon Sands (@max_paperclips)</span> &middot; <span class="stance">the AGI test</span><br>"if it was AGI then YOUR skill wouldn't matter, you could babble nonsense at it and it'd be good at eliciting what the hell you actually want and then build something you couldn't imagine." <a href="https://x.com/max_paperclips/status/2096719736130482586">quote-post</a> (10h, 13K views)</div>
+<div class="voice"><span class="who">SALT (@SALTY_ALTY555)</span> &middot; <span class="stance">the commoditization data point</span><br>"I even get good coding out of local qwen3.8-flash. For me it's the planning stage and any computer use where I can tell." <a href="https://x.com/SALTY_ALTY555/status/2096769983389065321">reply</a> (6h)</div>
+<div class="voice"><span class="who">Trev (@whatdotcd)</span> &middot; <span class="stance">the taste complaint</span><br>"It feels like all of the RL is turning out Jacob Collier ass code I want some blink 182 code. Simple is hard!" <a href="https://x.com/whatdotcd/status/2096830263993237597">quote-post</a> (2h)</div>
+
+<h2>X and HN are having two different conversations</h2>
+<p>X is relitigating capability: did coding progress stall, or did the testers? HN's front page today has no saturation debate at all - instead it's running the workflow layer: <a href="https://news.ycombinator.com/item?id=49589914">"Ask HN: How do you manage skills files?"</a> (101 points) and the agent-memory Show HN wave from this week's <a href="theo-agent-memory-not-a-category.html">Theo brief</a>. In other words: X argues about whether the models still improve; HN has quietly moved on to the ergonomics that dax says are the real remaining gains. The two timelines are describing the same plateau from either side of it.</p>
+
+<h2>The details that matter</h2>
+<ol class="findings">
+<li><strong>The method is the news.</strong> A fixed set of unsolved issues, re-run against every new model, is a private eval - the instrument practitioners trust now that public benchmarks are saturated. Casado's test set going flat is a stronger signal than any benchmark score. <span class="interp">And it's falsifiable in public: anyone with a private set can run the same experiment on Astra and post the delta. Nobody has.</span></li>
+<li><strong>The carve-outs draw the actual frontier map.</strong> Step change: greenfield, 3D, one-shot apps, computer use. Flat: existing codebases, legacy constraints, the work most professionals are paid to do. <span class="interp">That split inverts the enterprise pitch - the gains live exactly where there's no existing code, and existing code is the enterprise.</span></li>
+<li><strong>"You are the gap" is a double-edged verdict.</strong> If output now scales with the user's specification skill, then model releases have stopped mattering for coding - which is Casado's claim restated as a rebuttal. <span class="interp">The spiciest reply and the post agree more than they disagree; the fight is over whose fault the plateau is, not whether there is one.</span></li>
+<li><strong>The commoditization tell.</strong> A local Qwen flash model delivering "good coding" means the coding bar is clearable without frontier labs at all. <span class="interp">Saturated vs commoditized is a distinction with a price tag: one says progress stopped, the other says progress no longer differentiates. For anyone building on these models, the second is the one that matters.</span></li>
+<li><strong>Same weekend, opposite headlines.</strong> Jensen Huang declared AGI over these same models 12 hours before Casado's post. <span class="interp">The supplier measuring benchmarks and the practitioner measuring his issue backlog reached opposite conclusions within half a day - the cleanest illustration yet that "AGI arrived" and "coding saturated" can both be locally true.</span></li>
+</ol>
+
+<h2>The strongest case for each side</h2>
+<div class="sides">
+<div class="side">
+<h3>"The plateau is real"</h3>
+<p class="label">Steelman</p>
+<p class="steel">Casado has every commercial reason to hype these models - a16z's portfolio is AI - and instead he published that his private test set stopped moving. The corroboration is structural, not anecdotal: local models clear the coding bar, the demo wave is entirely greenfield, vendor executives admit gains survive only at the extremes, and nobody in 166 replies has produced an existing-codebase counter-example. Coding was the first capability to be conquered and it's the first to saturate - because "produce plausible code" was always the tractable part, and the hard residue (legacy context, taste, specification) isn't a model capability at all.</p>
+<p class="label">Strawman (what the other side hears)</p>
+<p>"My workflow didn't improve, therefore progress stopped" - one investor's issue backlog, elevated to a law of the frontier.</p>
+</div>
+<div class="side">
+<h3>"Saturated describes your workflow, not the model"</h3>
+<p class="label">Steelman</p>
+<p class="steel">Every previous "plateau" in this field was one technique away from evaporating - chain-of-thought, tool use, agents, RL on verifiable tasks. The people reporting step changes right now (3D scenes, one-shot games, computer use) are the ones who changed how they work. A fixed test set measures fit to yesterday's workflow: it can't register capability that arrives on a new surface. The same post that claims coding is flat concedes computer use jumped - which is what "the frontier moved" looks like every single time. Declaring saturation from inside a settled workflow is how you get left behind by the next one.</p>
+<p class="label">Strawman (what the other side hears)</p>
+<p>"Just prompt better" - the unfalsifiable defense where no flat result ever counts as evidence, because the tester is always to blame.</p>
+</div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><p><strong>Pending his position.</strong> He hasn't weighed in on the coding-saturation question yet. Candidate angles once he does:</p>
+<ul class="plain">
+<li><strong>The private-eval reply:</strong> the signal that matters is practitioners' fixed test sets going flat - has his own (voice/generative-UI tasks) moved with Astra? A builder posting his actual private-eval delta is the rarest and most valuable thing in this thread.</li>
+<li><strong>The greenfield/legacy inversion:</strong> the gains live where there's no existing codebase - which is exactly where enterprises don't. Saturation for the buyer, step change for the hobbyist.</li>
+<li><strong>The commoditization point:</strong> when local flash models clear the coding bar, "saturated" and "commoditized" stop being different - and the value migrates to harness, memory, and workflow (tying this week's Theo debate to this one).</li>
+<li><strong>The double agreement:</strong> Casado and his top reply both say the user is now the binding constraint - the fight is over blame assignment for a plateau both sides already concede.</li>
+</ul>
+<p>No reply will be drafted until he states his position in his own words.</p></div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li>Martin Casado's post: <a href="https://x.com/martin_casado/status/2096648261759389983">x.com/martin_casado/status/2096648261759389983</a> (Sep 6, 10:44 PM IST; 114.7K views, 166 replies) and <a href="https://x.com/martin_casado/status/2096655057689440285">the test-set follow-up</a></li>
+<li>dax: <a href="https://x.com/thdxr/status/2096700078371094711">x.com/thdxr/status/2096700078371094711</a></li>
+<li>Jeetu Patel: <a href="https://x.com/jpatel41/status/2096649069187997839">x.com/jpatel41/status/2096649069187997839</a></li>
+<li>Ivan Makarov: <a href="https://x.com/ivan_makarov/status/2096654831809355997">x.com/ivan_makarov/status/2096654831809355997</a> &middot; Danielle Fong: <a href="https://x.com/DanielleFong/status/2096711308834205945">x.com/DanielleFong/status/2096711308834205945</a></li>
+<li>homeserversltd: <a href="https://x.com/homeserversltd/status/2096697631514730948">x.com/homeserversltd/status/2096697631514730948</a> &middot; Shannon Sands: <a href="https://x.com/max_paperclips/status/2096719736130482586">x.com/max_paperclips/status/2096719736130482586</a></li>
+<li>SALT: <a href="https://x.com/SALTY_ALTY555/status/2096769983389065321">x.com/SALTY_ALTY555/status/2096769983389065321</a> &middot; Trev: <a href="https://x.com/whatdotcd/status/2096830263993237597">x.com/whatdotcd/status/2096830263993237597</a></li>
+<li>HN workflow-layer threads: <a href="https://news.ycombinator.com/item?id=49589914">"How do you manage skills files?"</a></li>
+<li>Related briefs: <a href="jensen-agi-arrived.html">Jensen's "AGI has arrived"</a>, <a href="llm-benchmarks-dont-reflect-capabilities.html">benchmarks vs capabilities</a>, <a href="theo-agent-memory-not-a-category.html">the agent-memory category fight</a></li>
+</ul>
+
+<footer>Generated September 7, 2026 &middot; opinion brief - no position taken, no reply drafted &middot; <a href="index.html">all briefs</a></footer>
+</body>
+</html>
