@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: "We have a year to fix security everywhere" - the open-weight hacking-model deadline argument, and HN's pushback</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>"We have a year to fix security everywhere": the argument that open-weight hacking models just crossed the line</h1>
+<div class="meta">September 8, 2026 on the HN front page (124+ pts, 80+ comments this morning) &middot; candidate source: jyn.dev essay arguing GLM 5.3-flash makes autonomous exploitation available to anyone with savings &middot; <span class="score">blow-up: medium-high (a deadline claim with named benchmarks, simonw saying the deadline is shorter, and a live skeptic camp calling it security-salesman framing)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>GLM is a family of open-weight AI models from Z.ai (a Chinese lab) - "open-weight" means anyone can download and run them, and volunteers have released "abliterated" versions with the safety refusals surgically removed (0% refusal on a standard harmful-request test). jyn's essay argues three things are now simultaneously true: these models run on ordinary savings ($6-10K of hardware), they are near-frontier at finding and exploiting software vulnerabilities (84.5% on CyberGym, a benchmark of reproducing real past CVEs), and frontier labs' patching programs (Project Glasswing, Daybreak) cannot outrun deployment reality - a patched kernel does nothing for a power grid running Windows Server 2012. Since open weights historically trail the frontier by 3-6 months, the essay's deadline: within about a year, an Astra-level model is downloadable by anyone, willing to hack anything. Simon Willison's reply in the thread: "I don't think we even have a year."</div>
+
+<h2>What happened</h2>
+<p>The essay <a href="https://jyn.dev/a-year-to-fix-security/">"we have a year to fix security everywhere"</a> (jyn.dev, dated Sep 4) hit the HN front page this morning (<a href="https://news.ycombinator.com/item?id=49605691">thread</a>, submitted 10:18 AM IST). The core chain:</p>
+<blockquote>"Just about anyone can run GLM 5.3-flash if they have a bit of savings, continuously, day and night. Just about anyone can use GLM 5.3-flash for just about any task, including to malicious ends. GLM 5.3-flash is so good at those tasks that human involvement in those tasks can be negligible. As a result, we are now in a world where cybersecurity attacks can be run in a for loop."</blockquote>
+<p>The numbers offered: GLM 5.3 scores 84.5% on CyberGym (reproducing real, patched vulnerabilities from public source + CVE description - ahead of GPT-5.6 Sol's 83.6%) and 54.4% on ExploitBench (partial-credit exploitation, where GPT-6 Astra holds 100%). And the policy ask: fund remediation, mandate penetration testing, incentivize airgapping, penalize unexamined security posture - "carrot and stick," with deadlines tied to discovery.</p>
+
+<h2>How we got here</h2>
+<ul class="plain">
+<li><strong>The offense/defense asymmetry flipped quietly.</strong> Frontier labs saw this coming and funded pre-emptive patching (Glasswing, Daybreak) - which the essay notes were then "sold as products," free credits to security orgs notwithstanding. The discovery side industrialized; the deployment side did not.</li>
+<li><strong>Abliteration matured.</strong> Refusal removal used to degrade models noticeably. The essay cites DealignAI's abliterated GLM scoring 0% on HarmBench-320 refusals - the guardrail is now optional, not just weak.</li>
+<li><strong>Consumer hardware caught up.</strong> The M5 Mac Studio (256GB unified memory, ~$9.5K, out Sep 22) is the essay's symbol: near-frontier cyber capability on a prosumer desktop at usable speeds.</li>
+<li><strong>The insider rumbling predates the essay.</strong> On Sep 6, Manish (ManishEarth): "yeah I have access to Daybreak, work with people with access to Mythos and Daybreak Red and it's scary. everyone is scrambling a bit, especially now that the latest GLM is super good too."</li>
+</ul>
+
+<h2>What's new today (monitoring)</h2>
+<ol class="findings">
+<li><strong>Simon Willison thinks the deadline is wrong in the scary direction.</strong> "I don't think we even have a year. The current batch of LLMs are ferociously good at identifying vulnerabilities." <span class="interp">When the thread's most-cited practitioner one-ups the alarm instead of deflating it, the Overton window of the thread is set: the debate is about timeline, not whether.</span></li>
+<li><strong>The sharpest skeptic caught an internal contradiction.</strong> hypfer: the essay says defenders can't rely on one-off prompts ("LLMs are good at writing patches, but not as one-off-prompts") while claiming attackers run exploitation "in a for loop." <span class="interp">Same model, same loop economics - the essay can't give attackers turnkey automation and defenders friction without an argument, and it doesn't make one.</span></li>
+<li><strong>The cried-wolf counter has receipts.</strong> techpression: "Remember how GLM 5.3 was going to cause massive hacks, break banks and ruin everything... And yet here we are." <span class="interp">The strongest anti-alarm evidence is the missing body count - capability benchmarks keep arriving before the disasters do. Whether that's a lag or a ceiling is the actual disagreement.</span></li>
+<li><strong>The incentive cynicism runs both ways.</strong> petesergeant: "a world where a defender-LLM is essentially required is great news for people selling inference." zkmon: "the standard strategy of a security salesman since 1945 - develop dangerous weapons, show the damage, sell cover to the terrified." <span class="interp">Both the labs funding defense and the essay raising alarm get read as sales motions - motive-trust is now load-bearing in every AI-risk thread.</span></li>
+</ol>
+
+<h2>The argument map</h2>
+<div class="map"><ul>
+<li><strong>Claim (jyn):</strong> open-weight near-frontier cyber capability + removed refusals + consumer hardware = autonomous exploitation available to anyone within ~a year.</li>
+<li><strong>Support A (benchmarks):</strong> CyberGym 84.5% (leader), ExploitBench 54.4%, trend line improving.</li>
+<li><strong>Support B (deployment lag):</strong> the bottleneck is rolling out fixes to critical infrastructure, not finding bugs.</li>
+<li><strong>Support C (lag compression):</strong> open weights trail 3-6 months; Astra-level open model by next year.</li>
+<li><strong>Counter A (no body count):</strong> the capability has existed for months; the predicted wave hasn't happened.</li>
+<li><strong>Counter B (internal contradiction):</strong> attackers get "for loop" automation but defenders need more than one-off prompts - asymmetric and unjustified.</li>
+<li><strong>Counter C (practice still works):</strong> protocolture - "Best Practice will save you. Engineer assuming zero days in path"; LoganDark's exposure hygiene.</li>
+<li><strong>Counter D (motive):</strong> defense-industrial incentives on both the labs' and the essayist's side.</li>
+<li><strong>Wildcard (andy_ppp):</strong> labs may cripple open security capability or backdoor it - the deadline assumes static policy.</li>
+</ul></div>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">jyn (jyn.dev)</span> &middot; <span class="stance">the deadline thesis</span><br>"we are now in a world where cybersecurity attacks can be run in a for loop... I think it's likely we'll see an Astra-level GLM model by this time next year. And when that happens, there's going to be a high risk of successful cybersecurity attacks on public or private infrastructure." <a href="https://jyn.dev/a-year-to-fix-security/">essay</a> &middot; <a href="https://news.ycombinator.com/item?id=49605691">HN thread</a></div>
+<div class="voice"><span class="who">Simon Willison (@simonw on HN)</span> &middot; <span class="stance">the timeline is worse</span><br>"I don't think we even have a year. The current batch of LLMs are ferociously good at identifying vulnerabilities." <a href="https://news.ycombinator.com/item?id=49605795">comment</a></div>
+<div class="voice"><span class="who">hypfer (HN)</span> &middot; <span class="stance">the internal-contradiction catch</span><br>Defenders being told one-off prompts don't work while attackers allegedly get fire-and-forget automation "conflicts with what is written on the attacking side" - plus pushback on framing skeptics as not understanding the tech. <a href="https://news.ycombinator.com/item?id=49605920">comment</a></div>
+<div class="voice"><span class="who">techpression (HN)</span> &middot; <span class="stance">the cried-wolf counter</span><br>"Remember how GLM 5.3 was going to cause massive hacks, break banks and ruin everything (it was even newsworthy since media picked up how people were working overtime in preparation). And yet here we are." <a href="https://news.ycombinator.com/item?id=49606015">comment</a></div>
+<div class="voice"><span class="who">Manish (@ManishEarth)</span> &middot; <span class="stance">insider confirmation (Sep 6, background)</span><br>"yeah I have access to Daybreak, work with people with access to Mythos and Daybreak Red and it's scary. everyone is scrambling a bit, especially now that the latest GLM is super good too" <a href="https://x.com/ManishEarth/status/2096517723803263264">post</a></div>
+<div class="voice"><span class="who">protocolture (HN)</span> &middot; <span class="stance">best-practice confidence</span><br>"Best Practice will save you. We can engineer assuming there are zero days in path. Go to your CTO now cap in hand and ask for overlapping controls, wafs, application monitoring, backups and all the other shit you haven't been doing." <a href="https://news.ycombinator.com/item?id=49605896">comment</a></div>
+<div class="voice"><span class="who">aenis (HN)</span> &middot; <span class="stance">less time, cost is the only brake</span><br>"I think we have less time and the only remaining limitation is the actual cost to run such hacking campaigns... one can rent a GPU cluster to run such workloads at speed." <a href="https://news.ycombinator.com/item?id=49606011">comment</a></div>
+<div class="voice"><span class="who">rechelon (@rechelon@mastodon.social)</span> &middot; <span class="stance">the political absurdist read (124 likes)</span><br>"It's so weird that there's 0day generating machines now and anarchists aren't chanting CRIME CRIME CRIME in unison everywhere. Man, how times have changed." <a href="https://x.com/rechelon/status/2096053946565660957">post</a></div>
+<div class="voice"><span class="who">sho (HN)</span> &middot; <span class="stance">the hardware-reality jab</span><br>On the M5 Mac Studio running GLM fast: "The author has obviously never ran an LLM on a mac! In 3 seconds, it will have possibly started to think about maybe scheduling a date to contemplate the planning timeline for processing the second token." <a href="https://news.ycombinator.com/item?id=49605803">comment</a></div>
+
+<h2>Where X and Hacker News diverge</h2>
+<p><strong>HN is arguing engineering practice; X is arguing vibes and motives.</strong> HN's 80+ comments litigate deployment friction, memory-safe languages, microkernels, and whether the essay contradicts itself. X's pickups are thinner but more political: rechelon's "0day generating machines" (124 likes) and ManishEarth's insider-scramble confirmation. Nobody big on X has quote-posted the essay with a take yet - the X amplification window is open right now.</p>
+<p>Watch: if simonw blogs his "less than a year" line, or if Z.ai/DealignAI respond, the story jumps tiers. A real-world GLM-attributed exploit is the event that ends the debate.</p>
+
+<h2>The facts, dissected</h2>
+<ul class="plain">
+<li><strong>The benchmarks are real but measure reproduction,</strong> not discovery: CyberGym scores re-finding known CVEs from public code plus a description. Novel zero-day generation is a harder, less-measured claim - the essay's "0day machines" framing runs ahead of its cited numbers.</li>
+<li><strong>The "one year" is an extrapolation,</strong> not a measurement: GLM's historical 3-6 month frontier lag, extended to "Astra-level by this time next year." Plausible, not established.</li>
+<li><strong>The refusal-removal claim is the strongest single fact:</strong> 0% HarmBench-320 refusals on the abliterated model means willingness is a solved problem for attackers; capability remains the question.</li>
+<li><strong>The deployment asymmetry is the load-bearing insight</strong> and the least contested: finding bugs got cheap; shipping fixes to hospitals, grids, and local governments did not. Even skeptics in the thread accept this leg.</li>
+<li><strong>Conceded in-essay:</strong> abliterated models may be worse at malicious tasks they weren't trained on, and "break this" to working exploit may still need humans. "But those things are temporary" is doing the heavy lifting.</li>
+</ul>
+
+<h2>Both sides, steelmanned and strawmanned</h2>
+<div class="sides">
+<div class="side">
+<h3>The deadline is real (jyn, simonw)</h3>
+<p><span class="label">Steelman</span></p>
+<p>Every leg is independently verified: the models reproduce real CVEs at scale, the refusals are gone, the hardware is consumer-priced, and the defense bottleneck is deployment - which no model accelerates. The missing disasters so far prove nothing: exploitation campaigns have a cost-and-motivation ramp, and the lag between capability and incident has always been measured in quarters. The time to fund remediation is before the brownout, and policy cycles are slower than model cycles.</p>
+<p><span class="label">Strawman (how critics caricature it)</span></p>
+<p>"The benchmark says it can re-derive last year's CVEs, therefore the power grid has twelve months. Sign the grant proposal before the vibes wear off."</p>
+</div>
+<div class="side">
+<h3>The deadline is a sales pitch (the skeptics)</h3>
+<p><span class="label">Steelman</span></p>
+<p>Capability demos have predicted imminent cyber-apocalypse every quarter for two years, and the body count is still zero - because the hard part was never finding vulnerabilities, it's weaponizing them against defended, heterogeneous, monitored targets, and that's where humans are still load-bearing. The essay's own asymmetry gives the game away: defenders allegedly need careful loops while attackers get a for loop. Meanwhile everyone raising the alarm sells the cure - inference, pentesting credits, or consulting. Patch your stuff, segment your network, and stop funding panic.</p>
+<p><span class="label">Strawman (how supporters caricature it)</span></p>
+<p>"Nothing has happened yet, so nothing will ever happen - the same due diligence that brought you Windows Server 2012 in a substation, now with the confidence of survival bias."</p>
+</div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><strong>Pending his position.</strong> Candidate angles once he weighs in: (a) the deployment asymmetry as the real story - discovery is solved, remediation is a logistics problem, and policy should fund the boring leg (maps to his agent-work: agents that PATCH are worth more than agents that FIND); (b) the internal-contradiction catch amplified - if offense runs in a for loop, so does defense, and the essay never explains the asymmetry; (c) the India angle - the essay's policy asks are US/EU-shaped (NERC, DORA, FTC); India's critical-infrastructure posture under CERT-In is a different and more exposed story; (d) the trust note - both alarm and calm are being sold by someone, and the incentives audit is now part of reading any AI-risk claim.</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li>The essay: <a href="https://jyn.dev/a-year-to-fix-security/">jyn.dev/a-year-to-fix-security</a></li>
+<li>The HN thread: <a href="https://news.ycombinator.com/item?id=49605691">news.ycombinator.com/item?id=49605691</a> (124+ pts, 80+ comments, front page Sep 8 morning IST)</li>
+<li>simonw's comment: <a href="https://news.ycombinator.com/item?id=49605795">news.ycombinator.com/item?id=49605795</a></li>
+<li>hypfer's contradiction catch: <a href="https://news.ycombinator.com/item?id=49605920">news.ycombinator.com/item?id=49605920</a></li>
+<li>ManishEarth's insider note (Sep 6): <a href="https://x.com/ManishEarth/status/2096517723803263264">x.com/ManishEarth/status/2096517723803263264</a></li>
+<li>rechelon's political read (Sep 5): <a href="https://x.com/rechelon/status/2096053946565660957">x.com/rechelon/status/2096053946565660957</a></li>
+<li>Related briefs: <a href="clem-hf-hack-transparency.html">the HF disclosure</a> &middot; <a href="atcoder-astra-contamination-psyho.html">capability at AtCoder</a> &middot; <a href="agent-swarm-german-wiki.html">agents behaving unexpectedly</a></li>
+</ul>
+
+<footer>Generated September 8, 2026 &middot; opinion brief, not a drafted reply &middot; reply targets must stay under 24h old; older material appears only as background voices</footer>
+</body>
+</html>
