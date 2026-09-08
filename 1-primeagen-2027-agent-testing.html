@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: ThePrimeagen's 2027 prediction - agents replace Playwright tests by driving the desktop</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>ThePrimeagen's 2027 prediction: agents will replace Playwright tests by just driving your desktop</h1>
+<div class="meta">September 8, 2026, 6:17 AM &middot; candidate source: ThePrimeagen's falsifiable prediction (39 replies, 347 likes, 15.4K views in under an hour) &middot; <span class="score">blow-up: medium-high (a testable prediction from one of the biggest dev voices, with the replies already splitting on determinism vs coverage)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>Playwright tests are scripts that click through your web app automatically to check it still works. ThePrimeagen - one of the most-watched developer voices on X - predicts that by 2027, instead of writing those scripts, teams will point an AI agent at the app and let it crawl and use the software through the actual desktop, the way a human tester would. He says he is already doing it for Omarchy (his Linux setup) and it beats scripting. The replies immediately split: practitioners saying they already verify this way, skeptics asking why waste tokens when the model could just write better Playwright scripts, and a security camp pointing out that agents clicking around your app is also exactly what an attacker would do.</div>
+
+<h2>What happened</h2>
+<p>At 6:17 AM IST, ThePrimeagen <a href="https://x.com/ThePrimeagen/status/2097124699335491704">posted</a>:</p>
+<blockquote>"2027 prediction: Models will be replacing tons of playwrite tests as a means to crawl and use your application using desktop usage. Just doing it now for Omarchy just shows how crazy powerful it is and how hard it is to do the same thing with scripts."</blockquote>
+<p>He immediately hedged in his own reply: "I cannot wait for my plate of crow, but I am going to continue to invest into this because I think its shockingly powerful." Within the hour: 39 replies, 347 likes, 15.4K views - and the disagreement is substantive, not performative.</p>
+
+<h2>How we got here</h2>
+<ul class="plain">
+<li><strong>Computer-use crossed from demo to daily driver this month.</strong> The Astra launch weekend put agentic desktop control in front of every developer; the same capability wave produced both the spectrogram awe (<a href="astra-spectrogram-generalization-curran.html">the Curran brief</a>) and the 5-hour-limit rationing (<a href="openai-5h-limit-codex.html">the limits brief</a>). Testing is simply the next workload in line.</li>
+<li><strong>E2E testing has been the agreed-upon pain for a decade.</strong> Scripts are brittle against rendering fuzziness and only cover paths someone anticipated. A model that can see the screen promises coverage of the unanticipated - at the cost of determinism, which is the property CI pipelines are built on.</li>
+<li><strong>The security framing is already attached.</strong> The same "crawl and use your application" capability, pointed at someone else's app, is the attack pattern of the summer's agent incidents (<a href="clem-hf-hack-transparency.html">the HF disclosure brief</a>). One early reply: LLMs become the new antivirus - pay monthly or rogue agents leak your data.</li>
+</ul>
+
+<h2>What's new today (monitoring)</h2>
+<ol class="findings">
+<li><strong>Practitioners are confirming the practice, not just the prediction.</strong> vogel: "this is what i already have been doing... had them actually verify with a browser subagent, if it passed its good." <span class="interp">The prediction's leading edge is already in production at small scale - the 2027 date may be conservative, which is its own counter-take.</span></li>
+<li><strong>The sharpest counter is economic, not technical.</strong> Keyur Rao: wouldn't the model just get better at writing Playwright scripts instead of wasting tokens driving a desktop? <span class="interp">This is the real fork: agents as test authors (deterministic artifacts, cheap reruns) vs agents as testers (exploratory coverage, expensive reruns). The answer probably differs by change frequency - and that nuance is where a smart reply lives.</span></li>
+<li><strong>The strongest pro argument names Playwright's actual ceiling.</strong> TheGitAI: "Playwright only tests the happy path you already anticipated." GutenLeinad concedes cost/time but says AI gives far more insight for real E2E. <span class="interp">Both sides agree scripts are incomplete; they disagree on whether the fix is better scripts or no scripts.</span></li>
+<li><strong>A WebMCP undercurrent is forming.</strong> A quote-post predicts WebMCP becomes popular - the pattern where apps expose agent-callable interfaces instead of agents pixel-driving the desktop. <span class="interp">That is the third option neither side named: if apps grow agent-native APIs, the desktop-driving prediction dies not because it failed but because it was bypassed.</span></li>
+</ol>
+
+<h2>The argument map</h2>
+<div class="map"><ul>
+<li><strong>Claim (ThePrimeagen):</strong> by 2027, agent desktop-usage replaces a large share of scripted E2E tests.</li>
+<li><strong>Support A (already doing it):</strong> browser-subagent verification works today.</li>
+<li><strong>Support B (coverage):</strong> scripts only test anticipated paths; agents explore.</li>
+<li><strong>Counter A (economics):</strong> cheaper to have the model write deterministic scripts than burn tokens on desktop driving.</li>
+<li><strong>Counter B (determinism):</strong> CI needs reproducible pass/fail; agent runs are stochastic.</li>
+<li><strong>Counter C (security):</strong> normalizing agents crawling apps normalizes the attack surface too.</li>
+<li><strong>Third option (WebMCP):</strong> apps expose agent interfaces; neither scripts nor pixel-driving wins.</li>
+<li><strong>Falsifier:</strong> by end of 2027, check what share of CI E2E steps in major OSS repos are agent-driven vs script-driven.</li>
+</ul></div>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">ThePrimeagen (@ThePrimeagen)</span> &middot; <span class="stance">the prediction, hedged</span><br>"2027 prediction: Models will be replacing tons of playwrite tests as a means to crawl and use your application using desktop usage." + "I cannot wait for my plate of crow, but I am going to continue to invest into this because I think its shockingly powerful." <a href="https://x.com/ThePrimeagen/status/2097124699335491704">post</a> &middot; <a href="https://x.com/ThePrimeagen/status/2097125012410888377">self-reply</a></div>
+<div class="voice"><span class="who">TheGitAI (@thegitai)</span> &middot; <span class="stance">pro, with the best argument</span><br>"Everyone in the replies terrified of 'non-deterministic tests' is missing the point. Playwright only tests the happy path you already anticipated." <a href="https://x.com/thegitai/status/2097131063223132610">reply</a></div>
+<div class="voice"><span class="who">vogel (@ryanvogel)</span> &middot; <span class="stance">already doing it</span><br>"This is what i already have been doing, i didn't let my agents write tests and I had them actually verify with a browser subagent, if it passed its good." <a href="https://x.com/ryanvogel/status/2097125731037790673">reply</a></div>
+<div class="voice"><span class="who">Keyur Rao (@keyurrao)</span> &middot; <span class="stance">the economic counter</span><br>"Wouldn't it just get better at using playwrite to write those scripts instead of wasting tokens on this? Even as tokens get cheaper I'm finding it..." <a href="https://x.com/keyurrao/status/2097134736783167918">reply</a></div>
+<div class="voice"><span class="who">GutenLeinad (@GutenLeinad)</span> &middot; <span class="stance">pro, cost-conceding</span><br>"There is no debate that AI models are far better for actual E2E tests. The 'problem' is really just cost and time but AI models can give you so much more insight." <a href="https://x.com/GutenLeinad/status/2097131221016838152">reply</a></div>
+<div class="voice"><span class="who">Scott (@ScottProgrammer)</span> &middot; <span class="stance">why scripts are brittle</span><br>"The problem with playwrite (and similar) is that there is always some fuzziness with rendering (loading times) that realistically did not matter for a human..." <a href="https://x.com/ScottProgrammer/status/2097132618794078347">reply</a></div>
+<div class="voice"><span class="who">NodeLookup (@nodelookup)</span> &middot; <span class="stance">the security reframe</span><br>"Llms will just become the new anti virus. If you don't have it 'rogue agents' hack and release your data. Don't want that? You need a full monthly subscription." <a href="https://x.com/nodelookup/status/2097134723135082624">reply</a></div>
+<div class="voice"><span class="who">Dan Zabrotski (@dantechceo)</span> &middot; <span class="stance">the WebMCP third option</span><br>"and WebMCP gonna be popular" <a href="https://x.com/dantechceo/status/2097127613516906722">quote post</a></div>
+<div class="voice"><span class="who">Andrew Caccamis (@CaccamisAndrew)</span> &middot; <span class="stance">price-driven adoption</span><br>"He's probably right. As AI gets cheaper this will probably become the way to do it." <a href="https://x.com/CaccamisAndrew/status/2097130902836977752">quote post</a></div>
+<div class="voice"><span class="who">Based Frog (@clankeruser)</span> &middot; <span class="stance">the one-word counter</span><br>"&gt;slow" <a href="https://x.com/clankeruser/status/2097133125595783200">quote post</a></div>
+
+<h2>Where X and Hacker News diverge</h2>
+<p><strong>X is having the practice fight; HN has not picked this up yet.</strong> No HN thread on the prediction as of scan time. HN's historical artifacts on the theme (web-eval-agent, accessibility-tree automation Show HNs) are tools, not thesis debates. The X thread is ahead because ThePrimeagen attached a date and his reputation - HN tends to engage this topic only when someone ships a benchmark or a postmortem.</p>
+<p>Watch: if a "we replaced our Playwright suite with agents for 30 days" field report appears, it will do on HN what this prediction is doing on X - and the Bottleneck agents brief (<a href="bottleneck-7-agents-businesses.html">here</a>) is the standing counter-example of what unconstrained agents do with real systems.</p>
+
+<h2>The facts, dissected</h2>
+<ul class="plain">
+<li><strong>The claim is falsifiable and dated:</strong> "2027," "tons of" Playwright tests replaced by desktop-usage agents. Vague denominator, but checkable in direction by end of 2027.</li>
+<li><strong>The evidence offered is personal practice,</strong> not data: "just doing it now for Omarchy." One maintainer, one project - real signal, small sample.</li>
+<li><strong>Conceded in-thread:</strong> cost and time are the actual blockers (GutenLeinad), and stochastic results vs CI's determinism requirement is unresolved - nobody in the first hour solved the flaky-oracle problem.</li>
+<li><strong>What the prediction misses:</strong> the WebMCP/agent-interface path, where apps become agent-legible and neither scripts nor pixel-driving is needed. If apps adapt to agents, the desktop-driving middle step shrinks.</li>
+<li><strong>Context that matters:</strong> this prediction lands in the same week as the 5-hour-limit rationing - the economics counter ("wasting tokens") is not hypothetical while subscriptions are being throttled.</li>
+</ul>
+
+<h2>Both sides, steelmanned and strawmanned</h2>
+<div class="sides">
+<div class="side">
+<h3>Agents replace scripted E2E (ThePrimeagen)</h3>
+<p><span class="label">Steelman</span></p>
+<p>Scripts encode only the paths someone predicted; most production bugs live in the paths nobody predicted. An agent that uses the app like a human finds those by construction, and practitioners are already shipping this with browser subagents. Token costs fall every quarter, so the economics counter has a half-life. The determinism objection is a tooling problem - record the agent's trace, replay it, gate on it - not a fundamental one.</p>
+<p><span class="label">Strawman (how critics caricature it)</span></p>
+<p>"Let a stochastic model click around for ten minutes and call it a test suite. When it passes, you learn nothing reproducible; when it fails, you cannot tell bug from hallucination. CI stands for continuous integration, not continuous vibes."</p>
+</div>
+<div class="side">
+<h3>Scripts survive; agents write them (the counter)</h3>
+<p><span class="label">Steelman</span></p>
+<p>The sane end-state is models as test authors, not test runners: let the agent explore the app once, distill what it finds into deterministic Playwright code, and rerun that forever at near-zero marginal cost. You keep exploration and gain reproducibility. Desktop-driving on every CI run pays the token tax forever for coverage you could have compiled down to a script.</p>
+<p><span class="label">Strawman (how supporters caricature it)</span></p>
+<p>"Spend three years perfecting the art of writing brittle selectors, then defend them against the agents because the agents might make your expertise optional. The happy path is happy because it never meets a user."</p>
+</div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><strong>Pending his position.</strong> Candidate angles once he weighs in: (a) the fork - agents-as-authors vs agents-as-testers, and why change frequency decides which wins per repo; (b) the WebMCP bypass - the prediction assumes apps stay blind to agents, but the interface layer is moving (his own generative-UI work is adjacent evidence); (c) the timing irony - predicting token-hungry testing workflows the same week OpenAI re-throttles 5-hour budgets.</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li>ThePrimeagen's prediction (Sep 8, 6:17 AM): <a href="https://x.com/ThePrimeagen/status/2097124699335491704">x.com/ThePrimeagen/status/2097124699335491704</a></li>
+<li>His hedge: <a href="https://x.com/ThePrimeagen/status/2097125012410888377">x.com/ThePrimeagen/status/2097125012410888377</a></li>
+<li>Related briefs: <a href="openai-5h-limit-codex.html">the 5-hour limit</a> &middot; <a href="bottleneck-7-agents-businesses.html">agents with real money</a> &middot; <a href="clem-hf-hack-transparency.html">the HF disclosure</a></li>
+</ul>
+
+<footer>Generated September 8, 2026 &middot; opinion brief, not a drafted reply &middot; reply targets must stay under 24h old; older material appears only as background voices</footer>
+</body>
+</html>
