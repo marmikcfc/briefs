@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: "No AI" broke LibreOffice's download record - or did AI?</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>"No AI" broke LibreOffice's download record - and the top comments say AI did it</h1>
+<div class="meta">September 8, 2026 on the HN front page (327+ pts, 100+ comments) &middot; candidate source: Manual do Usu&aacute;rio writeup of The Document Foundation's "no AI is now a feature" push &middot; <span class="score">blow-up: medium (a feel-good anti-hype claim being falsified in real time by its own comment section, with a genuinely interesting structural story underneath)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>LibreOffice, the free open-source office suite, has been marketing itself as the office suite with no built-in AI - "no AI is now a feature," its foundation blogged on Sep 3. A writeup claims downloads just broke records because of that stance, and HN ran it to the front page. The top comments puncture the story two ways: the download numbers have been roughly flat since 2019 ("Unix timestamp counter breaks record after writing this comment"), and Simon Willison noticed on Sep 2 that OpenAI's desktop app quietly bundles a full copy of LibreOffice - meaning a chunk of those "record downloads" may be AI agents, not AI-weary humans. Underneath the irony is a real structural observation, made by Mat Velloso and others: AI agents are standardizing on open-source tools they can script freely, and that may matter far more than whether the suite has a chatbot in it.</div>
+
+<h2>What happened</h2>
+<p>The Document Foundation <a href="https://blog.documentfoundation.org/blog/2026/09/03/yes-no-ai-is-now-a-feature/">declared "no AI is now a feature"</a> on Sep 3, continuing a positioning that started with the 26.8 release notes ("And no built-in AI, of course"). Manual do Usu&aacute;rio then <a href="https://manualdousuario.net/en/libreoffice-download-record-no-ai/">framed the latest download record as a verdict</a>: users are rewarding the anti-AI stance. HN's <a href="https://news.ycombinator.com/item?id=49610538">thread</a> is where the claim met the data.</p>
+
+<h2>How we got here</h2>
+<ul class="plain">
+<li><strong>Every major suite shipped AI this cycle.</strong> Microsoft Copilot in Office, Gemini in Workspace - the default office experience now includes an assistant. LibreOffice chose the opposite lane, explicitly.</li>
+<li><strong>Simon Willison's Sep 2 find:</strong> the ChatGPT desktop app (formerly Codex) <a href="https://simonwillison.net/2026/Sep/1/codex-libreoffice/">bundles the entire LibreOffice suite</a> in a hidden cache folder for MS Office compatibility. Agents don't need Word licenses; they need a scriptable converter.</li>
+<li><strong>The anti-AI marketing wave.</strong> LibreOffice is not alone in selling absence; the bet is that AI fatigue is a market segment. The record-downloads claim is the first big "proof point" - which is why the falsification matters.</li>
+</ul>
+
+<h2>What's new today (monitoring)</h2>
+<ol class="findings">
+<li><strong>The record is real but the attribution is contested.</strong> HN's Aurornis pulled <a href="https://stats.documentfoundation.org/downloads">the foundation's own stats</a>: monthly downloads mostly flat since 2019; "record-breaking" weeks are a rising-tide artifact. <span class="interp">The story's engine - "users are fleeing AI" - currently has no clean data behind it.</span></li>
+<li><strong>The agent-bundling confounder is live.</strong> reilly3000 and jgbuddy in the thread: Codex/ChatGPT desktop installs pull a LibreOffice copy each. Nobody has published what fraction of downloads that is.</li>
+<li><strong>The more durable claim surfaced downstream.</strong> Velloso: "all your AI agents use LibreOffice rather than Microsoft Office APIs. The pattern will repeat." Tworek's version: open source gets trained-on and optimized-for for free - "Blender may have just won as a 3D asset creation software." <span class="interp">This is the argument that outlives the download chart: agents pick tools they can operate, and open formats win by default.</span></li>
+</ol>
+
+<h2>The argument map</h2>
+<ul class="map">
+<li><strong>Claim A (the headline):</strong> "No AI" marketing caused record downloads. Evidence: timing, foundation messaging. Counter: flat monthly stats since 2019; bundling confounder.</li>
+<li><strong>Claim B (the rebuttal):</strong> the record is noise plus agent installs - AI caused it, not anti-AI. Evidence: simonw's find, stats graph. Counter: bundle installs may not register as downloads at all (cache copies vs. download counter - unverified).</li>
+<li><strong>Claim C (the interesting one):</strong> regardless of who caused the chart, agents are standardizing on open-source tooling, which quietly shifts platform power away from API-gated incumbents. Evidence: Codex bundling, Blender pattern. Counter: one bundling decision is not a trend; Microsoft can ship agent-friendly APIs if it wants.</li>
+</ul>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">Simon Willison - <a href="https://x.com/simonw/status/2094864223683903800">X</a> / <a href="https://simonwillison.net/2026/Sep/1/codex-libreoffice/">blog</a></span> &middot; <span class="stance">found the confounder</span><br>"Just noticed the ChatGPT desktop app (previously named Codex) bundles a full copy of the LibreOffice open source office suite, tucked away in a hidden folder in the ~/.cache directory." (3.5K likes on X)</div>
+<div class="voice"><span class="who">Mat Velloso - <a href="https://x.com/matvelloso/status/2096366303485600050">X, Sep 6</a></span> &middot; <span class="stance">the structural claim</span><br>"Have you noticed that all your AI agents use LibreOffice rather than Microsoft Office APIs? The pattern will repeat."</div>
+<div class="voice"><span class="who">Jerry Tworek (OpenAI) - <a href="https://x.com/MillionInt/status/2096307407039426619">X, Sep 6</a></span> &middot; <span class="stance">open source as free training ground</span><br>"The unexpected benefit of open source is that it allows model training companies to train on using your software (and optimizing it) for free. Blender may have just won as a 3D asset creation software because the models will be better at using it than any proprietary ones."</div>
+<div class="voice"><span class="who">The Document Foundation - <a href="https://blog.documentfoundation.org/blog/2026/09/03/yes-no-ai-is-now-a-feature/">blog</a> / <a href="https://x.com/LibreOffice">X</a></span> &middot; <span class="stance">the marketing claim</span><br>"No built-in AI is now a feature of good, private software - not a limitation." (63K views)</div>
+<div class="voice"><span class="who">smokel (HN)</span> &middot; <span class="stance">statistical eye-roll</span><br>"The number of weekly downloads has simply been increasing over time... Calling each new high 'record-breaking' is a bit meaningless. Unix timestamp counter breaks record after writing this comment."</div>
+<div class="voice"><span class="who">hn_submit (HN)</span> &middot; <span class="stance">the true-believer reading</span><br>"Companies are totally blind to the fact that A.I. is a complete turn-off to many customers. Not having / using A.I. may even become a unique selling point."</div>
+<div class="voice"><span class="who">bluejay2387 / mchusma (HN)</span> &middot; <span class="stance">the builder's middle path</span><br>"I'd prefer... optional, easy to implement interfaces that increase the ability for the suite to be 'scripted' rather than implement AI directly." / "Can you control it agentically? If so it has all the ai features I would want."</div>
+
+<h2>Where X and Hacker News diverge</h2>
+<p>X heard the story a week early and went straight to the structural layer - agents standardizing on open tools (Velloso, Tworek, simonw's bundling find). HN got the marketing frame today and immediately litigated the chart itself: flat-since-2019 data, the meaninglessness of "record" weeks, and whether a bundled cache copy even counts as a download. X asks "who wins the agent era"; HN asks "is this graph lying." Both are poking the same hole from different sides: the download number cannot carry the story being hung on it.</p>
+
+<h2>The facts, dissected</h2>
+<ul class="plain">
+<li><strong>Verified:</strong> the foundation's no-AI positioning is official and repeated (26.8 notes, Sep 3 blog); the ChatGPT desktop app does bundle LibreOffice (simonw, with folder path); the foundation publishes its own download stats.</li>
+<li><strong>Contested:</strong> what the download curve actually shows. The record claim rests on weekly highs; the monthly view is flat since 2019 per HN commenters reading the foundation's own dashboard.</li>
+<li><strong>Unverified:</strong> whether bundled copies pass through the download counter at all - the entire "AI caused the record" joke hinges on this, and nobody in either thread has shown it.</li>
+<li><strong>What would settle it:</strong> the foundation's download telemetry methodology, and OpenAI saying whether the bundle phones the counter.</li>
+</ul>
+
+<h2>Both sides, steelmanned and strawmanned</h2>
+<div class="sides">
+<div class="side">
+<h3>"No AI" is a real feature, and users are voting</h3>
+<p><span class="label">Steelman</span></p>
+<p>AI fatigue is measurable sentiment, privacy-conscious users exist at scale, and a suite that promises your documents never leave your machine is making a legible, honorable product bet. Even if the record-week framing is sloppy, the direction - differentiation by restraint - is a coherent strategy incumbents literally cannot copy without cannibalizing their AI narrative.</p>
+<p><span class="label">Strawman</span></p>
+<p>"Users hate AI so much they're downloading LibreOffice in record numbers" - a claim its own comment section deflated within hours.</p>
+</div>
+<div class="side">
+<h3>The chart is noise; agents are the story</h3>
+<p><span class="label">Steelman</span></p>
+<p>The flat monthly series kills the marketing claim, and the bundling find reveals the actual growth driver: AI systems adopting open tools as substrate. LibreOffice's real win is not anti-AI branding - it is becoming the default document engine for agents precisely because it is open, scriptable, and license-free. Restraint on built-in AI and agent-friendliness are the same property seen from two sides: control stays with the operator.</p>
+<p><span class="label">Strawman</span></p>
+<p>"The record is 100% robots" - unproven, and probably not even how the counter works.</p>
+</div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><strong>Pending his stated position.</strong> Candidate angles: (1) the builder's reading - "can I control it agentically" is the only AI-feature question that matters, and LibreOffice accidentally passes; (2) the attribution takedown - marketing hung a story on a graph its own dashboard contradicts; (3) the Velloso/Tworek layer - agents picking open tools is the pattern to watch, Blender precedent included; (4) the restraint-is-feature defense done honestly. His take first, then we draft.</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li><a href="https://news.ycombinator.com/item?id=49610538">HN thread (327+ pts)</a> &middot; <a href="https://manualdousuario.net/en/libreoffice-download-record-no-ai/">Manual do Usu&aacute;rio writeup</a> &middot; <a href="https://blog.documentfoundation.org/blog/2026/09/03/yes-no-ai-is-now-a-feature/">TDF: "no AI is now a feature"</a> &middot; <a href="https://stats.documentfoundation.org/downloads">TDF download stats</a></li>
+<li><a href="https://simonwillison.net/2026/Sep/1/codex-libreoffice/">simonw: Codex bundles LibreOffice</a> &middot; <a href="https://x.com/simonw/status/2094864223683903800">on X</a> &middot; <a href="https://x.com/matvelloso/status/2096366303485600050">Mat Velloso</a> &middot; <a href="https://x.com/MillionInt/status/2096307407039426619">Jerry Tworek</a> &middot; <a href="https://x.com/LibreOffice">@LibreOffice</a></li>
+</ul>
+
+<footer>Built Sep 8, 2026 from the live HN thread, the foundation's blog and stats dashboard, and X posts verified by direct read. Phase 1 of 2 - opinion brief only; drafts await his stated position.</footer>
+</body>
+</html>
