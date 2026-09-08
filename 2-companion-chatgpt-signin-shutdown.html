@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: OpenAI publicly shuts down Companion, an iMessage agent built on "bring your ChatGPT account"</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>Launched at midnight, slapped by OpenAI before lunch: the Companion iMessage agent and the "Sign in with ChatGPT" wall</h1>
+<div class="meta">September 8, 2026 &middot; candidate source: OpenAI's Tibo publicly rejecting Companion's use of Sign in with ChatGPT (116 replies, 1.9K likes, 131K views in under 3 hours) &middot; <span class="score">blow-up: high - and personal: the launch post names Instinct, so whether to engage at all is a judgment call (see Drafts)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>"Sign in with ChatGPT" is OpenAI's version of "Sign in with Google" - a way for apps to confirm who you are via your ChatGPT account. Overnight, an 18-year-old YC founder launched Companion, an iMessage agent whose pitch is "bring your ChatGPT account (inherits context)" - it runs a headless Codex instance on your account and can drive apps, not just a browser. The launch tweet led with a dunk on a competitor ("Instinct is painfully slow"). This morning, OpenAI engineer Tibo (bio: "Codex &amp; ChatGPT @OpenAI") replied publicly: this is not an approved use - we allow pure open-source clients and partners, everyone else has to talk to us first. "Please see DM." A Community Note is now forming on the launch post. The live argument: is OpenAI doing reasonable platform stewardship, or running the exact gatekeeper playbook that "open" was supposed to kill?</div>
+
+<h2>What happened</h2>
+<p>Two posts, eight hours apart:</p>
+<p>12:44 AM IST - Aaryan Kushwah (@aaryankushwah, YC P26, among the youngest Indian founders in YC, building Result) <a href="https://x.com/aaryankushwah/status/2097045604937474201">launched Companion</a>:</p>
+<blockquote>"Instinct is painfully slow, so we built the world's best iMessage agent. Introducing Companion &gt; gpt-6 astra by default &gt; bring your ChatGPT account (inherits context) &gt; 1000+ plugins from marketplace &gt; isolated computer with MCPs + CLIs"</blockquote>
+<p>591 likes, 669 bookmarks, 265K views overnight. A Community Note is now proposed on it: "OpenAI staff have stated this is not an approved use of Sign in with ChatGPT."</p>
+<p>6:44 AM IST - Tibo (@thsottiaux, OpenAI) <a href="https://x.com/thsottiaux/status/2097131394199896166">replied publicly</a>:</p>
+<blockquote>"Sorry, but this is not an approved use of Sign in With ChatGPT. We support pure OSS clients and others we have partnerships with, but you need to reach out and talk to us for that. Please see DM."</blockquote>
+<p>131K views, 1.9K likes, 116 replies in under three hours. No public response from the founder yet.</p>
+
+<h2>How we got here</h2>
+<ul class="plain">
+<li><strong>"Sign in with ChatGPT" launched as an identity play.</strong> OpenAI's <a href="https://help.openai.com/en/articles/20001410-sign-in-with-chatgpt">help doc</a> frames it as identity-provider sign-in for participating partners - Airtable, GitLab, HubSpot, Notion, Supabase, Vercel. The doc describes confirming identity, not handing an agent your whole account context.</li>
+<li><strong>Companion stretched sign-in into delegation.</strong> The pitch was not "prove who you are" but "inherit my ChatGPT context and act for me" - a headless Codex instance with an isolated computer, MCPs, and CLIs, driven from iMessage. Reviewers confirm it works well. That is a different product category than the partner list was built for.</li>
+<li><strong>The account-access gray zone has a history.</strong> The same tension ran through the OAuth-wrapping era of third-party ChatGPT clients: platforms want distribution without losing control of account access; builders want the user's existing context without a partnership process. Companion is the loudest test case this month.</li>
+<li><strong>The founder has been orbiting this space all week.</strong> On Sep 6 he shipped sodium.result.dev - "make your website more usable by instinct and every other agent" - quoting WebMCP discussion. Companion's launch dunk on Instinct is a positioning move, not a one-off.</li>
+</ul>
+
+<h2>What's new today (monitoring)</h2>
+<ol class="findings">
+<li><strong>A Community Note is forming on the launch post.</strong> "Readers proposed context: OpenAI staff have stated this is not an approved use of Sign in with ChatGPT. OpenAI supports pure OSS clients and partnership products; others must contact them." <span class="interp">Notes on launch posts are reputation-defining events - if it attaches, the dunk-first launch becomes the story's permanent frame.</span></li>
+<li><strong>Nobody can state the actual rule.</strong> The most useful reply asks it plainly: "Can you tell us what the issue is here, so as we make our own apps we know what to do / not do? Was Companion holding the auth? ...does it use a user-local codex exec/app-server and is that somehow not allowed for commercial apps?" <span class="interp">The demand is for a bright line: identity sign-in vs account delegation. Wherever OpenAI draws it becomes policy for every agent builder.</span></li>
+<li><strong>The product itself reviewed well.</strong> signulll (112K views): "an 18 year old kid built an imessage agent running a headless codex instance with astra where you sign in with your chatgpt account. it works incredibly well. it can use apps too, not just a browser. the primitives are getting absurdly powerful." <span class="interp">This is not a scam-takedown story - it is a good product hitting a policy wall, which is exactly why the policy debate has oxygen.</span></li>
+<li><strong>"Please see DM" is splitting the room.</strong> Some read it as professional (handle the ToS conversation privately); others as the gatekeeper move - the public slap plus private process. <span class="interp">The same two-line reply is being read as both stewardship and chokepoint. That ambiguity is the engagement surface.</span></li>
+</ol>
+
+<h2>The argument map</h2>
+<div class="map"><ul>
+<li><strong>Event:</strong> Companion launched on "bring your ChatGPT account"; OpenAI publicly rejected the usage within 8 hours.</li>
+<li><strong>OpenAI's position:</strong> Sign in with ChatGPT is an identity product for vetted partners and OSS clients; account-delegation agents need a conversation first.</li>
+<li><strong>Builder-side claim:</strong> the rules are unwritten - no public doc says where identity ends and delegation begins, so enforcement-by-tweet is the only spec.</li>
+<li><strong>Stewardship read:</strong> agent account access is a real abuse vector (billing, data, actions as the user); review before scale is responsible.</li>
+<li><strong>Gatekeeper read:</strong> "pure OSS clients and partners" = open for the powerless, closed for competitors; the DM is the moat.</li>
+<li><strong>Third rail:</strong> the user wants delegation - signulll's "the primitives are getting absurdly powerful" is demand, not defect.</li>
+<li><strong>Watch items:</strong> Aaryan's public response; whether the Community Note attaches; whether OpenAI publishes a written policy line.</li>
+</ul></div>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">Tibo (@thsottiaux, OpenAI - Codex &amp; ChatGPT per his bio)</span> &middot; <span class="stance">the enforcement</span><br>"Sorry, but this is not an approved use of Sign in With ChatGPT. We support pure OSS clients and others we have partnerships with, but you need to reach out and talk to us for that. Please see DM." <a href="https://x.com/thsottiaux/status/2097131394199896166">reply</a></div>
+<div class="voice"><span class="who">Aaryan Kushwah (@aaryankushwah)</span> &middot; <span class="stance">the launch (no public response yet)</span><br>"Instinct is painfully slow, so we built the world's best iMessage agent. Introducing Companion - bring your ChatGPT account (inherits context)..." <a href="https://x.com/aaryankushwah/status/2097045604937474201">post</a></div>
+<div class="voice"><span class="who">signüll (@signulll)</span> &middot; <span class="stance">hands-on review: it works</span><br>"an 18 year old kid built an imessage agent running a headless codex instance with astra where you sign in with your chatgpt account. it works incredibly well. it can use apps too, not just a browser. the primitives are getting absurdly powerful." <a href="https://x.com/signulll/status/2097117862632792524">review</a> (then, on the signup risk: "yeah i did it lol" - <a href="https://x.com/signulll/status/2097120963519271025">here</a>)</div>
+<div class="voice"><span class="who">Michael Darling (@darlingm48185)</span> &middot; <span class="stance">the demand for a bright line</span><br>"Can you tell us what the issue is here, so as we make our own apps we know what to do / not do? Was Companion holding the auth? Is that the issue? Or does it use a user-local codex exec/app-server and is that somehow not allowed for commercial apps?" <a href="https://x.com/darlingm48185/status/2097160752691896346">reply</a></div>
+<div class="voice"><span class="who">F. Thompson (@FilipeThompson)</span> &middot; <span class="stance">the rules-were-public counter</span><br>"If only people knew how to read: help.openai.com - Sign in with ChatGPT." <a href="https://x.com/FilipeThompson/status/2097137243831865487">reply</a></div>
+<div class="voice"><span class="who">Maximiliano Firtman (@maxifirtman)</span> &middot; <span class="stance">the irony read</span><br>"The vibe of coding biting its creator." <a href="https://x.com/maxifirtman/status/2097137556773028246">quote post</a></div>
+<div class="voice"><span class="who">David Notik (@davenotik)</span> &middot; <span class="stance">the user hesitation</span><br>"i'm hesitating" (on handing over his ChatGPT account at signup) <a href="https://x.com/davenotik/status/2097119846261473646">reply</a></div>
+
+<h2>Where X and Hacker News diverge</h2>
+<p><strong>X-native so far - no HN thread at scan time.</strong> X is litigating the drama (the dunk, the slap, the DM); HN will engage the policy question if it gets there: what exactly does "approved use" mean when the user wants to delegate their own account? Expect the HN frame to be OAuth precedent and platform neutrality rather than the launch drama.</p>
+<p>Watch: if Aaryan posts a public response or OpenAI writes the rule down, either is HN-front-page material, and either reshapes the X debate within the hour.</p>
+
+<h2>The facts, dissected</h2>
+<ul class="plain">
+<li><strong>The launch led with a competitor dunk,</strong> not the tech: "Instinct is painfully slow" is the first line. That choice is now inseparable from how the takedown lands.</li>
+<li><strong>The written policy is real but thin.</strong> OpenAI's help doc describes identity sign-in for named partners; it does not draw the identity-vs-delegation line Companion crossed. Both "the rules were public" and "the rules are unwritten" are half-true.</li>
+<li><strong>Enforcement was public, process is private.</strong> The rejection happened on the launch tweet, in front of 131K views; the resolution path is a DM. Optics asymmetric by design.</li>
+<li><strong>The product worked.</strong> Independent hands-on review confirms quality - the dispute is about permission, not capability. That is what makes it a policy story instead of a scam story.</li>
+<li><strong>Bookmark counts say builders are taking notes:</strong> 669 on the launch, 184 on the slap. This is a case study being saved, not just a drama being watched.</li>
+</ul>
+
+<h2>Both sides, steelmanned and strawmanned</h2>
+<div class="sides">
+<div class="side">
+<h3>OpenAI is right to gate it</h3>
+<p><span class="label">Steelman</span></p>
+<p>Account delegation is not sign-in. An agent inheriting your ChatGPT context can act as you - spend, message, build - and when it goes wrong, users will blame OpenAI, not an 18-year-old's startup. A review gate for that power is the minimum responsible posture, and "OSS clients and partners" is a coherent policy: auditable code or accountable counterparties. Doing it publicly on the launch tweet is how you tell every other builder where the line is before ten more launch.</p>
+<p><span class="label">Strawman (how critics caricature it)</span></p>
+<p>"Congratulations on building something people want on our platform. Unfortunately you did not ask permission first, so we will now correct you in front of your launch traffic and handle the details in private, where our leverage lives."</p>
+</div>
+<div class="side">
+<h3>The builders are right to push through it</h3>
+<p><span class="label">Steelman</span></p>
+<p>The user owns their account and explicitly chose to delegate it - informed consent, not circumvention. "Approved use" was never written down for this case, so nothing was clearly violated; the rule was invented at the moment of enforcement, against a product that dunks on the platform's slowness by being fast. If every agent that inherits user context needs a partnership meeting, the agent ecosystem belongs to whoever OpenAI takes meetings with. That is an app-store gate wearing an identity product's clothes.</p>
+<p><span class="label">Strawman (how supporters caricature it)</span></p>
+<p>"Read the terms later, ship the headless account-wrapper now. If the platform objects, that is not a policy - it is a distribution channel: fifty thousand views of martyrdom, courtesy of the landlord."</p>
+</div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><strong>Pending his position - and a judgment call first.</strong> The launch post names Instinct as the thing Companion beats ("painfully slow"), so any public engagement from Marmik lands inside a competitor drama involving his own company. Options, once he states a position: (a) engage only the policy question - where should the identity-vs-delegation line sit - without touching the Instinct comparison at all; (b) the builder-empathy angle: an 18-year-old shipped something good in a weekend and hit an unwritten rule - the ask is a written line, not a waiver; (c) the craft angle: delegation done right (scoped permissions, auditable actions) vs account handover; (d) stay out entirely and let it breathe. The COI framing is his call, not ours.</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li>The launch (Sep 8, 12:44 AM): <a href="https://x.com/aaryankushwah/status/2097045604937474201">x.com/aaryankushwah/status/2097045604937474201</a></li>
+<li>Tibo's enforcement reply (Sep 8, 6:44 AM): <a href="https://x.com/thsottiaux/status/2097131394199896166">x.com/thsottiaux/status/2097131394199896166</a></li>
+<li>signulll's hands-on review: <a href="https://x.com/signulll/status/2097117862632792524">x.com/signulll/status/2097117862632792524</a></li>
+<li>OpenAI's Sign in with ChatGPT help doc: <a href="https://help.openai.com/en/articles/20001410-sign-in-with-chatgpt">help.openai.com/en/articles/20001410-sign-in-with-chatgpt</a></li>
+<li>Founder's YC P26 announcement: <a href="https://x.com/aaryankushwah/status/2055343475185610793">x.com/aaryankushwah/status/2055343475185610793</a></li>
+<li>Related briefs: <a href="openai-5h-limit-codex.html">the 5-hour limit</a> &middot; <a href="openai-internal-tools-gergely.html">no internal tooling teams</a> &middot; <a href="clem-hf-hack-transparency.html">platform transparency after an incident</a></li>
+</ul>
+
+<footer>Generated September 8, 2026 &middot; opinion brief, not a drafted reply &middot; reply targets must stay under 24h old; older material appears only as background voices</footer>
+</body>
+</html>
