@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: Buckmaster's Navier-Stokes statement - the math is real, and so is the accusation against OpenAI</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>The Navier-Stokes drop: real breakthrough, and a mathematician's accusation that OpenAI tried to front-run it</h1>
+<div class="meta">September 8, 2026 &middot; Buckmaster's statement PDF is on the HN front page (135+ pts) and all over X (Bubeck's denial passed 90K views in under an hour) &middot; <span class="score">blow-up: very high (Millennium-adjacent math result + named accusations of scooping, authorship pressure, and a "why would you ruin your career" line + a same-day corporate denial)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>Two mathematicians, Tristan Buckmaster (NYU) and Levent Alp&ouml;ge (who works at Anthropic), spent about a year using AI models - Claude, Codex with GPT-5.6 Sol, and Astra - to push an existing research program to genuine breakthroughs: they published proofs today that certain fluid-flow equations (incompressible porous media, Boussinesq, and 3D Euler) can "blow up" - develop infinite values from smooth starting conditions - even with a smooth external push. This is a major step toward the Navier-Stokes Millennium Prize Problem (one of math's seven million-dollar problems). The proofs are machine-checked in Lean, and Terence Tao calls it "a remarkable achievement." The bombshell is the accompanying statement: Buckmaster says OpenAI heard rumors of their progress last week, set an internal model on the same problem, then proposed he publish alone with his Anthropic-employed coauthor dropped, and quotes an OpenAI executive (Sebastien Bubeck) responding to his refusal with "Why would you ruin your career?" and "If you don't want me to be nice, then I don't have to be nice." Bubeck has publicly denied "false and inflammatory allegations" and says more is coming tomorrow.</div>
+
+<h2>What happened</h2>
+<p>This morning Buckmaster posted a <a href="https://cims.nyu.edu/~tristanb/statement.pdf">four-page statement</a> alongside three papers (<a href="https://cims.nyu.edu/~tristanb/euler.pdf">Euler</a>, <a href="https://cims.nyu.edu/~tristanb/ipm.pdf">IPM</a>, <a href="https://cims.nyu.edu/~tristanb/boussinesq.pdf">Boussinesq</a>) and the <a href="https://github.com/tristanbuckmaster/fluid_lean">Lean formalization</a>. The math first: finite-time blowup with smooth forcing for incompressible porous media, Boussinesq, and 3D incompressible Euler. They also believe they have blowup for hypo-dissipative Navier-Stokes but are holding it because the Lean verification is not finished. The ideas, he stresses, belong to Diego C&oacute;rdoba and Luis Mart&iacute;nez-Zoroa - "in view of this body of work, I believe Luis Mart&iacute;nez-Zoroa deserves a Fields Medal." The LLMs were the labor: "the first LLM generated proof Levent sent me was the most horrendous I have ever read; we verified it on Lean on August 22nd."</p>
+<p>Then the statement turns. On Sep 3, with rumors circulating (this is the rumor Andrew Curran had <a href="navier-stokes-claude-prediction.html">publicly bet was Anthropic's</a>), Buckmaster emailed a prominent OpenAI mathematician to put the facts on record. Over the following days, per the statement:</p>
+<ul class="plain">
+<li>On a Sunday call with Bubeck, Buckmaster was told an internal OpenAI model had proved finite-time blowup for forced Navier-Stokes, ~100 pages, unseen by him. The route named - smooth forcing, options c and d in Fefferman's problem statement - was exactly the quiet route he and Alp&ouml;ge had chosen, opened by C&oacute;rdoba and Mart&iacute;nez-Zoroa. "When I heard 'forced,' it was a bright red flag."</li>
+<li>The claim of "very little human input" unraveled on the call itself: an entire team had worked on it, easier warm-up problems including Euler, the shown prompt had itself been written by prompting Codex, and "an insane amount of compute" was used.</li>
+<li>Asked when the first prompt was sent, OpenAI eventually agreed it was "in the past few days, after information about our work had reached OpenAI."</li>
+<li>Asked whether the model had trained on or accessed their Codex sessions - into which the pair had put all their drafts for the whole project - he was told the model did not look up user data. "I asked again, about training, and I did not get an answer."</li>
+<li>Two proposals: Buckmaster posts Euler, OpenAI posts Navier-Stokes the next day; or Buckmaster sole-authors a paper presenting OpenAI's result - with Bubeck twice asserting Levent should be removed from authorship because he works at Anthropic. Buckmaster declined both, said he would go public. "The reply was, 'Why would you ruin your career?'... 'If you don't want me to be nice, then I don't have to be nice.'"</li>
+</ul>
+<p>Bubeck's <a href="https://x.com/SebastienBubeck/status/2097214122471432349">response</a>, posted about an hour later: "A series of false and inflammatory allegations against me are currently circulating on social channels. To clarify, I came into the discussion following academic norms... Will have more to say tomorrow." Buckmaster, for his part, is explicit about what he is not claiming: "I have not seen OpenAI's proof... I am not accusing anyone of anything. I am stating what I was told, when, and what was proposed to me."</p>
+
+<h2>How we got here</h2>
+<ul class="plain">
+<li><strong>The Curran rumor (Sep 5).</strong> Andrew Curran predicted "Claude has solved Navier-Stokes... they will announce it before the IPO" (covered in our <a href="navier-stokes-claude-prediction.html">earlier brief</a>). The rumor was real but misattributed: the work was a personal Buckmaster-Alp&ouml;ge collaboration using several labs' models, not an Anthropic project. Curran deleted his earlier post today - "It's a complicated situation" - and <a href="https://x.com/AndrewCurran_/status/2097206374535233717">reposted the raw statement</a> (74K views and climbing).</li>
+<li><strong>A year of slow going, then one month of everything.</strong> Per the statement, progress was slow for most of a year; on Aug 15 they got blowup with smooth forcing for Boussinesq and Euler; the Lean verification of the first AI-generated proof landed Aug 22; they had been "working around the clock" to make the proofs readable when the rumors forced an early release. Buckmaster apologizes for presentation quality: "The Euler writeup, in particular, can only be described as AI slop."</li>
+<li><strong>The same-week coincidence.</strong> Tao notes a completely independent Euler blowup result released simultaneously by Ganeshram, Duruisseaux, and Anandkumar (<a href="https://anima-ai.org/2026/09/07/stable-singularity-of-the-euler-equations-on-r3-without-forcing/">Anima</a>), using physics-informed neural networks - without forcing. Two independent AI-assisted attacks on the same problem family landed within days.</li>
+<li><strong>Labs have been racing to own "AI solves a Millennium problem."</strong> The incentive to be first - and to control the announcement - is the backdrop to everything in the statement.</li>
+</ul>
+
+<h2>What's new today (monitoring)</h2>
+<ol class="findings">
+<li><strong>Bubeck promised a fuller response "tomorrow."</strong> His denial post passed 90K views within an hour. Thom Wolf <a href="https://x.com/Thom_Wolf/status/2097218039364112875">urged him to post ASAP</a>: "we like your work don't let it get out of your hand." <span class="interp">Whatever OpenAI releases next - especially anything with timestamps - is the next shoe to drop.</span></li>
+<li><strong>Nobody has seen OpenAI's claimed proof.</strong> Buckmaster: ~100 pages, forced Navier-Stokes blowup, unseen. If OpenAI publishes it, the math community can verify independently; if it doesn't, the claim hangs.</li>
+<li><strong>The Codex-sessions question is the crux.</strong> "Did the model train on, or access, the users' sessions" got a denial on lookup and silence on training. The top reply to Bubeck's denial asks for exactly this "with receipts."</li>
+<li><strong>Tao has read the actual papers and talked to Buckmaster by phone.</strong> His verdict: remarkable, Lean-verified, and "there does not seem to be anything in principle preventing the methods from extending all the way to Navier-Stokes" - though he is "far more interested in digesting the proof methods" than in compute brute-forcing the extension.</li>
+<li><strong>The hypo-dissipative Navier-Stokes paper is being held.</strong> Buckmaster says they believe they have it, but will not release until the Lean verification finishes - the opposite of the rush he accuses OpenAI of.</li>
+</ol>
+
+<h2>The argument map</h2>
+<ul class="map">
+<li><strong>Claim A (math):</strong> LLMs + one mathematician can now do in a month what used to take years - "a Deep Blue-Kasparov moment." Evidence: three Lean-verified papers; Tao's endorsement; the Anima independent result. Open question: does the method reach unforced Navier-Stokes?</li>
+<li><strong>Claim B (conduct):</strong> OpenAI front-ran private academic work after learning of it, misrepresented its own process, and pressured for authorship control. Evidence: Buckmaster's dated, quoted account. Counter: Bubeck's blanket denial; nobody else was on the record yet.</li>
+<li><strong>Claim C (data):</strong> OpenAI's model may have benefited from the pair's Codex sessions. Evidence: none public; the unanswered training question. Counter: denial on lookup; training question unanswered, not answered falsely.</li>
+<li><strong>Claim D (credit):</strong> the intellectual core is C&oacute;rdoba and Mart&iacute;nez-Zoroa's program; the LLMs were labor. If a lab claims the solve, the credit fight compounds.</li>
+</ul>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">Terence Tao (Fields Medalist) - <a href="https://mathstodon.xyz/@tao/117233527638291447">mathstodon</a></span> &middot; <span class="stance">verifies the math, downplays the race</span><br>"A remarkable achievement." The methods plausibly extend to Navier-Stokes, "and there is even a non-negligible chance that the forcing term could be eliminated entirely." But brute-forcing the extension with compute "does not particularly hold my interest; I am far more interested in digesting the proof methods."</div>
+<div class="voice"><span class="who">Sebastien Bubeck (OpenAI) - <a href="https://x.com/SebastienBubeck/status/2097214122471432349">X</a></span> &middot; <span class="stance">denies</span><br>"A series of false and inflammatory allegations... I came into the discussion following academic norms... Will have more to say tomorrow." Notably denies the allegations, not the existence of an internal Navier-Stokes result - multiple reply-threads zero in on that asymmetry.</div>
+<div class="voice"><span class="who">Thomas Wolf (HuggingFace) - <a href="https://x.com/Thom_Wolf/status/2097215782484607029">X</a></span> &middot; <span class="stance">outraged, then hedging</span><br>"wtf is this way to handle mathematicians work and scientific communication... Hope this is not a glimpse of the future we'll get in science research with these dominating players playing marketing games hurtful for the real scientific community." Follow-up: "even if it's triggering to read Tristan's report we should wait and hear the other side."</div>
+<div class="voice"><span class="who">Andrew Curran - <a href="https://x.com/AndrewCurran_/status/2097206374535233717">X</a></span> &middot; <span class="stance">retracted the frame, amplified the statement</span><br>Deleted his Sep 5 Anthropic-solved-it post. "I'm just going to post the entire statement page by page. It's a complicated situation."</div>
+<div class="voice"><span class="who">achierius (HN) - <a href="https://news.ycombinator.com/item?id=49605915">thread</a></span> &middot; <span class="stance">capability-misrepresentation reading</span><br>"While I'm generally pretty negative on claims that the labs are 'scamming' the public... it's hard to see how this wouldn't qualify" - citing the gap between "just told it to work on the problem" and the actual team, warm-up problems, and compute.</div>
+<div class="voice"><span class="who">Recursing (HN)</span> &middot; <span class="stance">the Kasparov parallel cuts both ways</span><br>On Buckmaster's "Deep Blue-Kasparov moment": "Kasparov famously accused IBM of cheating during the match, by spying on his preparation."</div>
+<div class="voice"><span class="who">ks1723 (HN)</span> &middot; <span class="stance">skeptical of Buckmaster's framing</span><br>"What exactly was the purpose of his initial email to OpenAI in the first place?" - reads the email as Buckmaster pre-clearing the rumor with OpenAI, complicating the pure-victim narrative.</div>
+<div class="voice"><span class="who">20k (HN)</span> &middot; <span class="stance">training-data cynicism</span><br>"If you think these companies are not training on your prompts you are incredibly naive."</div>
+<div class="voice"><span class="who">Mx / PBmanifold (X, top replies to Bubeck)</span> &middot; <span class="stance">watching the denial's shape</span><br>"Denies the behaviour. Doesn't deny the math breakthrough tho" and "the only thing we need to hear from you, with receipts, is whether OpenAI accessed the Codex sessions."</div>
+<div class="voice"><span class="who">sk4rekr0w (HN)</span> &middot; <span class="stance">hold fire</span><br>"This thread is full of jumping to conclusions based on a biased perspective. Have some humility."</div>
+
+<h2>Where X and Hacker News diverge</h2>
+<p>X is running the scandal: authorship theft, the career-threat quote, "Navier-Stokes has fallen" memes, and crypto scam coins within the hour. HN is running two quieter threads in parallel - the ethics (was this front-running, and did the model see their sessions?) and the epistemics (Lean verification means the public results are checkable regardless of who behaved badly; the Kasparov-cheating echo as a warning against assuming either side). HN's most distinctive contribution is skepticism aimed at Buckmaster too: why email OpenAI first, and is "I'm not accusing anyone" compatible with publishing quoted threats? X's most distinctive contribution is noticing what Bubeck's denial does not deny.</p>
+
+<h2>The facts, dissected</h2>
+<ul class="plain">
+<li><strong>Verified:</strong> three papers and a public Lean repository exist today; Tao confirms the achievement and spoke with Buckmaster; the Anima independent result exists; Bubeck's denial post exists.</li>
+<li><strong>Single-source (Buckmaster's statement):</strong> every quoted OpenAI line - the proposals, the authorship pressure, "why would you ruin your career," the unraveling of "very little human input," the timeline of the first prompt.</li>
+<li><strong>Unverified claim hanging over everything:</strong> OpenAI's internal ~100-page forced Navier-Stokes proof. Announced on a call, unseen by anyone outside.</li>
+<li><strong>The credit stack:</strong> C&oacute;rdoba &amp; Mart&iacute;nez-Zoroa (program) &rarr; Buckmaster &amp; Alp&ouml;ge (push to smooth forcing, with LLM labor) &rarr; Claude, Codex/GPT-5.6 Sol, Astra (labor) &rarr; Lean (verification). Any lab claiming "our AI solved it" collapses that stack into marketing.</li>
+<li><strong>What would settle it:</strong> OpenAI publishes its proof and its prompt/compute history with timestamps; any answer on whether user session data trained the model; independent verification of whichever Navier-Stokes claim lands first.</li>
+</ul>
+
+<h2>Both sides, steelmanned and strawmanned</h2>
+<div class="sides">
+<div class="side">
+<h3>Buckmaster &amp; Alp&ouml;ge</h3>
+<p><span class="label">Steelman</span></p>
+<p>They did the work quietly for a year on personal funds, credited the program's originators, held back an unverified result out of rigor, and only published early because rumors plus OpenAI's proposals forced their hand. Buckmaster documented events with dates and verbatim quotes, flagged the limits of his own knowledge, and gave the community the papers, the Lean code, and the apology for the rushed writeups. If a lab can listen for rumors, aim a cluster, and then dictate authorship, no academic can safely use these tools.</p>
+<p><span class="label">Strawman</span></p>
+<p>"OpenAI stole my proof and threatened me, believe every quote." (He explicitly does not say this - the strawman version is what the memes are running.)</p>
+</div>
+<div class="side">
+<h3>OpenAI / Bubeck</h3>
+<p><span class="label">Steelman</span></p>
+<p>Labs hear rumors constantly; exploring a famous open problem after public-adjacent rumors is what research labs do, and an internal model genuinely producing a forced-blowup proof would be a landmark they are entitled to publish. The authorship proposals could have been clumsy deal-making rather than theft - offering priority of the Clay-cited result to the humans while keeping the lab's announcement separate. Bubeck says he followed academic norms and has more to say; one side's quoted lines, however damning, are one side's.</p>
+<p><span class="label">Strawman</span></p>
+<p>"We just gave the model the problem statement and it solved Navier-Stokes" - the version that unraveled on the call, per the statement.</p>
+</div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><strong>Pending his stated position.</strong> Candidate angles: (1) the tooling-credit stack - "Claude, Codex and Astra were the labor, C&oacute;rdoba and Mart&iacute;nez-Zoroa had the ideas, two humans steered for a year; any lab press release that collapses that into 'our AI solved it' is lying to you"; (2) the trust question for builders - if your Codex sessions can become your competitor's starting point, the tool is a leak; (3) the Kasparov reading - the accusation of cheating is itself part of every Deep Blue moment, wait for timestamps; (4) the quiet part - the actual Navier-Stokes paper is still being held for Lean verification, and that patience is the real signal of who is doing science. His take first, then we draft.</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li>Buckmaster &amp; Alp&ouml;ge: <a href="https://cims.nyu.edu/~tristanb/statement.pdf">statement</a> &middot; <a href="https://cims.nyu.edu/~tristanb/euler.pdf">Euler</a> &middot; <a href="https://cims.nyu.edu/~tristanb/ipm.pdf">IPM</a> &middot; <a href="https://cims.nyu.edu/~tristanb/boussinesq.pdf">Boussinesq</a> &middot; <a href="https://github.com/tristanbuckmaster/fluid_lean">Lean repo</a> &middot; <a href="https://mastodon.social/@tristanbuckmaster/117233413705701198">mastodon announcement</a></li>
+<li><a href="https://mathstodon.xyz/@tao/117233527638291447">Terence Tao's assessment (mathstodon)</a> &middot; <a href="https://anima-ai.org/2026/09/07/stable-singularity-of-the-euler-equations-on-r3-without-forcing/">Anima independent result</a></li>
+<li><a href="https://x.com/SebastienBubeck/status/2097214122471432349">Bubeck's denial</a> &middot; <a href="https://x.com/Thom_Wolf/status/2097215782484607029">Thom Wolf</a> (<a href="https://x.com/Thom_Wolf/status/2097218039364112875">follow-up</a>) &middot; <a href="https://x.com/AndrewCurran_/status/2097206374535233717">Curran's repost</a> &middot; <a href="https://x.com/deaneyang/status/2097186096002036163">Deane Yang on Tao</a></li>
+<li><a href="https://news.ycombinator.com/item?id=49605915">HN thread (135+ pts)</a> &middot; earlier brief: <a href="navier-stokes-claude-prediction.html">Curran's Sep 5 prediction</a></li>
+</ul>
+
+<footer>Built Sep 8, 2026 from the live HN thread, the primary PDFs, and X posts verified by direct read. Phase 1 of 2 - opinion brief only; drafts await his stated position.</footer>
+</body>
+</html>
