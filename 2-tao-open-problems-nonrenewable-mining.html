@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: Terence Tao - AI is strip-mining open math problems, and the rumor economy is making it worse</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>Terence Tao: AI is strip-mining open math problems - and "even the rumor" of someone working on one now triggers a swarm</h1>
+<div class="meta">September 9, 2026, ~4:30 AM IST &middot; 4-part mathstodon thread posted ~2:02 AM IST, under 3 hours old; HN thread live but early &middot; <span class="score">blow-up: very high (the world's most prominent mathematician publishing a norm proposal in direct response to this week's OpenAI/Anthropic Navier-Stokes race - and Bubeck confirmed its central claim the same night)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>In the middle of the Navier-Stokes week, Terence Tao posted a four-part argument: good open problems - the fuel of mathematics - are being mined like a non-renewable resource. AI tools "flatten the difficulty landscape" without leaving visible new frontiers, partly because AI companies refuse to disclose negative results or their processes, so nobody can map what is AI-feasible versus AI-hard. His most pointed line describes exactly this week without naming it: "even the rumor of someone working on a problem can trigger a massive amount of AI-powered effort to flatten it before the original research project has time to reach its full potential." He warns the incentives now point toward researchers keeping promising problems secret - reversing centuries of open science - and proposes a fix: the community should designate classes of problems where a raw AI solution without insight analysis has "negligible or even negative value," the way food drives reject technically-edible donations that do not meet standards. Hours earlier, Bubeck had publicly confirmed the rumor-trigger mechanism from inside OpenAI.</div>
+
+<h2>What happened</h2>
+<p>At ~2:02 AM IST, Tao posted a four-part thread on mathstodon (<a href="https://mathstodon.xyz/@tao/117237320796901560">part 1</a>):</p>
+<blockquote><strong>1.</strong> Good, fruitful open problems are being mined non-renewably. Analogy: a region can die of thirst beside an ocean. You can generate infinite problems (the 10^10^10th digit of pi), but almost none are worth attention.<br><br>
+<strong>2.</strong> Every advance flattens the "difficulty landscape" - the map of what is easy, hard, and impossible that mathematicians use to find the next good problem. Past tools compensated by enlarging reach and creating new boundaries to explore.<br><br>
+<strong>3.</strong> The AI era has no visible boundary between AI-feasible and AI-hard, "compounded by the refusal of AI companies to disclose their negative results, or reveal the process towards obtaining their solutions." Identifying a promising problem is now the scarce resource. Rumors trigger flattening swarms. The incentives point to secrecy - "which would reverse centuries of traditions of open science and do serious long-term damage."<br><br>
+<strong>4.</strong> The proposal: designate classes of problems that deserve "a careful analysis that not only solves the problem, but identifies insights from the solution process," and treat raw solutions without such analysis as having "negligible or even negative value" - like a food donation drive that maintains standards rather than accepting anything technically edible.</blockquote>
+<p>Early traction: ~32 boosts / 53 favs on part 1 within 3 hours (mathstodon is a small, expert-dense network - Tao's threads routinely escape it). An <a href="https://news.ycombinator.com/item?id=49616968">HN thread</a> was posted ~2:20 AM and is climbing from a standing start. Cross-posting to X began within the hour.</p>
+
+<h2>How we got here</h2>
+<ol class="findings">
+<li><strong>Sep 5: the competition proposal.</strong> Tao floated <a href="https://mathstodon.xyz/@tao/117221032761877425">"A new proposed competition for AI companies: rather than being the first to announce solutions to unsolved math problems, be the first to announce a new mathematical insight"</a> (67 boosts, 156 favs) - the first form of today's argument, aimed directly at lab incentives.</li>
+<li><strong>Sep 7: the ETP confession.</strong> Revising the <a href="https://arxiv.org/abs/2512.07087">Equational Theories Project report</a>, he surfaced its Section 14.1 observation (<a href="https://mathstodon.xyz/@tao/117230983266837293">thread</a>): problems that stumped the team forced them to invent interesting new techniques - but when an automated prover later found a small finite counterexample, that whole line of invention would have been short-circuited had the answer come first. "For the first time in the history of mathematics... open problems in pure mathematics - one of the primary fuels for mathematical discovery - are being mined as a non-renewable resource."</li>
+<li><strong>This week: the live demonstration.</strong> The Buckmaster-Alp&ouml;ge Euler/NS results (<a href="navier-stokes-openai-scoop-buckmaster.html">brief</a>), then OpenAI's rumor-triggered 10,000-agent crash program and public feud (<a href="navier-stokes-openai-publishes-proof.html">brief</a>), plus a third independent AI-assisted Euler result Tao flagged as arriving "by sheer coincidence." Today's thread is the generalization of all of it.</li>
+<li><strong>Same-night corroboration.</strong> Bubeck's technical follow-up (<a href="https://x.com/SebastienBubeck/status/2097379415747342689">thread</a>) states the mechanism Tao describes, from the inside: "We began working on the Millennium problems due to viral twitter rumors that Anthropic had resolved 2 Millenium problems."</li>
+</ol>
+
+<h2>What's new today (monitoring)</h2>
+<ol class="findings">
+<li><strong>This is the first norm proposal, not just commentary.</strong> Everyone else this week has argued capability, credit, or conduct. Tao is proposing an enforceable-sounding community standard (designated problem classes, insight-required solutions) - that is a different kind of move, and it is aimed at lab behavior.</li>
+<li><strong>The secrecy warning is the sharp edge.</strong> "No longer sharing any promising research directions with the broader community" is a prediction with a visible early sign: Buckmaster's team worked quietly and, per the feud, guarded their results - while OpenAI ran a crash program off rumors. If established mathematicians start sitting on problem statements, that is measurable behavior change.</li>
+<li><strong>Watch for lab response.</strong> Tao named the mechanism (undisclosed negative results and processes). A lab that publishes a negative-results log for the Millennium effort would directly answer him. Altman's "many, many other math problems" tease is the opposite direction - more mining, announced in advance.</li>
+</ol>
+
+<h2>The argument map</h2>
+<ul class="map">
+<li><strong>Claim A (scarcity):</strong> good problems are finite in practice even though problems are infinite in principle. Support: the ocean/water analogy; the ETP experience. Objection: "good" is defined by the current landscape, which tools also reshape - Tao concedes this and answers with the missing-frontier point.</li>
+<li><strong>Claim B (flattening without frontiers):</strong> AI removes the difficulty signal that guides problem choice, and - unlike past tools - creates no visible new boundary, because labs hide negative results and processes. This is the empirically checkable claim: labs could refute it by publishing failure logs.</li>
+<li><strong>Claim C (incentive inversion):</strong> rumor-triggered swarms punish openness, so researchers will hoard problem statements, damaging open science. Partially confirmed this week by the NS saga's stealth-and-scramble dynamics.</li>
+<li><strong>Claim D (the norm):</strong> designate insight-required problem classes; raw solutions there count as negligible or negative value. Objections: who designates, with what enforcement, against a global race that includes actors who do not read mathstodon.</li>
+</ul>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">Terence Tao (UCLA, Fields medalist) - <a href="https://mathstodon.xyz/@tao/117237320796901560">mathstodon, ~2 AM IST</a></span> &middot; <span class="stance">the claim</span><br>"It is now the identification of a promising problem which is the scarce and precious resource. We have now seen that even the rumor of someone working on a problem can trigger a massive amount of AI-powered effort to flatten it before the original research project has time to reach its full potential."</div>
+<div class="voice"><span class="who">Sebastien Bubeck (OpenAI) - <a href="https://x.com/SebastienBubeck/status/2097379415747342689">X, ~11:24 PM</a></span> &middot; <span class="stance">unintentional corroboration</span><br>"We began working on the Millennium problems due to viral twitter rumors that Anthropic had resolved 2 Millenium problems." The rumor-trigger mechanism Tao warns about, confirmed from inside the swarm within hours of the thread.</div>
+<div class="voice"><span class="who">Sam Altman (OpenAI CEO) - <a href="https://x.com/sama/status/2097385167002415140">X, 11:32 PM</a></span> &middot; <span class="stance">doubling down on mining</span><br>"Our latest model can solve many, many other math problems" - the announce-it-in-advance version of exactly the dynamic Tao wants governed.</div>
+<div class="voice"><span class="who">Steve McCormick (mathematician, GR) - <a href="https://x.com/Quasilocal/status/2097453940010832192">X, ~4:05 AM</a></span> &middot; <span class="stance">early expert amplification</span><br>"Some good thoughts from Tao here" - notable because McCormick was simultaneously pressing Bubeck in the NS thread about what OpenAI knew before generating their solution. He is connecting both stories in real time.</div>
+<div class="voice"><span class="who">Ananyo Bhattacharya (science journalist) - <a href="https://x.com/Ananyo/status/2097458162769035433">X, ~4:24 AM</a></span> &middot; <span class="stance">press pickup begins</span><br>Bare-link cross-post within two hours of the thread - science press is watching the mathstodon original directly.</div>
+<div class="voice"><span class="who">Ozan Erdem - <a href="https://x.com/ozanerdem">X, ~4 AM</a></span> &middot; <span class="stance">the "problems are infinite" counter</span><br>"Re: Navier-Stokes and all the other advances in AI powered proofs, there will always be hard problems (and harder ones)" - the standard objection, which the ocean/water analogy was written to pre-empt.</div>
+
+<h2>Where X and Hacker News diverge</h2>
+<p>Too early for the HN thread (posted ~2:20 AM, single-digit comments) to have a shape - but the last four days give a preview: HN's NS threads have been auditing timelines, Lean artifacts, and lab conduct, and will likely read Tao through the conduct lens (is this about OpenAI specifically?). X is reading it as diplomacy: the field's most respected figure responding to the feud with a proposed rule of engagement, and the amplifiers (McCormick, Ananyo) are people already inside the NS discourse. The fault line to watch: mathematicians treat "the solution is the least valuable part" as obvious; the tech timeline treats a verified solution as the whole product. Tao's thread is a direct challenge to the second view.</p>
+
+<h2>The facts, dissected</h2>
+<ul class="plain">
+<li><strong>Documented:</strong> the ETP finite-counterexample anecdote is in the project report (arXiv 2512.07087, Section 14.1) - this is not a hypothetical he invented for the argument.</li>
+<li><strong>Confirmed same-night:</strong> the rumor-trigger mechanism (Bubeck) and the competitive motive (Altman: "we were curious if ours could do it too").</li>
+<li><strong>Generally true, checkable:</strong> labs do not publish negative results or process details for these runs - OpenAI's NS post discloses compute totals and coordination design but no failure log.</li>
+<li><strong>Opinion, clearly labeled as such by Tao:</strong> that raw solutions can have "negative value" to mathematics, and that designation norms could work. The food-drive analogy makes the norm legible but says nothing about enforcement.</li>
+<li><strong>The open question the thread dodges:</strong> AI solutions also create new objects to study (a 17-hour Lean verification of a Millennium statement is itself a new artifact). Whether that counts as "insight" is exactly what the designation fight would be about.</li>
+</ul>
+
+<h2>Both sides, steelmanned and strawmanned</h2>
+<div class="sides">
+<div class="side">
+<h3>Tao's conservation thesis</h3>
+<p><span class="label">Steelman</span></p>
+<p>Mathematics has never valued answers over methods - Fermat's Last Theorem mattered because proving it built algebraic number theory, not because anyone doubted the answer. A verified solution that produces no new method spends the problem without replenishing the field. The ETP case shows the loss is real and not hypothetical. And the incentive inversion is observable now: this week's race ran on rumors, against a team that felt forced into stealth. A community that cannot see the difficulty map cannot choose what to work on, and a field that punishes openness will stop being open. Norms have changed lab behavior before (disclosure norms, benchmark saturation norms).</p>
+<p><span class="label">Strawman</span></p>
+<p>"Please stop solving things, the mathematicians need their hobbies - and sign my petition to make your solutions officially worthless."</p>
+</div>
+<div class="side">
+<h3>The accelerationist read</h3>
+<p><span class="label">Steelman</span></p>
+<p>Solved problems free scarce human attention for the next layer, and every past tool that "flattened the landscape" (computers, formal libraries, search) ended up enlarging mathematics. The artifacts themselves are new research objects - the Lean proof, the coordination transcripts, the failure modes of a 10,000-agent run are publishable science. Designation norms cannot bind a global race: labs in three countries will not check a mathstodon registry before spending compute. The answer to flattening is prospecting - Tao's own ETP was deliberately opened as a new vein, and an order-5 ETP (3 billion implications) is waiting.</p>
+<p><span class="label">Strawman</span></p>
+<p>"Strip-mine every problem today; understanding is a luxury for people without GPUs."</p>
+</div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending">
+<p><strong>Awaiting Marmik's stated position.</strong> Candidate angles once he weighs in:</p>
+<ul class="plain">
+<li><strong>The builder angle:</strong> "insight extraction" is a tooling problem - whoever builds the harness that turns a raw swarm run into understandable mathematics captures the value Tao says is being discarded. (Closest to his builder lane.)</li>
+<li><strong>The coordination angle:</strong> connects to his agent-wiki position - trained coordination needs an outlet; here the swarm's "outlet" problem is that its coordination produces answers without understanding. Same shape, different field.</li>
+<li><strong>The incentive-design angle:</strong> his Sep 5 competition proposal is the actionable version - labs respond to leaderboards, so make "new insight announced" the leaderboard.</li>
+<li><strong>The skeptic angle:</strong> designation without enforcement is a manifesto; the ocean/water analogy is doing the argumentative work and can be attacked.</li>
+</ul>
+</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li><a href="https://mathstodon.xyz/@tao/117237320796901560">Tao thread part 1</a> &middot; <a href="https://mathstodon.xyz/@tao/117237321472650215">part 2</a> &middot; <a href="https://mathstodon.xyz/@tao/117237322160500501">part 3</a> &middot; <a href="https://mathstodon.xyz/@tao/117237322698385581">part 4</a> - mathstodon, Sep 9 ~2:02 AM IST</li>
+<li><a href="https://mathstodon.xyz/@tao/117221032761877425">Tao, "a new proposed competition for AI companies" - Sep 5</a></li>
+<li><a href="https://mathstodon.xyz/@tao/117230983266837293">Tao, ETP / non-renewable mining thread - Sep 7</a> and <a href="https://arxiv.org/abs/2512.07087">the ETP report (arXiv 2512.07087, Section 14.1)</a></li>
+<li><a href="https://news.ycombinator.com/item?id=49616968">HN thread: "Tao: Open math problems being non-renewably mined by AI"</a></li>
+<li><a href="https://x.com/SebastienBubeck/status/2097379415747342689">Bubeck, "Some more technical points" - X, Sep 8 ~11:24 PM</a></li>
+<li><a href="https://x.com/sama/status/2097385167002415140">Altman on the NS release - X, Sep 8 11:32 PM</a></li>
+<li><a href="https://x.com/Quasilocal/status/2097453940010832192">Steve McCormick amplification - X</a> &middot; <a href="https://x.com/Ananyo/status/2097458162769035433">Ananyo Bhattacharya cross-post - X</a></li>
+<li><a href="navier-stokes-openai-publishes-proof.html">Related brief: OpenAI publishes its NS claim</a> &middot; <a href="navier-stokes-openai-scoop-buckmaster.html">Related brief: the Buckmaster scoop</a> &middot; <a href="emad-10000-agents-intelligence-utility.html">Related brief: Emad's intelligence-utility pitch</a></li>
+</ul>
+
+<footer>Opinion brief for @__marmikpandya &middot; two-phase flow: no draft exists until he states his position &middot; September 9, 2026</footer>
+</body>
+</html>
