@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: AtCoder's problem coordinator says Astra would win 40 of 43 contests - and that Opus 5's collapse smells like training on the test set</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>The man who beat the AI says the AI now wins 40 of 43 - and AtCoder's coordinator has a contamination smoking gun for Opus 5</h1>
+<div class="meta">September 7-8, 2026 &middot; candidate source: Psyho amplifying AtCoder problem coordinator wata's experiment (Psyho's quote 12h old, 148 likes, 38K views; wata's originals 15-17h) &middot; <span class="score">blow-up: medium-high (the exact authorities on humans-vs-AI contests, making a falsifiable capability claim plus an evidence-backed contamination accusation)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>AtCoder runs heuristic contests - four-hour optimization problems where there is no perfect answer, only better ones, and where humanity's champion Psyho famously beat OpenAI's AI last year ("Humanity has prevailed (for now!)"). Yoichi Iwata (wata), the coordinator who designs those problems, ran models offline against every short contest: with Codex driving improvement loops, the AI would have taken 1st place in 40 of 43. But the sharper finding is about Claude Opus 5: it averaged 3rd place on older contests and collapsed to 39th-153rd on recent ones - the signature of a model that memorized the old problems rather than learning to solve them. Astra shows no such drop, which wata calls "unclear" - either genuinely better, or better at hiding it. Psyho amplified all of it to the English-speaking world, with his own caveat: if web search was on, even these numbers are hard to interpret.</div>
+
+<h2>What happened</h2>
+<p>Overnight, a cluster of posts from AtCoder's heuristic-contest coordinator Yoichi Iwata (@wata_orz), amplified by Psyho (@FakePsyho):</p>
+<p>wata's <a href="https://x.com/wata_orz/status/2096921972039131157">headline result</a> (17h, 211 likes):</p>
+<blockquote>"I've also tried running improvement loops with Codex, ignoring the 4-hour rule, on all short-term contests - including recent ones not yet on ALE-Bench - and it resulted in 1st place 40 times out of 43."</blockquote>
+<p>Then the contamination observation (16h, <a href="https://x.com/wata_orz/status/2096932447242138110">here</a>):</p>
+<blockquote>"While GPT's situation is unclear, there was a clear drop-off with Opus 5. In the full-auto experiment, the short-term contests before AHC064 averaged 3rd place, whereas AHC064: 153rd, AHC065: 51st, AHC067: 39th, AHC068: 136th."</blockquote>
+<p>Psyho <a href="https://x.com/FakePsyho/status/2096997945493070189">brought it to the English timeline</a> (12h, 38K views), adding the key caveat: "(no idea if web search was enabled during tests, if yes then models could access repos on GitHub and then this result is harder to interpret)."</p>
+
+<h2>How we got here</h2>
+<ul class="plain">
+<li><strong>AtCoder's AHC is the sacred ground of humans-vs-AI.</strong> In July 2025 Psyho beat OpenAI's entrant in a marathon heuristic contest - "Humanity has prevailed (for now!)" ran to 2.2M views and made him the face of human resistance. When he amplifies a result, the community treats it as settled that he has no incentive to oversell the machine.</li>
+<li><strong>ALE-Bench (Sakana AI) already tracks this.</strong> The <a href="https://sakanaai.github.io/ALE-Bench-Leaderboard/">leaderboard</a> scores models on AtCoder heuristic problems; wata's experiment extends it to contests too new to be in the benchmark - which is precisely what makes the contamination comparison possible.</li>
+<li><strong>The contamination playbook is well understood.</strong> Train on public problems, score brilliantly on them, collapse on fresh ones. The astra-spectrogram debate (<a href="astra-spectrogram-generalization-curran.html">Curran brief</a>) is the same fight in another modality: is the capability real, or is the test in the training set?</li>
+<li><strong>Contest hygiene is now a live policy question.</strong> AHC070 was run AI-prohibited; wata checked Opus 5's equivalent rank anyway (36th) to rule out "the humans got better AI too" as the explanation for the drop.</li>
+</ul>
+
+<h2>What's new today (monitoring)</h2>
+<ol class="findings">
+<li><strong>The Opus 5 drop-off has a control condition.</strong> wata checked AHC070 (AI-prohibited, so human scores are clean) and Opus 5 still ranked ~36th-equivalent - so the collapse on recent contests is not "everyone else used better AI." <span class="interp">That is what elevates this from suspicion to evidence: the alternative explanation got tested and excluded.</span></li>
+<li><strong>The harness is boring, which makes it scarier.</strong> Asked if special prompts or toolsets drove the result, wata: "Nothing particularly special; offline with the problem statements and tools downloaded locally. 'Examine a solution approach likely to get 1st place, implement it in C++, contest time 4 hours, keep iterating.'" <span class="interp">No scaffolding magic - the base capability plus a generic loop is the whole recipe. That undercuts the "it's the harness, not the model" defense before anyone makes it.</span></li>
+<li><strong>Humans still won three - and the losses are diagnostic.</strong> wata's list: AHC015 (the AI trained a neural net and timed out), AHC064 and AHC065 (couldn't reach the intended solution shape). <span class="interp">The failure mode is engineering judgment under time pressure, not reasoning depth - which is also why wata's AHC015 fix story (astra diagnosed a denormalized-number TLE, one fix, 1st place) is the detail practitioners are bookmarking.</span></li>
+<li><strong>wata's fresh coda reframes the whole thing.</strong> 44 minutes ago: he hopes for "an AHC world's Shota Fujii - someone who studies AI's solution methods and acquires that superhuman power." <span class="interp">The coordinator of the contests is not mourning; he is scouting the first human to train ON the machines. That is the take nobody else is making.</span></li>
+</ol>
+
+<h2>The argument map</h2>
+<div class="map"><ul>
+<li><strong>Capability claim (wata):</strong> Codex-driven improvement loops take 1st in 40/43 short AHC contests, including ones too new for training data.</li>
+<li><strong>Contamination claim (wata):</strong> Opus 5's collapse on post-cutoff contests (3rd average to 39th-153rd) indicates explicit training on the older problems.</li>
+<li><strong>Caveat A (Psyho):</strong> if web search was enabled, models could fetch public repos - results become hard to interpret.</li>
+<li><strong>Caveat B (implicit):</strong> "ignoring the 4-hour rule" means overtime runs; contest conditions were not fully respected (AHC015's TLE-in-overtime note).</li>
+<li><strong>Counter-C (defended):</strong> "humans also used stronger AI" - excluded via the AHC070 control.</li>
+<li><strong>Open question:</strong> why does Astra show no drop-off? Genuine generalization, better contamination hygiene, or subtler leakage?</li>
+<li><strong>Forward claim (wata):</strong> the next human champion studies the AI's methods, not just the problems.</li>
+</ul></div>
+
+<h2>What sharp people are saying</h2>
+<div class="voice"><span class="who">Psyho (@FakePsyho)</span> &middot; <span class="stance">the amplifier with the caveat</span><br>"According to wata... Astra would place 1st in 40 out of 43 short (4h) contests he tried. In another post he mentions that Opus 5 had a clear drop in recent contests (which suggests that Opus was trained explicitly on those problems), while the situation with Astra is unclear. (no idea if web search was enabled during tests...)" <a href="https://x.com/FakePsyho/status/2096997945493070189">post</a></div>
+<div class="voice"><span class="who">Yoichi Iwata (@wata_orz)</span> &middot; <span class="stance">the experimenter - all claims first-hand</span><br>40/43 firsts: <a href="https://x.com/wata_orz/status/2096921972039131157">here</a> &middot; Opus 5 drop-off: <a href="https://x.com/wata_orz/status/2096932447242138110">here</a> &middot; AHC070 control: <a href="https://x.com/wata_orz/status/2096936692204904905">here</a> &middot; denormalized-number fix: <a href="https://x.com/wata_orz/status/2096956630101610962">here</a> &middot; "Shota Fujii of AHC" hope: <a href="https://x.com/wata_orz/status/2097174617450504459">here</a></div>
+<div class="voice"><span class="who">YI (@y_imjk)</span> &middot; <span class="stance">the maximalist read</span><br>"GPT-6, it's straightforward AGI" (on the ALE-Bench leaderboard) <a href="https://x.com/wata_orz/status/2096921972039131157">quoted by wata</a></div>
+<div class="voice"><span class="who">きゅうり (@kyuridenamida)</span> &middot; <span class="stance">the harness skeptic</span><br>"Is this harness (like initial prompts or toolsets) giving something special? Or is it actually just the problem URL alone?" - answered: nothing special. <a href="https://x.com/kyuridenamida/status/2096995459063853315">reply</a></div>
+<div class="voice"><span class="who">エチレン (@ethylene_66)</span> &middot; <span class="stance">asked the question that produced the smoking gun</span><br>"I wonder if AHC is included in RL's training data." <a href="https://x.com/wata_orz/status/2096932447242138110">wata's answer</a></div>
+<div class="voice"><span class="who">kache (@yacineMTB)</span> &middot; <span class="stance">the English-timeline reaction</span><br>"shiggy diggy lol" - the CP-community disbelief, amplified. <a href="https://x.com/yacineMTB/status/2097025243021807658">quote post</a></div>
+<div class="voice"><span class="who">kumi (@kumitate_ai)</span> &middot; <span class="stance">the unmanned-loop practitioner</span><br>"From the perspective of those running it unmanned in a loop, this number does pack a punch." <a href="https://x.com/kumitate_ai/status/2096926225029828945">reply</a></div>
+
+<h2>Where X and Hacker News diverge</h2>
+<p><strong>No HN thread at scan time - and the conversation is split by language.</strong> The primary evidence lives in Japanese (wata's experiment logs), the amplification in English (Psyho, kache). HN's last adjacent engagement was the ALE-Bench leaderboard itself. If Sakana AI or AtCoder comments officially, expect the HN thread then.</p>
+<p>The X texture to note: the CP community is treating this as an empirical finding to poke at (harness questions, web-search caveats), not a hype moment - "straightforward AGI" is the minority read and it comes quoted, not endorsed.</p>
+
+<h2>The facts, dissected</h2>
+<ul class="plain">
+<li><strong>40/43 is "ignoring the 4-hour rule."</strong> The loops ran overtime. Under contest conditions the count is lower (AHC015's fix took overtime; mid-run it placed equivalent-3rd). The claim is about ceiling, not regulation play.</li>
+<li><strong>The contamination signal is a difference-in-differences:</strong> old contests (likely in training data) - strong; new contests (too fresh) - collapsed; AI-prohibited contest control - still weak. Each leg is individually checkable.</li>
+<li><strong>"Suggests" is doing honest work.</strong> wata says the drop-off suggests explicit training; nobody outside Anthropic can confirm it. But the pattern is the textbook signature, and the control kills the cleanest alternative.</li>
+<li><strong>Astra's "unclear" cuts both ways:</strong> no drop-off is consistent with genuine generalization - and with contamination that generalizes better. Only a private-problem eval settles it.</li>
+<li><strong>Web search is the uncontrolled variable.</strong> If enabled, models could read public solution repos; Psyho flagged it immediately. wata says runs were offline with local tools, but the repo question is not fully closed.</li>
+</ul>
+
+<h2>Both sides, steelmanned and strawmanned</h2>
+<div class="sides">
+<div class="side">
+<h3>This is real superhuman capability</h3>
+<p><span class="label">Steelman</span></p>
+<p>Contests too new to be in any training set, solved offline, with a harness you could write in an afternoon - and 1st place in 93% of them. The three losses are time-management bugs, not understanding gaps, and one of them the AI fixed itself when asked. The coordinator of the contests ran the experiment and published the receipts, including the control. At some point "but the benchmark" stops being skepticism and becomes denial.</p>
+<p><span class="label">Strawman (how critics caricature it)</span></p>
+<p>"Give the model unlimited overtime, web access to other people's solutions, and a human telling it when it timed out - then declare humanity defeated when it edges a leaderboard nobody is defending."</p>
+</div>
+<div class="side">
+<h3>This is benchmark contamination, again</h3>
+<p><span class="label">Steelman</span></p>
+<p>The most damning number in the thread is not 40/43 - it is 153rd. Opus 5's collapse on fresh contests is exactly what memorization looks like, and it means a chunk of every "frontier reasoning" headline built on public contests is measuring recall. Astra showing no drop proves nothing about Astra; it may just leak better. The only evals that mean anything now are private, sequestered problems - everything public is compost.</p>
+<p><span class="label">Strawman (how supporters caricature it)</span></p>
+<p>"Any problem the model solves was in the training data; any problem it misses proves the training data was the only thing it had. The theory is unfalsifiable, which is convenient, because the alternative is updating."</p>
+</div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><strong>Pending his position.</strong> Candidate angles once he weighs in: (a) the control-condition credit - wata did the thing contamination debates never do (tested the alternative with AHC070), which is what separates evidence from vibes; (b) the "train on the machine" frame - wata's Shota Fujii hope is the optimistic version: the next champion is the one who reverse-engineers the AI's heuristics, which is exactly how humans absorbed chess engines; (c) the harness-irrelevance point - a generic loop plus base model means the capability is in the weights, not the scaffolding, which is the claim that should worry the "it's just engineering" camp; (d) tie-back to his own thread: the same contamination fight as the spectrogram brief, but this time with numbers and a control.</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li>Psyho's amplification + caveat (Sep 7, 9:54 PM): <a href="https://x.com/FakePsyho/status/2096997945493070189">x.com/FakePsyho/status/2096997945493070189</a></li>
+<li>wata's 40/43 result: <a href="https://x.com/wata_orz/status/2096921972039131157">x.com/wata_orz/status/2096921972039131157</a></li>
+<li>Opus 5 drop-off: <a href="https://x.com/wata_orz/status/2096932447242138110">x.com/wata_orz/status/2096932447242138110</a></li>
+<li>AHC070 control: <a href="https://x.com/wata_orz/status/2096936692204904905">x.com/wata_orz/status/2096936692204904905</a></li>
+<li>Harness answer: <a href="https://x.com/wata_orz/status/2096996705241808986">x.com/wata_orz/status/2096996705241808986</a></li>
+<li>Denormalized-number fix story: <a href="https://x.com/wata_orz/status/2096956630101610962">x.com/wata_orz/status/2096956630101610962</a></li>
+<li>"Shota Fujii of AHC" hope: <a href="https://x.com/wata_orz/status/2097174617450504459">x.com/wata_orz/status/2097174617450504459</a></li>
+<li>ALE-Bench leaderboard (Sakana AI): <a href="https://sakanaai.github.io/ALE-Bench-Leaderboard/">sakanaai.github.io/ALE-Bench-Leaderboard</a></li>
+<li>Related briefs: <a href="astra-spectrogram-generalization-curran.html">the spectrogram contamination fight</a> &middot; <a href="navier-stokes-claude-prediction.html">Curran's Navier-Stokes prediction</a> &middot; <a href="llm-benchmarks-dont-reflect-capabilities.html">benchmarks vs capabilities</a></li>
+</ul>
+
+<footer>Generated September 8, 2026 &middot; opinion brief, not a drafted reply &middot; reply targets must stay under 24h old; older material appears only as background voices</footer>
+</body>
+</html>
