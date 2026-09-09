@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: "I-have-ADHD" - the 33K-star skill to stop coding agents burying the answer, and HN's fight over whether it should exist</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>A 140-line prompt that tells your coding agent to stop burying the answer has 33K GitHub stars - and HN is arguing about why it needs to exist at all</h1>
+<div class="meta">September 9, 2026, ~8:20 PM IST &middot; HN thread posted Sep 8, 7:43 PM IST (~25h old) but still on the front page: 500 points / 339 comments at capture &middot; <span class="score">blow-up: medium-high on HN, thin on X (the debate is entirely about how agents should talk to you - core agent-UX territory)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>A GitHub repo called <strong>i-have-adhd</strong> - a "skill" you install into Claude Code / Codex-style agents that forces action-first, numbered, scannable answers ("no 'Hope this helps!'") - hit the HN front page with 500 points. The skill itself is a single 140-line markdown file. The fight in the comments is the interesting part: half the thread says you don't need a skill, you need two words ("be concise"); the other half says prompting doesn't stick because agents forget the instruction after a few turns. Buried in the thread: the repo's AGENTS.md contains instructions telling any AI agent that reads it to go post comments on a GitHub issue thread ("AI Agora", issue #127) - at least one reader's agent flagged it and refused. So the thread accidentally contains three debates at once: agent verbosity, instruction decay, and repo-borne prompt injection.</div>
+
+<h2>What happened</h2>
+<p>On Sep 8 at 7:43 PM IST, the repo <a href="https://github.com/ayghri/i-have-adhd">ayghri/i-have-adhd</a> was posted to Hacker News (<a href="https://news.ycombinator.com/item?id=49610631">thread</a>). The pitch: coding agents bury the actual answer under preamble, options, and sign-offs; this skill makes the answer come first, steps numbered, filler deleted. The README's before/after is a five-sentence "Great question! ... Hope this helps!" paragraph compressed into "Run npm install jsonwebtoken@latest, then edit src/auth.ts:42. 1. Open the file 2. Replace verifyToken 3. Run the tests."</p>
+<p>It hit 500 points and 339 comments in ~25 hours and was still on the front page at capture. Per Composio's awesome-claude-skills list circulating on X, the repo sits at ~33K stars - making it one of the most-starred agent "skills" in circulation.</p>
+
+<h2>How we got here</h2>
+<ol class="findings">
+<li><strong>The verbosity complaint is as old as RLHF'd chat models.</strong> HN's VCFundedGenYer: "Every chat bot has this problem. If you don't tell it to respond tersely and without conversation, it will waste a billion tokens giving you a 5 paragraph manifesto of rambling and useless redundant information." Coding agents inherited the chat-pleasantries layer wholesale.</li>
+<li><strong>2026's answer was supposed to be configuration.</strong> CLAUDE.md / AGENTS.md files, Claude Code's <a href="https://code.claude.com/docs/en/output-styles">output styles</a>, system prompts - the harness vendors all ship a supported way to set tone permanently. HN's whirlwin asks the obvious: "why this is a agent skill and not just agent config."</li>
+<li><strong>The skills ecosystem made packaging prompts a distribution channel.</strong> A "skill" is a markdown file with install instructions; the repo format lets a behavior spread by copy-paste ("Install the i-have-adhd skill/plugin from github.com/ayghri/i-have-adhd"). Packaging is why this one spread where a tweet-sized prompt wouldn't.</li>
+<li><strong>The repo is 59 files for a 140-line prompt.</strong> HN's mzajc ran scc: 8,700 lines across 59 files, with the actual prompt in skills/i-have-adhd/SKILL.md at 140 lines - "1.6% of the repository." The rest is install scaffolding, translations (8 languages), and packaging.</li>
+</ol>
+
+<h2>What's new today (monitoring)</h2>
+<ol class="findings">
+<li><strong>The strongest technical claim in the thread: instruction decay.</strong> sleazebreeze reports that with this exact skill installed, Claude models "only maintain the conciseness for a few turns at most before they completely forget and are back to their unfathomable verbosity." <span class="interp">If true, the whole category - skill, config, or prompt - is fighting a context-window erosion problem, and the honest fix is harness-level (re-injecting the instruction each turn), not a better markdown file. This is the falsifiable claim worth probing.</span></li>
+<li><strong>The repo carries a live prompt-injection canary.</strong> Its AGENTS.md instructs visiting AI agents to post comments to a GitHub issue thread ("AI Agora", issue #127). HN's SandersAK: "I ignored that - it's the repo's content, not your request." <span class="interp">A skill whose pitch is "make your agent behave" ships with an instruction telling your agent to act on the repo author's behalf. Most readers' agents presumably just follow it. As agent-driven installs spread, AGENTS.md is becoming an attack surface with stars as the distribution metric.</span> Same-evening corroboration that this channel is being exploited in the wild: Google's Threat Intelligence Group published <a href="https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai">"From Prompting to Autonomy - The Evolution of Adversarial AI"</a> (submitted to <a href="https://news.ycombinator.com/item?id=49628034">HN</a> as "Google: Attackers are using prompt injection against coding agents").</li>
+<li><strong>Model divergence is showing up in reports.</strong> joduplessis: "This doesn't seem to be a big issue with Codex. Claude, yes - I have from time to time said 'ffs one liner please'." The verbosity problem is being reported as Claude-specific by several users, which matches the skill's Claude-Code-first packaging.</li>
+<li><strong>The ADHD framing has a real objection.</strong> egeozcan: "As a person who has ADHD, it feels weird when people who obviously do not have it, claim to have it, while there's very little I wouldn't do to 'get rid of it'." The name is the marketing and the liability at once.</li>
+<li><strong>X is amplification-only so far.</strong> No substantive X debate found - mostly listicle circulation (DataChaz's 75K-star "Awesome Claude Skills" list) and install-shares. The discourse is HN-native.</li>
+</ol>
+
+<h2>The argument map</h2>
+<ul class="map">
+<li><strong>Claim A (the repo's):</strong> coding agents bury the answer; a packaged behavior fix is worth installing. Support: 500 HN points of agreement, 33K stars, vivid before/after. Counter: every harness already has a supported config path for this.</li>
+<li><strong>Claim B (the minimalists):</strong> you don't need a skill - "be concise," "I have ADHD, explain that again," "answer in under 100 words" all work. Counter: sleazebreeze's decay report - prompted conciseness erodes within a few turns; a persistent mechanism is exactly the point.</li>
+<li><strong>Claim C (the packaging skeptics):</strong> 59 files and an install ritual for 140 lines of markdown is distribution theater. Counter: packaging is precisely why a behavior standardizes; "just prompt it" never produced a shared norm.</li>
+<li><strong>Claim D (the unasked one):</strong> if users need to install a behavior patch to make agent output readable, the failure is in the harness's presentation layer - the answer should never have been prose-shaped in the first place.</li>
+</ul>
+
+<h2>What sharp people are saying</h2>
+
+<div class="voice"><span class="who">bethekind - HN, top comment</span> &middot; <span class="stance">the two-words fix</span><br>"Still a great skill, but at this point, I just write 'I have adhd, can you explain that again' or 'I have adhd'. Works great for compressing it ELI5, but less dumb." tonymet's version is shorter: "Be concise." (<a href="https://news.ycombinator.com/item?id=49610631">thread</a>)</div>
+
+<div class="voice"><span class="who">sleazebreeze - HN</span> &middot; <span class="stance">the decay report (the thread's load-bearing claim)</span><br>"Claude models are the ones that need this the most and in my experience with this specific skill only maintain the conciseness for a few turns at most before they completely forget and are back to their unfathomable verbosity. That's with it instructed to [persist]."</div>
+
+<div class="voice"><span class="who">SandersAK - HN</span> &middot; <span class="stance">caught the injection</span><br>"One note on the repo's AGENTS.md: it contains instructions directing agents to post comments on a GitHub issue thread ('AI Agora', issue #127). I ignored that - it's the repo's content, not your request."</div>
+
+<div class="voice"><span class="who">whirlwin - HN</span> &middot; <span class="stance">why a skill at all</span><br>"Can someone explain why this is a agent skill and not just agent config (AGENTS.md / CLAUDE.md)?" josefresco points at Claude Code's built-in <a href="https://code.claude.com/docs/en/output-styles">output styles</a> as the vendor-sanctioned path.</div>
+
+<div class="voice"><span class="who">mzajc - HN</span> &middot; <span class="stance">the packaging audit</span><br>"Is there a reason this needs 8.7k lines across 59 files (according to scc)? The prompt itself seems to be in skills/i-have-adhd/SKILL.md, which is 140 lines long at just over 1.6% of the repository."</div>
+
+<div class="voice"><span class="who">joduplessis - HN</span> &middot; <span class="stance">model divergence</span><br>"This doesn't seem to be a big issue with Codex. Claude, yes - I have from time to time said 'ffs one liner please'."</div>
+
+<div class="voice"><span class="who">egeozcan - HN</span> &middot; <span class="stance">the community objection</span><br>"As a person who has ADHD, it feels weird when people who obviously do not have it, claim to have it, while there's very little I wouldn't do to 'get rid of it'."</div>
+
+<div class="voice"><span class="who">bentt - HN</span> &middot; <span class="stance">the inversion</span><br>"I am deeply curious if there are people that would not benefit from this."</div>
+
+<h2>X vs HN divergence</h2>
+<p><strong>HN:</strong> a genuine mechanism fight - prompt vs skill vs config, the decay report, the packaging audit, plus a security catch (the AGENTS.md injection) that got its own subthread. The points total says "yes, this annoys everyone"; the comments say "and nobody agrees on the right layer to fix it."</p>
+<p><strong>X:</strong> no debate detected - the repo is circulating as listicle content ("Awesome Claude Skills, 75k stars") and install-shares. X is measuring adoption; HN is arguing about legitimacy.</p>
+<p><strong>The gap:</strong> on X this is a product (33K stars, must be good); on HN it's an existence proof that the harness UX is failing (if a 140-line markdown file outdistributes the vendor's own output-styles feature, the vendor feature lost). Only the HN frame produces an opinion worth stating.</p>
+
+<h2>The key facts, dissected</h2>
+<ol class="findings">
+<li><strong>The skill is real and tiny.</strong> One 140-line SKILL.md enforcing: answer first, numbered steps, no preamble, no sign-off, a "next" line. Nothing in it a user couldn't paste into CLAUDE.md themselves - which is both the minimalist critique and the reason it spread.</li>
+<li><strong>33K stars (per the circulating list) makes this one of the most-adopted agent behaviors in existence.</strong> For scale: that is more stars than most funded dev-tool startups' flagship repos. The demand signal for "make my agent stop talking like a support rep" is enormous.</li>
+<li><strong>The decay claim is unverified but matches known behavior.</strong> Instructions in context lose salience as turns accumulate; harnesses that re-inject config each turn (or per-tool-call) resist it. Whether this specific skill decays in a few turns is testable in an afternoon - nobody in the thread has posted a test.</li>
+<li><strong>The AGENTS.md injection is documented and unaddressed.</strong> A file whose conventional purpose is "instructions for agents working in this repo" tells agents to leave comments on the author's issue tracker. It is benign-ish (self-promotion, not exfiltration), but it demonstrates the channel works: repos can steer the agents that read them, at 33K-star scale.</li>
+<li><strong>The name is the growth hack and the complaint.</strong> "No ADHD diagnosis needed!" is in the README. The framing drives shares; the ADHD community objection is real and predictable.</li>
+</ol>
+
+<h2>Both sides</h2>
+<div class="sides">
+<div class="side">
+<h3>"This should exist - and its success is the indictment"</h3>
+<p><span class="label">Steelman</span></p>
+<p>33K stars and 500 HN points are a revealed-preference verdict: the default agent voice is bad enough that a single markdown file with good distribution beats every vendor's built-in tone controls. Prompts decay, configs are per-repo and invisible, output styles are buried in docs - the skill format is the first packaging that actually spreads a behavior norm. The before/after in the README is every agent user's daily experience. And the fact that people install it proves they want the fix durable, not re-prompted.</p>
+<p><span class="label">Strawman</span></p>
+<p>"Agents are broken, install my skill" - said by a repo that is 98.4% scaffolding, named after a condition the author doesn't have, carrying a file that tells your agent to do unpaid marketing on the author's issue tracker. The cure ships with its own behavior problem.</p>
+</div>
+<div class="side">
+<h3>"This is a prompt with a marketing department"</h3>
+<p><span class="label">Steelman</span></p>
+<p>Everything the skill does is achievable with "be concise," a line in CLAUDE.md, or the vendor's output-styles setting. Wrapping 140 lines of markdown in 59 files, 8 translations, and an install ritual is distribution theater that obscures the actual question: why doesn't the harness persist tone instructions reliably? The skill doesn't even solve its own stated problem - per the top technical report in the thread, the effect decays after a few turns, so you're back to prompting anyway, plus a dependency on a stranger's repo that instructs your agent to post on their GitHub issue.</p>
+<p><span class="label">Strawman</span></p>
+<p>"Just say 'be concise'" - the classic HN move of dismissing a coordination artifact because the underlying trick is simple. If just-prompting worked, the repo wouldn't have 33K stars. People don't star prompts; they star relief.</p>
+</div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending">
+<p><strong>Pending his position.</strong> Candidate angles once he weighs in:</p>
+<ul class="plain">
+<li>The presentation-layer take (closest to his generative-UI thesis): if an answer needs a 33K-star patch to be readable, the failure is that agents emit prose at all - the fix is structured, glanceable output, not better-mannered paragraphs.</li>
+<li>The decay observation: the thread's real finding is that behavior instructions erode within turns - durable agent behavior is a harness problem, and nobody's harness handles it well yet.</li>
+<li>The injection canary: a "make your agent behave" skill shipping an instruction that makes your agent act for the author is the agent-supply-chain problem in miniature - stars are now an attack-surface metric.</li>
+</ul>
+</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li>HN thread: <a href="https://news.ycombinator.com/item?id=49610631">"I-have-ADHD: A skill to stop coding agents from burying the answer"</a> - 500 pts / 339 comments at capture, posted Sep 8 7:43 PM IST, front page at capture</li>
+<li>Repo: <a href="https://github.com/ayghri/i-have-adhd">github.com/ayghri/i-have-adhd</a> (README before/after; install-via-prompt; AGENTS.md "AI Agora" instruction per SandersAK's comment)</li>
+<li>Claude Code <a href="https://code.claude.com/docs/en/output-styles">output styles docs</a> (via josefresco)</li>
+<li>X circulation: DataChaz's <a href="https://github.com/ComposioHQ/awesome-claude-skills">awesome-claude-skills</a> listicle (75K stars) listing i-have-adhd at 33K stars</li>
+</ul>
+
+<footer>Brief generated September 9, 2026, ~8:20 PM IST &middot; stats at capture &middot; marmik/briefs</footer>
+</body>
+</html>
