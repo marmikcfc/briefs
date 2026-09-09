@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: Qwen3.8 bends toward GPT-5.5 Pro's answers when given 1% of its reasoning - a measurable distillation signal, or a contaminated probe?</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.interp{display:block;font-style:italic;color:#333;margin-top:4px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+table.nums{border-collapse:collapse;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13.5px;margin:12px 0;width:100%}
+table.nums th,table.nums td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+table.nums th:first-child,table.nums td:first-child{text-align:left}
+table.nums tr.hl td{font-weight:700;background:#fafafa}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>Feed an open model the first 1% of GPT-5.5 Pro's reasoning, and Qwen3.8 snaps toward GPT-5.5's answer - DeepSeek and others don't. A measurable distillation signal, or a contaminated probe?</h1>
+<div class="meta">September 10, 2026, ~12:15 AM IST &middot; HN thread <a href="https://news.ycombinator.com/item?id=49630026">49630026</a> is front-page today, ~7h old, 48 points / 9 comments and climbing (was 27 points an hour earlier) &middot; the gist (v1.1) was created Sep 9, 12:39 UTC and revised twice that evening &middot; no X pickup found as of midnight &middot; <span class="score">blow-up: medium-high (a falsifiable distillation claim landing the same week as a US government distillation advisory)</span></div>
+
+<div class="gist"><span class="glabel">The gist</span>A researcher (GitHub user wsxiaoys, building on the "Stolen Thoughts" paper that showed encrypted reasoning traces can be recovered from proprietary APIs) ran a clever test: take a hard problem, generate GPT-5.5 Pro's hidden reasoning for it, then hand just the FIRST 1% of that reasoning to an open model as a starter, and measure how much the open model's final answer overlaps with GPT-5.5 Pro's answer. Qwen3.8 A95B jumped +18.2 percentage points of overlap - by far the biggest effect, and 10x bigger than when the same test was run with Opus 4.8's reasoning (+1.9 points). DeepSeek V4 Flash and Inkling didn't move at all. The author's read: "Qwen may have learned from GPT-5.5 Pro, or from a closely related GPT model, rather than from Opus." The live objection, already in the HN comments: the only known public source of GPT-5.5 reasoning text is the Stolen Thoughts dump (released ~Aug 10), and Qwen3.8 0902 was trained after that - so maybe Qwen just saw those exact texts, which would make this a contaminated measuring stick rather than proof of broad distillation.</div>
+
+<h2>What happened</h2>
+<p>Yesterday evening (Sep 9, ~6 PM IST), wsxiaoys published a gist, <a href="https://gist.github.com/wsxiaoys/e0286dc6bb624ff5fdf49e7f4c528ba3">"Reasoning prefills on a few open models, v1.1"</a>, rerunning an earlier experiment with a new teacher: GPT-5.5 Pro instead of Opus 4.8. For each of 45 problems (15 STEM, 15 non-STEM, 15 private synthetic puzzles), he compared each target model's normal answer to an answer that started with the first 1% of GPT-5.5 Pro's reasoning pasted into its reasoning channel. The metric: how much of the teacher's visible answer shows up in the first 100 tokens of the target's answer (average of word-level overlap at lengths 1, 2, and 3).</p>
+<table class="nums">
+<tr><th>Model</th><th>No prefill</th><th>+1% GPT-5.5 Pro reasoning</th><th>Change</th></tr>
+<tr><td>DeepSeek V4 Flash</td><td>27.30%</td><td>26.13%</td><td>-1.17 pp</td></tr>
+<tr><td>Inkling</td><td>19.99%</td><td>20.45%</td><td>+0.46 pp</td></tr>
+<tr><td>Kimi K3</td><td>31.11%</td><td>35.65%</td><td>+4.54 pp</td></tr>
+<tr class="hl"><td>Qwen3.8 A95B</td><td>16.79%</td><td>34.97%</td><td>+18.18 pp</td></tr>
+</table>
+<p>Qwen's effect is biggest on STEM (+27.0 pp) and - importantly - still large on the private synthetic puzzle set (+14.8 pp), a dataset the author says was never published anywhere. HN put it on the front page within hours.</p>
+
+<h2>How we got here</h2>
+<ol class="findings">
+<li><strong>~Aug 10: "Stolen Thoughts" drops.</strong> A team from MATS Research, ELLIS Institute, MPI, and Snyk (Panfilov, Schmotz, Shumailov, Beurer-Kellner, Schaeffer, Prabhu, Geiping, Andriushchenko) showed that the encrypted chain-of-thought blocks Anthropic, OpenAI, and Google return through their APIs can be replayed across sessions and jailbroken via weaker sibling models - recovering the frontier model's hidden reasoning in plaintext without attacking the strong model. <a href="https://stolen-thoughts.com/">paper</a>. This is what put raw GPT-5.5 reasoning text into the world at scale.</li>
+<li><strong>Earlier this month: v1 of the prefill experiment (teacher = Opus 4.8).</strong> On 30 Humanity's Last Exam questions, the same 1% prefill trick moved Kimi K3 +9.0 points (independent confirmation of the paper's Appendix B.2 effect) but Qwen only +1.9 - barely anything. Read at the time: Qwen hadn't trained on Opus outputs. <a href="https://gist.github.com/wsxiaoys/102e8654c14d5d27b7b77532026ebfa5">v1 gist</a>.</li>
+<li><strong>Sep 8: the US government calls distillation an attack vector.</strong> CISA, NSA, and FBI published a <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a">joint advisory (AA26-251a)</a> on China-based AI companies conducting industrial-scale distillation against US models. We covered it in <a href="theo-codex-encrypts-subagent-prompts.html">yesterday's Theo/Codex brief</a> - Theo had inferred hours earlier that OpenAI encrypts Codex subagent prompts precisely to block distillation harvesting.</li>
+<li><strong>Sep 9, ~6 PM IST: v1.1 flips the result.</strong> Same method, new teacher. Qwen goes from shrugging at Opus (+1.9 pp) to lunging at GPT-5.5 Pro (+18.2 pp). If the method measures familiarity with a teacher's reasoning style, Qwen3.8 knows GPT-5.5's reasoning the way it does not know Opus's.</li>
+</ol>
+
+<h2>What's new today (monitoring)</h2>
+<ul class="plain">
+<li>The HN thread is young and technical, not a pile-on: 9 comments at capture, including a direct methodological challenge (below). No response from the author in-thread yet.</li>
+<li>No X pickup as of midnight Sep 9-10 (searches for "stolen thoughts qwen" and the gist surface nothing). Whoever posts this to X first frames it.</li>
+<li>The gist itself is alive: revised twice on the evening of Sep 9 (v1.1 switched the overlap metric from single-word-only to an average of 1/2/3-word overlap, which shifted the headline number from +20.6 to +18.2 points). Worth rechecking for a v1.2.</li>
+<li>Same-day context stack: this lands as the third panel of "distillation week" - Theo's Codex-encryption inference (Sep 9 morning), the CISA/NSA/FBI advisory (Sep 8), now a measurable in-the-wild signal (Sep 9 evening).</li>
+</ul>
+
+<h2>The argument map</h2>
+<ul class="map">
+<li><strong>Claim:</strong> Qwen3.8 shows a distinctive, large susceptibility to GPT-5.5 Pro's reasoning, absent for Opus 4.8 - evidence it trained on GPT-5.5-family outputs.</li>
+<li><strong>Supporting:</strong> the effect is specific (DeepSeek/Inkling flat, Kimi small), large (18 points), and persists on private puzzles (+14.8 pp) that were never on the public internet.</li>
+<li><strong>Objection:</strong> the GPT-5.5 reasoning texts used as probes ultimately derive from the Stolen Thoughts dump (~Aug 10); Qwen3.8 0902 trained later, so it may have ingested those exact texts - a contaminated probe, not proof of broad distillation.</li>
+<li><strong>Counter:</strong> a model that merely memorized the dump would not generalize to the author's freshly generated, unpublished puzzle traces - unless the dump's style itself is what's learned. Whether the probe traces were freshly generated or drawn from the dump is the crux the author has not yet answered.</li>
+<li><strong>Cynical frame:</strong> every frontier lab scrapes everyone; the scandal is selective outrage, not the act (CamperBob2's IP-circularity point).</li>
+</ul>
+
+<h2>What knowledgeable people are saying</h2>
+
+<div class="voice"><span class="who">wsxiaoys (the author, GitHub)</span> &middot; <span class="stance">claimant</span><br>"The data suggest that Qwen may have learned from GPT-5.5 Pro, or from a closely related GPT model, rather than from Opus." Notes Kimi K3's high baseline overlap (31.1% even unprefilled) without accusing it. <a href="https://gist.github.com/wsxiaoys/e0286dc6bb624ff5fdf49e7f4c528ba3">gist</a></div>
+
+<div class="voice"><span class="who">jari_mustonen (HN)</span> &middot; <span class="stance">flagging the money quote</span><br>Quoted the conclusion verbatim - effectively amplifying the distillation read as the headline. <a href="https://news.ycombinator.com/item?id=49630026">thread</a></div>
+
+<div class="voice"><span class="who">7734128 (HN)</span> &middot; <span class="stance">methodological skeptic</span><br>Raises the contamination objection: the only available GPT-5.5 thought text comes from the Stolen Thoughts dump released ~Aug 10; Qwen3.8 0902 trained after that and could have seen those exact texts, so the probe may be measuring memorization of the dump rather than distillation breadth. The strongest comment in the thread and currently unanswered. <a href="https://news.ycombinator.com/item?id=49630026">thread</a></div>
+
+<div class="voice"><span class="who">wongarsu (HN)</span> &middot; <span class="stance">context-setter</span><br>Identifies the gist author with the Stolen Thoughts exploit team - i.e., this is the group that recovered the reasoning traces in the first place, now turning the technique into a measurement instrument. <a href="https://news.ycombinator.com/item?id=49630026">thread</a></div>
+
+<div class="voice"><span class="who">CamperBob2 (HN)</span> &middot; <span class="stance">cynic</span><br>The IP-circularity jab: labs that trained on the whole internet complaining about their outputs being trained on is rich. Not an argument against the measurement - a frame on who gets to be outraged. <a href="https://news.ycombinator.com/item?id=49630026">thread</a></div>
+
+<div class="voice"><span class="who">The Stolen Thoughts team (MATS/ELLIS/MPI/Snyk)</span> &middot; <span class="stance">enabling prior work</span><br>Their paper established that encrypted CoT can be recovered in plaintext - the entire reason a "GPT-5.5 reasoning prefill" is a thing anyone can build. They made no distillation claims about specific open models themselves. <a href="https://stolen-thoughts.com/">paper</a></div>
+
+<h2>How the venues see it</h2>
+<p>On HN, this is a measurement-methodology fight: is the probe contaminated, what does the puzzle-set control actually prove, and where did the teacher traces come from. On X: silence so far - the story hasn't crossed over, which means the first big account to frame it ("someone can now measure who distilled whom") will set the tone. Expect the distillation-discourse accounts to pick it up during US hours Sep 10.</p>
+
+<h2>Key facts, prodded</h2>
+<ul class="plain">
+<li><strong>Is +18.2 pp big?</strong> Yes, relative to the method's own controls: the same models, same problems, same metric produced -1.2 to +4.5 for everyone else, and the v1 Opus teacher moved Qwen only +1.9. The specificity is the finding.</li>
+<li><strong>Does the private puzzle set settle contamination?</strong> Not fully. The puzzle QUESTIONS are unpublished, but the GPT-5.5 reasoning used as the prefill was still produced by GPT-5.5 - if its traces came from the public dump, a dump-memorizing model could still benefit. If the author generated fresh traces via the exploit for unpublished puzzles, the contamination story gets much harder. The author hasn't said which.</li>
+<li><strong>Could the effect be "Qwen is just steerable"?</strong> The Opus control argues no: Qwen barely followed Opus's reasoning (+1.9). Steerability alone would show up for both teachers.</li>
+<li><strong>Is this proof of distillation in the legal/advisory sense?</strong> No. It's a statistical familiarity signal, consistent with distillation, also consistent with scraping the dump, also partially confounded. Nobody - including the author - claims more than "suggest."</li>
+<li><strong>Why does Kimi K3 matter?</strong> Highest overlap with GPT-5.5 both WITH and WITHOUT the prefill (31.1% unprefilled) - meaning either Kimi's style is GPT-adjacent for another reason, or the baseline-overlap story is messier than a single-number delta. The author flags this without an accusation.</li>
+</ul>
+
+<h2>Both sides, taken seriously</h2>
+<div class="sides">
+<div class="side"><h3>"This is real distillation evidence"</h3>
+<p><span class="label">Steelman</span></p>
+<p>Distillation should leave exactly this fingerprint: a student model finds its teacher's reasoning an unusually good launchpad and converges to the teacher's answer. The effect is model-specific (only Qwen), teacher-specific (not Opus), huge relative to controls, and survives on private puzzles. Meanwhile the US government said THIS WEEK that industrial-scale distillation by China-based labs is happening. When a cheap, reproducible test points the same direction as a classified-briefing-derived advisory, the burden of proof starts to shift.</p>
+<p><span class="label">Strawman (the lazy version to avoid)</span></p>
+<p>"Open models are just stolen GPT." The data says nothing about other models, nothing about intent, and the author himself hedges with "may."</p></div>
+<div class="side"><h3>"This is a contaminated measuring stick"</h3>
+<p><span class="label">Steelman</span></p>
+<p>The probe can only be as clean as its teacher texts, and every known GPT-5.5 reasoning text in the wild descends from one public dump. A model that scraped that dump would light up on this test without a single distillation run. n=45, one author, a metric revised twice in one evening, headline number already moved from +20.6 to +18.2 - this is a blog-grade result, and the history of "model X trained on model Y" claims (usually walking back under scrutiny) says to wait for replication.</p>
+<p><span class="label">Strawman (the lazy version to avoid)</span></p>
+<p>"Everyone scrapes, so nothing to see." Even if everyone does it, a cheap public test that names names changes the game - that is precisely why the cynics are also watching this thread.</p></div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><strong>Pending Marmik's position.</strong> Reply angles will be drafted once he states where he lands - e.g., on the contamination crux, on whether this technique becomes a standard "distillometer," or on the Theo/encryption tie-in (labs encrypt CoT; researchers recover it anyway; the measurement arms race).</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li><a href="https://gist.github.com/wsxiaoys/e0286dc6bb624ff5fdf49e7f4c528ba3">wsxiaoys - "Reasoning prefills on a few open models, v1.1" (gist, Sep 9, 12:39 UTC; revised twice that evening)</a></li>
+<li><a href="https://gist.github.com/wsxiaoys/102e8654c14d5d27b7b77532026ebfa5">v1 gist - Opus 4.8 as teacher</a></li>
+<li><a href="https://stolen-thoughts.com/">"Stolen Thoughts" - Panfilov, Schmotz, Shumailov, Beurer-Kellner, Schaeffer, Prabhu, Geiping, Andriushchenko</a></li>
+<li><a href="https://news.ycombinator.com/item?id=49630026">HN thread 49630026 (front page, Sep 9)</a></li>
+<li><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a">CISA/NSA/FBI joint advisory AA26-251a on industrial-scale distillation (Sep 8)</a></li>
+<li><a href="theo-codex-encrypts-subagent-prompts.html">Our brief: Theo - "Codex encrypts subagent prompts... have to assume this is meant to prevent distillation"</a></li>
+</ul>
+
+<footer>Built for Marmik Pandya's private review. No replies are sent, posted, or drafted for sending without his stated position. Numbers from the gist's latest revision at capture (v1.1, Sep 9 ~11:52 PM IST); earlier v1.1 revision showed +20.58 pp under a single-word-only metric.</footer>
+</body>
+</html>
