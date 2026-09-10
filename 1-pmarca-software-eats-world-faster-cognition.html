@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: Marc Andreessen - "Software is about to eat the world much faster" (the $48B Cognition announcement wearing a thesis)</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>Marc Andreessen: "Software is about to eat the world much faster" - a 15-year essay update that is also a $48B funding announcement</h1>
+<div class="meta">September 10, 2026, ~10:00 AM IST &middot; X Article posted 12:33 AM ET (~9.5h old): <a href="https://x.com/pmarca/status/2097762851788398971">404K views, 3.2K likes, 419 reposts, 130 replies</a> &middot; the news underneath: Cognition's $2B+ Series E at a $48B valuation (Sep 8), co-led by a16z &middot; no HN thread on the essay or the round found as of scan time &middot; <span class="score">blow-up: medium-high (founder's-tribune thesis + contested vendor metrics + a skeptic reply layer already mocking the "1000x engineer")</span></div>
+<div class="gist"><span class="glabel">The gist</span>Fifteen years after "Why Software Is Eating the World," Marc Andreessen has posted the sequel: tech went from 31.5% to 94.4% of the market cap of the world's ten biggest companies while only 1 in 300 humans wrote software, every line by hand - "software has been eating the world at the speed of human hands. It is about to eat the world at the speed of compute." His evidence: Devin, Cognition's coding agent, went from writing 13% of Cognition's own production code to more than 90% in a year, so the 10x engineer becomes the 100x engineer, "the 1000x engineer isn't too far behind," and job doom is wrong because human wants are infinite (he cites Milton Friedman). The essay is simultaneously the public face of a16z co-leading Cognition's $2 billion raise at a $48 billion valuation two days earlier - every load-bearing number in it is a company or customer case-study metric, and the essay ends "I know where I'm putting my money." The replies noticed.</div>
+
+<h2>What happened</h2>
+<p>Andreessen posted the piece as an X Article at 12:33 AM ET on Sep 10; the identical text ran on <a href="https://a16z.com/announcement/investing-in-cognition/">a16z.com as "Investing in Cognition"</a> on Sep 9. The occasion: <a href="https://www.reuters.com/technology/cognition-ai-raises-2-billion-48-billion-valuation-2026-09-08">Cognition announced a $2B+ Series E at $48B on Sep 8</a> (Reuters), nearly double its $26B mark from May, led by new investors a16z and Accel with Founders Fund, General Catalyst, Avenir and 30+ others including Nvidia. The essay's concrete claims: Devin writes 90%+ of Cognition's production code (up from 13% a year ago); Mercedes-Benz turned an 8-month COBOL migration into 8 days; Rivian 10x'd test generation; Itau auto-remediates 70% of security vulnerabilities with Devin. Scott Wu <a href="https://x.com/ScottWu46/status/2097780627508691295">quote-posted</a>: "a16z backed my first company. Really excited for the chance to run it back."</p>
+
+<h2>How we got here</h2>
+<ol class="findings">
+<li><strong>Aug 20, 2011: the original essay.</strong> <a href="https://a16z.com/why-software-is-eating-the-world/">"Why Software Is Eating the World"</a> in the WSJ argues every company is becoming a software company. It aged well enough that a sequel writes itself.</li>
+<li><strong>March 2024: Devin launches.</strong> Cognition introduces "the first AI software engineer" with SWE-bench claims; early demos draw cherry-picking accusations. The company keeps shipping anyway and lands enterprise logos (Mercedes-Benz, Goldman Sachs, Citi, NASA).</li>
+<li><strong>2024-25: the percentage race.</strong> Big tech CEOs compete to say what share of their code is AI-written (Google, Microsoft, YC batches). The metric is never defined the same way twice.</li>
+<li><strong>May 2026: Series D.</strong> Cognition raises $1B+ at $26B (Lux, General Catalyst, 8VC); disclosed run-rate revenue: $492M.</li>
+<li><strong>Summer 2026: a16z exits Cursor.</strong> <a href="https://techcrunch.com/2026/09/08/cognition-hits-48b-valuation-signaling-investors-believe-ai-coding-is-far-from-a-winner-take-all-market/">TechCrunch notes</a> a16z was a major Cursor backer and "made a killing when it sold to SpaceX" - so this round is a16z re-entering AI coding by backing Cursor's direct rival. <a href="https://forkast.news/cognition-ais-48b-valuation-treats-coding-agents-like-infrastructure-and-the-revenue-multiple-agrees/">Forkast reports</a> Cognition rejected a SpaceX acquisition offer before this round.</li>
+<li><strong>Sep 8-10, 2026: the double.</strong> Series E at $48B; run-rate revenue "near $900M" per the company (<a href="https://www.forbes.com/sites/josipamajic/2026/09/09/a16z-doubles-down-on-ai-coding-agents-months-after-cursor-exit/">Forbes flags</a> that Cognition has not disclosed how it computes run-rate). The Information (via TechCrunch) projects $4-5B annualized by end of 2026, against Cursor's $6B+ trajectory.</li>
+</ol>
+<h2>What's new today (monitoring)</h2>
+<ul class="plain">
+<li>The reply layer is already ratio-mocking the core metaphor: "does a chef with a hundred cooks under become 1000x better???" (<a href="https://x.com/Sadlylifes41u/status/2097800944914440540">@Sadlylifes41u</a>), "bricklayers to architects sounds great until you count how many architects a building needs versus bricklayers" (<a href="https://x.com/0xjakke/status/2097809016814514258">@0xjakke</a>), "*This post brought to you by a Devin investor" (<a href="https://x.com/jimdoesx/status/2097847351079522753">@jimdoesx</a>). No named-expert takedown yet - the 90% claim is the attack surface to watch.</li>
+<li>HN has no thread on the essay or the $48B round as of ~10 AM IST (Algolia search, two queries) - a $48B coding-agent round with zero HN presence is itself unusual, or the index is lagging; recheck next cycle.</li>
+<li>Paul Grewal (Coinbase's chief legal officer) <a href="https://x.com/iampaulgrewal/status/2097790655766647034">quote-posted</a>: "Having seen @pmarca work his magic as investor at both @facebook and @coinbase, I can't believe I get to do it again here at @cognition" - reads as Grewal taking a role with Cognition; unconfirmed what role.</li>
+<li>Watch for: any customer (Mercedes, Rivian, Itau) confirming the case-study numbers on the record; anyone prodding the definition of "production code"; a response from the labor-econ voices Andreessen is implicitly arguing against.</li>
+</ul>
+
+<h2>The argument map</h2>
+<ul class="map">
+<li><strong>Thesis:</strong> automating software itself accelerates every industry, and demand is infinite, so engineers gain leverage instead of losing jobs.</li>
+<li><strong>Sub-claim 1:</strong> agents already write most code at leading companies (13% to 90%+ at Cognition).</li>
+<li><strong>Sub-claim 2:</strong> leverage multiplies: 10x to 100x engineer, 1000x coming; bricklayers become architects.</li>
+<li><strong>Sub-claim 3:</strong> history refutes the doomers - compilers, open source, and cloud all "shrank the profession" into explosive growth instead.</li>
+<li><strong>Objection 1 (conflict of interest):</strong> every number is the vendor's or its customers'; the essay is the funding announcement.</li>
+<li><strong>Objection 2 (undefined metrics):</strong> "production code" and "run-rate revenue" are both self-defined and method-undisclosed.</li>
+<li><strong>Objection 3 (the ratio problem):</strong> infinite demand for software is not infinite demand for software engineers - if one architect directs 100x output, you need fewer architects.</li>
+<li><strong>Objection 4 (the evidence gap):</strong> the one randomized controlled trial of experienced developers using AI tools (METR, July 2025) found them 19% <em>slower</em> - while believing they were 20% faster. Vendor case studies vs an RCT is the evidentiary shape of this whole debate.</li>
+</ul>
+<h2>What knowledgeable people are saying</h2>
+
+<div class="voice"><span class="who">Marc Andreessen (a16z, author)</span> &middot; <span class="stance">the bull case</span><br>"Software has been eating the world at the speed of human hands. It is about to eat the world at the speed of compute... The 10x engineer becomes the 100x engineer... The 1000x engineer isn't too far behind." Cites Friedman's infinite-wants argument against job doom. <a href="https://x.com/pmarca/status/2097762851788398971">X Article</a> &middot; <a href="https://a16z.com/announcement/investing-in-cognition/">a16z version</a></div>
+
+<div class="voice"><span class="who">Scott Wu (Cognition CEO)</span> &middot; <span class="stance">the beneficiary</span><br>"a16z backed my first company. Really excited for the chance to run it back with @pmarca and team!" Quoted in the essay: engineers go "from bricklayers to architects." <a href="https://x.com/ScottWu46/status/2097780627508691295">post</a></div>
+
+<div class="voice"><span class="who">METR (research org)</span> &middot; <span class="stance">the empirical counterweight</span><br>The only randomized controlled trial in this debate (July 2025, experienced open-source devs): AI tools made them 19% slower while they believed they were 20% faster. Not about Devin or 2026 models - but it is the standing evidence that felt productivity and measured productivity diverge. <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">study</a></div>
+
+<div class="voice"><span class="who">Jake (@0xjakke)</span> &middot; <span class="stance">the ratio objection</span><br>"bricklayers to architects sounds great until you count how many architects a building needs versus bricklayers" - the cleanest reply-layer version of the labor objection. <a href="https://x.com/0xjakke/status/2097809016814514258">reply</a></div>
+
+<div class="voice"><span class="who">jim does x (@jimdoesx)</span> &middot; <span class="stance">the COI objection</span><br>"*This post brought to you by a Devin investor" - literally true; the essay is the a16z investment announcement. <a href="https://x.com/jimdoesx/status/2097847351079522753">reply</a></div>
+
+<div class="voice"><span class="who">Travis Fischer (@transitive_bs)</span> &middot; <span class="stance">practitioner datapoint, same morning</span><br>"i've been more productive with Astra this past week than i have in _years_" - the lived-experience evidence that keeps the Andreessen side honest; not about Devin, but the same claim shape. <a href="https://x.com/transitive_bs/status/2097852110692078015">post</a></div>
+
+<div class="voice"><span class="who">Josipa Majic (Forbes)</span> &middot; <span class="stance">press, needling the metrics</span><br>Frames the round as Andreessen backing "a narrower and stranger claim: software is now eating itself" - and notes Cognition "has not disclosed how it computes" its run-rate revenue. <a href="https://www.forbes.com/sites/josipamajic/2026/09/09/a16z-doubles-down-on-ai-coding-agents-months-after-cursor-exit/">article</a></div>
+
+<div class="voice"><span class="who">Paul Grewal (Coinbase CLO)</span> &middot; <span class="stance">insider, apparently joining the orbit</span><br>"I can't believe I get to do it again here at @cognition" - a serious legal name attaching himself to Cognition the same morning; role undisclosed. <a href="https://x.com/iampaulgrewal/status/2097790655766647034">post</a></div>
+<h2>How the venues see it</h2>
+<p>On X the essay splits cleanly by network: the investor/founder layer congratulates (Scott Wu, a16z partners, Sheetal Jaitly: "Marc has updated his thesis!") while the unaffiliated reply layer mocks the metaphors and names the conflict of interest within hours. HN - the venue that would actually interrogate "90% of production code" (define code, define wrote, who reviews the diff) - has no thread yet. If one comes, expect the top comment to be a demand for the metric's methodology, because HN has fought this exact fight over every "% of code is AI" claim since 2024. The gap is the opportunity: the methodology question is currently unclaimed on X.</p>
+
+<h2>Key facts, prodded</h2>
+<ul class="plain">
+<li><strong>31.5% to 94.4% of top-10 market cap:</strong> directionally true and checkable (the top-10 is now nearly all tech) - but top-10 composition is a cherry-pickable frame; it measures concentration, not software's total economic share.</li>
+<li><strong>13% to 90%+ of production code:</strong> self-reported by Cognition about its own repo, no methodology. Lines? Commits? Tokens? Reviewed-and-merged vs generated? The number is doing the essay's heaviest lifting and is the least checkable.</li>
+<li><strong>Mercedes 8 months to 8 days, Rivian 10x, Itau 70%:</strong> customer case studies, the classic vendor metric genre. Real deployments, unknowable baselines.</li>
+<li><strong>$492M to ~$900M run-rate in ~4 months:</strong> company-disclosed, method undisclosed (Forbes). The Information's $4-5B year-end projection implies another ~5x. Revenue this size is hard to fake entirely, easy to round generously.</li>
+<li><strong>The infinite-demand argument:</strong> Jevons-flavored and genuinely contested when applied to labor rather than output - history's compilers/cloud examples automated tasks, not the task-creator.</li>
+<li><strong>The a16z boomerang:</strong> exited Cursor via the SpaceX sale, then led a $2B round in Cursor's direct rival weeks later. Conviction in the category, agnosticism about the horse - or the reverse.</li>
+</ul>
+
+<h2>Both sides, taken seriously</h2>
+<div class="sides">
+<div class="side"><h3>"The thesis is right, and the COI doesn't change it"</h3>
+<p><span class="label">Steelman</span></p>
+<p>The 2011 essay was mocked too, and its market-cap scoreboard is the cleanest public vindication any tech thesis has ever had. The new claims are the kind an investor with access actually can check: a16z saw Cognition's repos, customers, and revenue before wiring $2B at double the price in four months - costly signaling, not vibes. Everyone who works at a serious engineering org in 2026 knows agents write most of the new code; the essay just says it out loud with numbers attached. And the Friedman point stands: every previous automation panic confused a task dying with a profession dying.</p>
+<p><span class="label">Strawman (the lazy version to avoid)</span></p>
+<p>"Number go up, pmarca is always right." Track record is not evidence about this metric, and the 90% claim still has no published methodology.</p></div>
+<div class="side"><h3>"This is a pitch deck wearing an essay"</h3>
+<p><span class="label">Steelman</span></p>
+<p>Every load-bearing number is vendor-sourced or self-defined: production-code percentage, run-rate revenue, the customer case studies. The one randomized trial that exists measured experienced devs getting slower while feeling faster - which is exactly what a hype cycle feels like from inside. The labor argument commits the switcheroo: infinite demand for software says nothing about demand for software engineers, and the bricklayers-to-architects metaphor quietly concedes it (buildings need few architects). And the structure gives it away: thesis, portfolio company, "I know where I'm putting my money." It is an announcement - a good one - and should be priced as one.</p>
+<p><span class="label">Strawman (the lazy version to avoid)</span></p>
+<p>"AI coding is fake, Devin doesn't work." The revenue and the customer list are real; the argument is about what the numbers mean, not whether they exist.</p></div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><strong>Pending Marmik's position.</strong> Reply angles once he states where he lands - e.g., the undefined "production code" metric (the one question nobody on X has asked yet), the architects-vs-bricklayers ratio concession hiding inside his own metaphor, the METR RCT vs vendor case studies, or the a16z Cursor-to-Cognition boomerang as the actual story. His thesis thread (agents building software, craft vs hype) is directly on top of this one.</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li><a href="https://x.com/pmarca/status/2097762851788398971">Marc Andreessen, "Software is about to eat the world much faster" (X Article, Sep 10, 12:33 AM ET)</a> &middot; <a href="https://a16z.com/announcement/investing-in-cognition/">a16z version ("Investing in Cognition," Sep 9)</a></li>
+<li><a href="https://www.reuters.com/technology/cognition-ai-raises-2-billion-48-billion-valuation-2026-09-08">Reuters: Cognition raises $2B at $48B (Sep 8)</a> &middot; <a href="https://techcrunch.com/2026/09/08/cognition-hits-48b-valuation-signaling-investors-believe-ai-coding-is-far-from-a-winner-take-all-market/">TechCrunch (Cursor/SpaceX context, revenue projections)</a> &middot; <a href="https://www.forbes.com/sites/josipamajic/2026/09/09/a16z-doubles-down-on-ai-coding-agents-months-after-cursor-exit/">Forbes (run-rate methodology caveat)</a> &middot; <a href="https://forkast.news/cognition-ais-48b-valuation-treats-coding-agents-like-infrastructure-and-the-revenue-multiple-agrees/">Forkast (rejected SpaceX offer)</a> &middot; <a href="https://cognition.com/blog/series-e">Cognition's announcement</a></li>
+<li><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR: early-2025 AI productivity RCT (July 2025)</a></li>
+<li><a href="https://x.com/ScottWu46/status/2097780627508691295">Scott Wu</a> &middot; <a href="https://x.com/iampaulgrewal/status/2097790655766647034">Paul Grewal</a> &middot; <a href="https://x.com/0xjakke/status/2097809016814514258">@0xjakke</a> &middot; <a href="https://x.com/Sadlylifes41u/status/2097800944914440540">@Sadlylifes41u</a> &middot; <a href="https://x.com/jimdoesx/status/2097847351079522753">@jimdoesx</a> &middot; <a href="https://x.com/transitive_bs/status/2097852110692078015">Travis Fischer</a></li>
+<li><a href="https://a16z.com/why-software-is-eating-the-world/">The 2011 original (a16z archive)</a></li>
+</ul>
+
+<footer>Built for Marmik Pandya's private review. No replies are sent, posted, or drafted for sending without his stated position. X metrics as of ~10:00 AM IST, Sep 10.</footer>
+</body>
+</html>
