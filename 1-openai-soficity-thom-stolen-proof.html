@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opinion brief: "OpenAI might have stolen another major proof" - Andreas Thom's soficity accusation</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#666;--line:#e5e5e5;--accent:#8b0000}
+*{box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);max-width:680px;margin:0 auto;padding:48px 20px;line-height:1.65;font-size:17px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:36px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+header.top a{color:var(--mut);text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}
+.meta{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--mut);margin-bottom:32px}
+.meta .score{display:inline-block;border:1px solid var(--ink);padding:1px 8px;margin-left:8px;font-weight:600}
+.gist{border:1px solid var(--ink);padding:14px 16px;background:#fafafa;font-size:16px;margin-bottom:32px}
+.gist .glabel{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:6px}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:40px 0 12px;border-top:1px solid var(--line);padding-top:24px}
+ol.findings{padding-left:20px}
+ol.findings li{margin-bottom:18px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.sides{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:16px}
+.side h3{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.side p{margin:8px 0;font-size:15px}
+.side .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+ul.plain{padding-left:18px}
+ul.plain li{margin-bottom:8px}
+a{color:var(--accent)}
+blockquote{border-left:3px solid var(--line);margin:16px 0;padding:4px 16px;color:#444}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--mut)}
+.voice{border:1px solid var(--line);padding:12px 16px;margin-bottom:12px;font-size:15px}
+.voice .who{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600}
+.voice .stance{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.pending{border:1px dashed var(--ink);padding:16px;background:#fafafa}
+.map{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px;border:1px solid var(--line);padding:16px}
+.map li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><a href="index.html">marmik / briefs</a></header>
+<h1>"OpenAI might have stolen another major proof" - a top sofic-groups mathematician says OpenAI denied using his ChatGPT conversations, and OpenAI's own later carve-out makes that denial look misleading</h1>
+<div class="meta">September 10, 2026, ~12:30 PM IST &middot; Valerio Capraro's <a href="https://x.com/ValerioCapraro/status/2097791836269977996">BREAKING post</a> is ~10h old: 593K views, 11K likes, 3.2K reposts, 402 replies &middot; HN <a href="https://news.ycombinator.com/item?id=49638353">49638353</a> front-page now, ~3h old, 107pts / 23 comments &middot; Andreas Thom's three mathstodon posts are ~21h old &middot; no response from OpenAI, Bubeck, or Sellke to Thom yet &middot; Thom posted a fresh three-part AI-governance thesis at ~7:03 PM IST &middot; a new HN report says OpenAI repeatedly re-enabled an opt-out setting (unverified, contested) &middot; <span class="score">blow-up: very high (third scoop accusation in a week, named mathematician, email receipts, and a live "the evidence is thin" counter on HN)</span></div>
+<div class="gist"><span class="glabel">The gist</span>Andreas Thom (TU Dresden, a leading expert on sofic and hyperlinear groups, twenty years on the problem) says he and Gabor Kun spent months discussing their approach to Gromov's soficity conjecture with ChatGPT - and when OpenAI later announced its Astra model had found a non-sofic group using Kun and Thom's methods, Thom emailed OpenAI's Mark Sellke and Sebastien Bubeck asking two explicit questions: did our conversations enter training data, and were they accessible to the solving process? Sellke's complete answer: "Regarding your conversations with ChatGPT: that did not happen." Thom's charge, posted to mathstodon yesterday and amplified by Valerio Capraro's viral BREAKING post today: OpenAI's own statement in the Buckmaster-Alpoge case - that it "cannot rule out that de-identified data derived from their usage of our products helped improve our models" - means Sellke's categorical denial could only have covered direct access, a distinction Thom's question explicitly made and the answer erased. Thom calls it "plainly dishonest." Capraro: after Alpoge, Buckmaster, and now Thom, "we may be looking at one of the greatest intellectual scandals in the history of science." HN's top counter: Thom never claims they had a proof - only that they were working on one - so "stolen proof" overstates even his own account.</div>
+
+<h2>What happened</h2>
+<p><strong>Fresh turn, ~7:03 PM IST:</strong> Thom has now moved from the specific OpenAI accusation to a broader, falsifiable thesis about what AI does to science: AI breaks the old link between a paper, who deserves credit, and who actually understands the result. A formal proof certificate may establish that a theorem is true without showing that any named human found or understands the argument. His policy conclusion is stronger still: advanced AI is becoming basic infrastructure and should be governed more like water or electricity, with public duties, privacy rules, independent oversight, and limits on providers exploiting users' ideas. <a href="https://mathstodon.xyz/@andreasthom/117246996515562740">1/3</a> <a href="https://mathstodon.xyz/@andreasthom/117246999957809308">2/3</a> <a href="https://mathstodon.xyz/@andreasthom/117247001067166805">3/3</a></p>
+<p>Thom posted a <a href="https://mathstodon.xyz/@andreasthom/117240535270608201">three-part mathstodon thread</a> (Sep 9, ~3:40 PM IST) laying out his evidence: his email to Sellke and Bubeck after the non-sofic-group announcement, Sellke's one-line categorical denial, and the contrast with OpenAI's newer, hedged language in the Buckmaster-Alpoge case. He adds a circumstantial mathematical point: the Kun-Thom route was not the main line of attack on non-soficity (quantum-games approaches looked more promising), so the model taking exactly that route raised his suspicion. He also notes he disabled model training on June 29 - a control he calls prospective and unauditable. Capraro (a mathematics professor who knows Thom) posted the accusation to X at ~2:30 AM ET with the "greatest intellectual scandal" framing; it passed 593K views in ten hours and hit the HN front page around 9:50 AM IST.</p>
+
+<h2>How we got here</h2>
+<ol class="findings">
+<li><strong>The math:</strong> Gromov's soficity conjecture (2000) asks whether every group is "sofic" - approximable by finite structures. Thom and Kun are among the world's leading specialists; a non-sofic group would settle it in the unexpected direction.</li>
+<li><strong>OpenAI's announcement:</strong> among the ten problems OpenAI said Astra solved was a non-sofic group - found, per the announcement itself, using the methods of Kun and Thom.</li>
+<li><strong>The Alpoge episode (early Sep):</strong> mathematician Levent Alpoge accused OpenAI of authorship pressure around its Navier-Stokes proof; Bubeck <a href="https://x.com/SebastienBubeck/status/2097214122471432349">denied "false and inflammatory allegations"</a> (Sep 8) and said coordination was attempted. See the <a href="navier-stokes-openai-scoop-buckmaster.html">Buckmaster brief</a>.</li>
+<li><strong>The carve-out (this week):</strong> in the Buckmaster-Alpoge response, OpenAI said no specific user data was accessed but it "cannot rule out that de-identified data derived from their usage of our products helped improve our models" - the sentence Thom's whole argument now leans on.</li>
+<li><strong>Tao's frame (this week):</strong> Terence Tao warned that even a rumor of AI progress on a problem now triggers a swarm, and proposed norms where raw AI solutions carry "negligible or even negative value" - see the <a href="tao-open-problems-nonrenewable-mining.html">Tao brief</a>.</li>
+<li><strong>Sep 9-10:</strong> Thom's mathstodon thread, then Capraro's post, then HN.</li>
+</ol>
+<h2>What's new today (monitoring)</h2>
+<ul class="plain">
+<li><strong>Thom's new thesis (posted ~7:03 PM IST):</strong> papers can no longer reliably bundle truth, credit, and human understanding; a Lean certificate may be like detecting a new star - confirmation that something is there, not yet an explanation of why it matters. He argues that unattributable credit should not default to the person or company running the model, and that intelligence infrastructure needs utility-style public obligations. This is the first constructive framework from a central critic in the saga, not another allegation.</li>
+<li><strong>A second HN thread is now on the front page:</strong> <a href="https://news.ycombinator.com/item?id=49643112">49643112</a> opened with the more precise headline "trained on conversations, then claimed breakthrough." Its first technical counter is that ChatGPT's "Improve the model for everyone" control is on by default; the response is that opt-in legality does not answer attribution or whether OpenAI's categorical denial was accurate. Another commenter says the boring fix is a published decontamination threshold and canary, not trust.</li>
+<li><strong>A third HN thread has turned Thom's unauditable-control warning into a live product claim:</strong> <a href="https://news.ycombinator.com/item?id=49643556">49643556</a> (287 points / 107 comments at ~9:11 PM IST) reports that OpenAI repeatedly re-enabled the "allow training" setting after the author switched it off. The thread has grown from one report into several alleged replications plus several non-replications, but it is still not a verified OpenAI behavior. The useful split in replies: other users say their toggles remained off; one proposes a failed backend write or optimistic-UI bug; one says he saw it on two accounts; another says the same happened after using Codex/Astra; a separate user says Claude had a similar reset; others note OpenAI has a second "Do not train on my content" privacy-portal control, raising a split-control explanation; several read any reset as a consent failure regardless of intent. The claim is falsifiable: record the network request and account state before and after a session, then compare across regions and account tiers.</li>
+<li>No response yet from OpenAI, Bubeck, or Sellke to Thom's posts (checked 12:27 PM IST; Bubeck's most recent on-topic posts are his Sep 8 Alpoge-denial thread). A response is the next move to watch - especially whether OpenAI repeats the de-identified-data carve-out or answers Thom's disclosure ask (product/privacy settings, datasets, checkpoints).</li>
+<li>HN's most-liked early counter (Legend2440): "This is a really weak claim. The evidence they offer is just 'someone somewhere says they had a discussion with AI about the topic at some point'. They don't even claim to have had a proof, only to have been working on it." The gap between Capraro's "stolen proof" headline and Thom's actual account is the thread's fault line.</li>
+<li>HN's practitioner turn: r0ze-at-hn now dates research openly on GitHub "so if any AI Lab says they re-discover my exact work it will be obvious"; mlazos: sharing important data with AI labs is "giving them your secret sauce"; protocolture: frontier models are "rapidly approaching the trust thermocline," expect grants for local models.</li>
+<li>Named amplification on X: Gary Marcus quote-posted the "greatest intellectual scandals" line (9h); neuroscientist Miguel Nicolelis: "yet another example of this company's modus operandi" (8h).</li>
+<li>Watch: whether any other mathematician in the Astra ten-problem set comes forward (three accusations in a week sets up a fourth), and whether OpenAI's comms answer Thom specifically or stay on the Alpoge-Buckmaster language.</li>
+</ul>
+
+<h2>The argument map</h2>
+<ul class="map">
+<li><strong>Accusation:</strong> unpublished human work discussed with ChatGPT was absorbed into the model and presented as the model's own breakthrough; OpenAI's categorical denial was materially misleading given its own de-identified-data carve-out.</li>
+<li><strong>Evidence for:</strong> the email exchange (a real categorical denial on record); the carve-out contradiction; the circumstantial route argument (the model took a non-mainline approach); a pattern - Alpoge, Buckmaster, Thom in one week.</li>
+<li><strong>Evidence against:</strong> Thom does not claim a completed proof was taken, only months of discussions about an approach; the Kun-Thom methods were published and public, so the route was learnable without any chat logs; Sellke's "that did not happen" may have been a good-faith answer about direct access, not a lawyerly dodge; convergent discovery is the norm once a field knows a result is reachable.</li>
+<li><strong>The deeper fight 1 (consent):</strong> even if legal, is training on users' unpublished research discussions and then racing those users to publication "ethically indefensible" (Thom) or just the terms of service working as written?</li>
+<li><strong>The deeper fight 2 (de-identification):</strong> "de-identification removes a name; it does not remove the intellectual content of a mathematical idea" - whether anonymized-use carve-outs answer the moral question at all.</li>
+</ul>
+<h2>What knowledgeable people are saying</h2>
+
+<div class="voice"><span class="who">Andreas Thom (TU Dresden, sofic-groups expert)</span> &middot; <span class="stance">the accuser</span><br>"Sellke's categorical answer was, at minimum, unjustifiably broad and materially misleading; looking back it was plainly dishonest." His asks: disclose the basis of the denial - settings, datasets, checkpoints, and what "de-identified data derived from usage" means. <a href="https://mathstodon.xyz/@andreasthom/117240535270608201">1/3</a> <a href="https://mathstodon.xyz/@andreasthom/117240536885387540">2/3</a> <a href="https://mathstodon.xyz/@andreasthom/117240537520615623">3/3</a></div>
+
+
+<div class="voice"><span class="who">Andreas Thom (fresh governance thesis)</span> &middot; <span class="stance">AI truth must be separated from credit and understanding</span><br>A machine-generated proof can establish a result without identifying a human discoverer or anyone who understands it. Publication counts therefore become weaker evidence of a person's mathematical ability. Thom's constructive move: judge human contribution by explanation, question choice, teaching, and connection-making; regulate frontier intelligence as public infrastructure rather than an ordinary consumer product. <a href="https://mathstodon.xyz/@andreasthom/117246996515562740">1/3</a> <a href="https://mathstodon.xyz/@andreasthom/117246999957809308">2/3</a> <a href="https://mathstodon.xyz/@andreasthom/117247001067166805">3/3</a></div>
+
+<div class="voice"><span class="who">Valerio Capraro (mathematician, knows Thom)</span> &middot; <span class="stance">the amplifier</span><br>"If the allegations raised by Levent Alpoge, Tristan Buckmaster, and now Andreas Thom are all substantiated, we are no longer looking at isolated incidents... AI is not discovering new mathematics. AI is stealing human discovery." <a href="https://x.com/ValerioCapraro/status/2097791836269977996">post</a></div>
+
+<div class="voice"><span class="who">Legend2440 (HN)</span> &middot; <span class="stance">the evidence skeptic</span><br>"This is a really weak claim... They don't even claim to have had a proof, only to have been working on it." The strongest early counter: "stolen proof" overstates the accusation as stated. <a href="https://news.ycombinator.com/item?id=49638353">thread</a></div>
+
+<div class="voice"><span class="who">spicylemonade (X)</span> &middot; <span class="stance">the cope reading</span><br>"Is this the new cope? Suddenly every human mathematician on earth had an epiphany the moment we achieved super intelligent AI mathematicians" - the pattern-is-coincidence counter. <a href="https://x.com/spicey_lemonade/status/2097827821532102873">quote</a></div>
+
+<div class="voice"><span class="who">Gary Marcus</span> &middot; <span class="stance">amplifying the scandal frame</span><br>Quote-posted Capraro's "greatest intellectual scandals in the history of science" line to his own audience. <a href="https://x.com/GaryMarcus/status/2097800671043141844">quote</a></div>
+
+<div class="voice"><span class="who">Sebastien Bubeck (OpenAI)</span> &middot; <span class="stance">the prior denial, not yet on Thom</span><br>His Sep 8 thread on the Alpoge claims: "A series of false and inflammatory allegations against me are currently circulating" - the posture Thom's posts now test. Nothing on Thom as of 12:27 PM IST. <a href="https://x.com/SebastienBubeck/status/2097214122471432349">thread</a></div>
+
+<div class="voice"><span class="who">r0ze-at-hn (HN)</span> &middot; <span class="stance">the behavioral change</span><br>"Doing some research and at this point doing it very much in the open with dates on GitHub so if any AI Lab says they re-discover my exact work it will be obvious" - researchers adapting their workflow in real time. <a href="https://news.ycombinator.com/item?id=49638353">thread</a></div>
+
+
+<div class="voice"><span class="who">jacquesm and the live HN toggle thread</span> &middot; <span class="stance">reported control failure, cause disputed</span><br>The thread author says the "allow training" setting was re-enabled more than once after a careful reset. samvher reports two affected accounts, enraged_camel says it returned after he re-used Astra, and ozgung says Claude Code showed a similar reset. Against that, cbg0, the_duke, mkarrmann and others say theirs stayed off; yipinwong proposes a failed backend update; antonok says the toggle writes local storage but the value appears irrelevant on new-tab loads; qurren and ovi256 point to a second privacy-portal "Do not train on my content" control. The thread does not establish deliberate re-enabling, but it gives Thom's "users cannot audit the promise" line a concrete test case. <a href="https://news.ycombinator.com/item?id=49643556">thread</a></div>
+
+<h2>How the venues see it</h2>
+<p>Thom's fresh thread changes the axis. The first wave asked whether OpenAI stole or misled; this one asks what a proof, an author, and a research institution mean once theorem production can be detached from human understanding. HN still gravitates to auditable mechanics - opt-out defaults, canaries, decontamination thresholds, and now whether the training toggle persists at all. Thom is making the institutional argument: even a technically compliant training pipeline can corrode credit and the incentives that produce understanding.</p>
+<p>On X the story is a scandal headline - Capraro's BREAKING frame, 11K likes, Marcus and Nicolelis amplifying; the top replies are conviction-adjacent ("AI companies could not care less"). On HN the tone is inverted: the top substantive comments interrogate the evidence ("really weak claim... only to have been working on it") and immediately convert the story into opsec practice (date your work publicly, assume anything typed into a cloud model is training data, fund local models). X is arguing about guilt; HN is arguing about what the evidence shows and what to personally do about it. The asymmetry matters for a reply: the gap between Capraro's headline and Thom's own careful account is visible from the HN side and mostly invisible on X.</p>
+<h2>Key facts, prodded</h2>
+<ul class="plain">
+<li><strong>The email denial is the strongest card.</strong> Sellke's complete answer to an explicit two-part question was "that did not happen." Against OpenAI's own later "cannot rule out de-identified data derived from usage" language, the denial reads as either carefully scoped (direct access only) or wrong. Either reading is bad: one is misleading a questioner who drew the distinction explicitly, the other is false.</li>
+<li><strong>What Thom does NOT claim:</strong> that he and Kun had a proof. His account is months of approach discussions plus a circumstantial route argument. "Stolen proof" is Capraro's headline, not Thom's - HN noticed within the hour.</li>
+<li><strong>The route argument is real but weak:</strong> the Kun-Thom methods were published; a capable model could find that route from the public literature. It raises the prior, it doesn't carry the case.</li>
+<li><strong>The June 29 opt-out:</strong> Thom disabled training then; the control is prospective and doesn't answer what happened to earlier conversations - and OpenAI's answer reportedly never mentioned any account-specific check. OpenAI's own help page says personal-workspace data sharing is enabled by default and that after switching off "Improve the model for everyone," new conversations will not be used to train models. The HN thread now contains alleged replications and non-replications, so the evidence has moved beyond one report but remains anecdotal, unverified, and possibly split across account surfaces or controls.</li>
+<li><strong>What would settle it:</strong> exactly what Thom asks for - the basis of the denial (settings checked, datasets, checkpoints). Only OpenAI holds the logs; the accusers cannot reverse-engineer the pipeline.</li>
+<li><strong>The pattern cut both ways:</strong> three accusations in a week is either a scandal surfacing or a community whose incentive now runs the other way (being scooped-by-AI is a reputation-preserving explanation for losing a race). Both readings are live in the discourse.</li>
+</ul>
+
+<h2>Both sides, taken seriously</h2>
+<div class="sides">
+<div class="side"><h3>"This is a scandal, and the denial is the proof"</h3>
+<p><span class="label">Steelman</span></p>
+<p>Strip the headline down to Thom's own document and it is still damning: a researcher asked a precise two-part question about his own unpublished work, got a one-line categorical denial, and the company's later public language reveals the denial could not honestly have covered the training-data half. Add the circumstantial route, the prospective-only opt-out, and two other named mathematicians in the same week, and you get the shape of institutional behavior: absorb quietly, deny broadly, hedge later. De-identification answers a legal question, not the moral one - the ideas are the identity.</p>
+<p><span class="label">Strawman (the lazy version to avoid)</span></p>
+<p>"OpenAI definitely trained on Thom's chats and Astra just replayed them." No direct evidence of that exists publicly, and Thom himself doesn't claim a finished proof was taken.</p></div>
+<div class="side"><h3>"This is grief wearing a wiretap"</h3>
+<p><span class="label">Steelman</span></p>
+<p>Everything public is consistent with a much duller story: the Kun-Thom methods were in the literature for years; once OpenAI's models got strong enough, the reachable result fell - the same week independent groups (Anima on Navier-Stokes) fell into the same territory, which is what convergent discovery looks like. Sellke's "that did not happen" plausibly meant "nobody accessed your conversations," which may simply be true, and the later carve-out is lawyers describing a training pipeline, not confessing to this case. The accusers cannot lose: any AI progress on any problem anyone discussed with ChatGPT now counts as evidence of theft.</p>
+<p><span class="label">Strawman (the lazy version to avoid)</span></p>
+<p>"Mathematicians are just coping." Thom's email and Sellke's reply are real documents; the contradiction with the carve-out language deserves an answer regardless of motive.</p></div>
+</div>
+
+<h2>Drafts</h2>
+<div class="pending"><strong>Pending Marmik's position.</strong> Reply angles once he states where he lands - e.g., the denial-vs-carve-out contradiction (the strongest documented point), the "stolen proof vs stolen approach" precision gap between Capraro and Thom, HN's opsec turn (researchers now dating work on GitHub to create evidence trails), or the pattern question: three accusations in a week - surfacing scandal or shifting incentives. This is the third page in the Navier-Stokes saga cluster.</div>
+
+<h2>Sources</h2>
+<ul class="plain">
+<li>Andreas Thom's fresh AI-governance thread (Sep 10, ~7:03 PM IST): <a href="https://mathstodon.xyz/@andreasthom/117246996515562740">1/3 (truth, credit, understanding split)</a>, <a href="https://mathstodon.xyz/@andreasthom/117246999957809308">2/3 (human contribution and utility analogy)</a>, <a href="https://mathstodon.xyz/@andreasthom/117247001067166805">3/3 (public-interest governance)</a></li>
+<li><a href="https://news.ycombinator.com/item?id=49643112">Second HN front-page thread 49643112, "trained on conversations, then claimed breakthrough"</a></li>
+<li><a href="https://news.ycombinator.com/item?id=49643556">HN 49643556, reported repeated re-enabling of the training setting</a> &middot; <a href="https://help.openai.com/en/articles/8983130">OpenAI Help: personal-workspace sharing is on by default; opt-out applies to new conversations</a></li>
+<li><a href="https://x.com/ValerioCapraro/status/2097791836269977996">Valerio Capraro, "BREAKING: OpenAI might have stolen another major proof" (X, Sep 10, ~2:28 AM ET, 593K views)</a></li>
+<li>Andreas Thom's mathstodon thread: <a href="https://mathstodon.xyz/@andreasthom/117240535270608201">1/3 (the email and the denial)</a>, <a href="https://mathstodon.xyz/@andreasthom/117240536885387540">2/3 (the carve-out contradiction, opt-out, route argument)</a>, <a href="https://mathstodon.xyz/@andreasthom/117240537520615623">3/3 ("plainly dishonest")</a> - Sep 9, ~3:40 PM IST</li>
+<li><a href="https://news.ycombinator.com/item?id=49638353">HN thread 49638353 (front page, Sep 10)</a></li>
+<li><a href="https://x.com/SebastienBubeck/status/2097214122471432349">Bubeck's Sep 8 denial thread (Alpoge case)</a> &middot; <a href="https://x.com/GaryMarcus/status/2097800671043141844">Gary Marcus quote</a> &middot; <a href="https://x.com/MiguelNicolelis/status/2097817419301425561">Miguel Nicolelis quote</a> &middot; <a href="https://x.com/spicey_lemonade/status/2097827821532102873">spicylemonade counter</a></li>
+<li>Related briefs: <a href="navier-stokes-openai-scoop-buckmaster.html">Buckmaster scoop accusation</a> &middot; <a href="navier-stokes-openai-publishes-proof.html">the NS proof drop</a> &middot; <a href="tao-open-problems-nonrenewable-mining.html">Tao on rumor-triggered swarms</a></li>
+</ul>
+
+<footer>Built for Marmik Pandya's private review. No replies are sent, posted, or drafted for sending without his stated position. Updated with the growing OpenAI training-toggle dispute at ~9:12 PM IST, Sep 10.</footer>
+</body>
+</html>
